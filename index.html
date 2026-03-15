@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witt Family Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        /* LOGIN SCREEN STYLES */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .login-box h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .login-box p {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+        }
+        
+        .login-box input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .login-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .login-box button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .login-box button:hover {
+            opacity: 0.9;
+        }
+        
+        .error-message {
+            color: #e53e3e;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        /* DASHBOARD STYLES */
+        .dashboard-container {
+            display: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .header .updated {
+            font-size: 0.9em;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+        
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .urgent-alerts {
+            background: #fee;
+            border-left: 5px solid #e53e3e;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        
+        .urgent-alerts h2 {
+            color: #e53e3e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .urgent-alerts ul {
+            list-style: none;
+        }
+        
+        .urgent-alerts li {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .card h2 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .person-schedule {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .person-schedule.maggie {
+            background: #faf5ff;
+            border-left: 4px solid #9f7aea;
+        }
+        
+        .person-schedule.brooks {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+        }
+        
+        .person-schedule.sybil {
+            background: #fff5f7;
+            border-left: 4px solid #ed64a6;
+        }
+        
+        .person-schedule.emmet {
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+        }
+        
+        .person-schedule.mom {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+        }
+        
+        .person-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .event {
+            padding: 8px 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .event-time {
+            font-weight: 600;
+            min-width: 80px;
+        }
+        
+        .event-details {
+            flex: 1;
+        }
+        
+        .action-items {
+            list-style: none;
+        }
+        
+        .action-items li {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f7fafc;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .action-items .checkbox {
+            font-size: 1.2em;
+            color: #4299e1;
+        }
+        
+        .week-overview {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .day-card {
+            background: #f7fafc;
+            padding: 15px 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .day-card.busy {
+            background: #fefcbf;
+            border: 2px solid #ecc94b;
+        }
+        
+        .day-card.conflict {
+            background: #fed7d7;
+            border: 2px solid #fc8181;
+        }
+        
+        .day-name {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #2d3748;
+        }
+        
+        .day-count {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 5px 0;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #718096;
+            margin-top: 5px;
+        }
+        
+        details {
+            margin: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        summary {
+            padding: 20px;
+            background: #f7fafc;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        summary:hover {
+            background: #edf2f7;
+        }
+        
+        details[open] summary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .detail-content {
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .week-overview {
+                grid-template-columns: repeat(7, 1fr);
+                gap: 5px;
+            }
+            
+            .day-card {
+                padding: 10px 5px;
+                font-size: 0.85em;
+            }
+            
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .logout-btn {
+                position: static;
+                display: block;
+                margin: 10px auto 0;
+                width: 100px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            details {
+                border: none;
+            }
+            
+            summary {
+                display: none;
+            }
+            
+            details .detail-content {
+                display: block !important;
+            }
+            
+            .logout-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-box">
+            <h1>🏠 Witt Family</h1>
+            <p>Enter password to access dashboard</p>
+            <input type="password" id="passwordInput" placeholder="Enter password" autofocus>
+            <button onclick="checkPassword()">Access Dashboard</button>
+            <p class="error-message" id="errorMessage">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+
+    <!-- DASHBOARD (hidden until logged in) -->
+    <div id="dashboardScreen" class="dashboard-container">
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <button class="logout-btn" onclick="logout()">Logout</button>
+                <h1>🏠 WITT FAMILY COMMAND CENTER</h1>
+                <div class="date">Sunday, March 15, 2026</div>
+                <div class="updated">Last Updated: 6:30 AM</div>
+            </div>
+            
+            <!-- URGENT ALERTS (only show if there are any) -->
+            <div class="urgent-alerts">
+                <h2>⚠️ URGENT ALERTS</h2>
+                <ul>
+                    <li>Brooks' XFactors practice moved from 5:00 PM → 6:00 PM today</li>
+                    <li>RSVP to Emma's birthday party by Tuesday (tomorrow!)</li>
+                </ul>
+            </div>
+            
+            <!-- MAIN GRID -->
+            <div class="grid">
+                <!-- TODAY'S SCHEDULE -->
+                <div class="card">
+                    <h2>📅 TODAY'S SCHEDULE</h2>
+                    
+                    <div class="person-schedule maggie">
+                        <div class="person-name">Maggie</div>
+                        <div class="event">
+                            <div class="event-time">3:00 PM</div>
+                            <div class="event-details">Softball Practice @ McLean Central Field 2</div>
+                        </div>
+                        <div class="event">
+                            <div class="event-time">7:00 PM</div>
+                            <div class="event-details">Theater Rehearsal @ Langley HS Auditorium</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-schedule brooks">
+                        <div class="person-name">Brooks</div>
+                        <div class="event">
+                            <div class="event-time">6:00 PM</div>
+                            <div class="event-details">XFactors Practice @ Dolley Madison (CHANGED!)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-schedule sybil">
+                        <div class="person-name">Sybil</div>
+                        <div class="event">
+                            <div class="event-time">3:30 PM</div>
+                            <div class="event-details">Soccer Practice @ Churchill Road Field</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-schedule mom">
+                        <div class="person-name">Mom</div>
+                        <div class="event">
+                            <div class="event-time">10:00 AM</div>
+                            <div class="event-details">Inova Appointment</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TOP ACTION ITEMS -->
+                <div class="card">
+                    <h2>✅ TOP ACTION ITEMS</h2>
+                    <ul class="action-items">
+                        <li>
+                            <span class="checkbox">☐</span>
+                            <span>Wash Brooks' XFactors uniform for Tuesday's game</span>
+                        </li>
+                        <li>
+                            <span class="checkbox">☐</span>
+                            <span>RSVP to Emma's birthday party by TOMORROW</span>
+                        </li>
+                        <li>
+                            <span class="checkbox">☐</span>
+                            <span>Pay for Maggie's summer theater camp ($200) by Friday</span>
+                        </li>
+                        <li>
+                            <span class="checkbox">☐</span>
+                            <span>Sign Sybil's field trip permission slip</span>
+                        </li>
+                        <li>
+                            <span class="checkbox">☐</span>
+                            <span>Girls on the Run: Prep Tuesday's lesson plan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- SECOND ROW -->
+            <div class="grid">
+                <!-- THIS WEEK AT A GLANCE -->
+                <div class="card">
+                    <h2>📆 THIS WEEK AT A GLANCE</h2>
+                    <div class="week-overview">
+                        <div class="day-card">
+                            <div class="day-name">MON</div>
+                            <div class="day-count">4</div>
+                        </div>
+                        <div class="day-card">
+                            <div class="day-name">TUE</div>
+                            <div class="day-count">2</div>
+                        </div>
+                        <div class="day-card busy">
+                            <div class="day-name">WED</div>
+                            <div class="day-count">5</div>
+                        </div>
+                        <div class="day-card">
+                            <div class="day-name">THU</div>
+                            <div class="day-count">3</div>
+                        </div>
+                        <div class="day-card">
+                            <div class="day-name">FRI</div>
+                            <div class="day-count">1</div>
+                        </div>
+                        <div class="day-card conflict">
+                            <div class="day-name">SAT</div>
+                            <div class="day-count">6</div>
+                        </div>
+                        <div class="day-card">
+                            <div class="day-name">SUN</div>
+                            <div class="day-count">1</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; padding: 10px; background: #fed7d7; border-radius: 8px; font-size: 0.9em;">
+                        <strong>🚨 Saturday Conflict:</strong> Brooks and Sybil both have games at 10 AM at different locations
+                    </div>
+                    <div style="margin-top: 10px; padding: 10px; background: #fefcbf; border-radius: 8px; font-size: 0.9em;">
+                        <strong>⚠️ Busy Wednesday:</strong> 5 activities across all kids
+                    </div>
+                </div>
+                
+                <!-- QUICK STATS -->
+                <div class="card">
+                    <h2>📊 QUICK STATS</h2>
+                    <div class="quick-stats">
+                        <div class="stat">
+                            <div class="stat-number">22</div>
+                            <div class="stat-label">Total Activities This Week</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Pending RSVPs</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Urgent Emails</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Deadlines This Week</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXPANDABLE SECTIONS -->
+            <details>
+                <summary>📆 FULL WEEK SCHEDULE (click to expand)</summary>
+                <div class="detail-content">
+                    <h3>Monday, March 16</h3>
+                    <div class="person-schedule maggie">
+                        <div class="person-name">Maggie</div>
+                        <div class="event">
+                            <div class="event-time">3:30 PM</div>
+                            <div class="event-details">Softball Practice @ Field 2</div>
+                        </div>
+                    </div>
+                    <div class="person-schedule brooks">
+                        <div class="person-name">Brooks</div>
+                        <div class="event">
+                            <div class="event-time">4:30 PM</div>
+                            <div class="event-details">Baseball Practice @ Dolley Madison</div>
+                        </div>
+                        <div class="event">
+                            <div class="event-time">6:00 PM</div>
+                            <div class="event-details">XFactors Practice</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; color: #718096;">Additional days will be populated by Cowork with real calendar data...</p>
+                </div>
+            </details>
+            
+            <details>
+                <summary>📧 UNANSWERED EMAILS (click to expand)</summary>
+                <div class="detail-content">
+                    <h3 style="color: #e53e3e;">🚨 Urgent - Respond Today (3)</h3>
+                    <ul>
+                        <li><strong>Sam Appel:</strong> Needs volunteer for snack duty next Saturday game (5 days ago)</li>
+                        <li><strong>Kraig Jennett:</strong> Asking about Brooks' availability for tournament (4 days ago)</li>
+                        <li><strong>Trinity Church:</strong> RSVP for youth group retreat by today (3 days ago)</li>
+                    </ul>
+                    
+                    <h3 style="color: #ecc94b; margin-top: 20px;">⚠️ Needs Response This Week (5)</h3>
+                    <ul>
+                        <li><strong>Churchill PTA:</strong> Volunteer signup for book fair (2 days ago)</li>
+                        <li><strong>Saxon Stage:</strong> Costume measurements for Maggie (3 days ago)</li>
+                    </ul>
+                </div>
+            </details>
+            
+            <details>
+                <summary>🏡 HOUSEHOLD & SERVICES (click to expand)</summary>
+                <div class="detail-content">
+                    <h3>🐕 Bob</h3>
+                    <ul>
+                        <li>Chewy order arriving Friday (dog food, treats)</li>
+                        <li>Vet appointment next Tuesday at 2:00 PM</li>
+                    </ul>
+                    
+                    <h3>🏡 Home Services</h3>
+                    <ul>
+                        <li>Greenhill Landscaping: Scheduled for Tuesday morning</li>
+                        <li>Foster Remodeling: Kitchen estimate coming Thursday</li>
+                    </ul>
+                    
+                    <h3>⛪ Church</h3>
+                    <ul>
+                        <li>Trinity: Youth group Wednesday 6:30 PM</li>
+                        <li>Lewisville: Service opportunity Sunday</li>
+                    </ul>
+                </div>
+            </details>
+            
+            <details>
+                <summary>⚠️ CALENDAR NOTES (click to expand)</summary>
+                <div class="detail-content">
+                    <h3>📅 Missing from Calendar</h3>
+                    <ul>
+                        <li><strong>Brooks:</strong> Delta Devils practice Thursday 5:00 PM (mentioned in email but not on calendar)</li>
+                        <li><strong>Sybil:</strong> Girls on the Run Tuesday 3:30 PM (not on calendar)</li>
+                    </ul>
+                    
+                    <h3>⚠️ Schedule Mismatches</h3>
+                    <ul>
+                        <li><strong>Maggie's Theater:</strong> Email says Wednesday 7:00 PM, calendar shows 6:30 PM</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <script>
+        // SET YOUR PASSWORD HERE
+        const CORRECT_PASSWORD = "hippo";
+        
+        // Check if user is already logged in (using session storage)
+        if (sessionStorage.getItem('isLoggedIn') === 'true') {
+            showDashboard();
+        }
+        
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (password === CORRECT_PASSWORD) {
+                sessionStorage.setItem('isLoggedIn', 'true');
+                showDashboard();
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+        
+        function showDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboardScreen').style.display = 'block';
+        }
+        
+        function logout() {
+            sessionStorage.removeItem('isLoggedIn');
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('dashboardScreen').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordInput').focus();
+        }
+    </script>
+</body>
+</html>
