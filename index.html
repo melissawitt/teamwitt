@@ -5,172 +5,262 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🏠 Witt Family Command Center</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;color:#333}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
 
-  /* LOGIN */
-  #login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
-  .login-box{background:#fff;border-radius:20px;padding:48px 40px;max-width:380px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-  .login-box h1{font-size:2.2rem;margin-bottom:6px}
-  .login-box p{color:#888;margin-bottom:28px;font-size:0.95rem}
-  .login-box input{width:100%;padding:14px 16px;border:2px solid #e0e0e0;border-radius:10px;font-size:1rem;outline:none;text-align:center;letter-spacing:4px;margin-bottom:16px;transition:border-color 0.2s}
-  .login-box input:focus{border-color:#667eea}
-  .login-box button{width:100%;padding:14px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity 0.2s}
-  .login-box button:hover{opacity:0.9}
-  .login-error{color:#e74c3c;font-size:0.875rem;margin-top:8px;display:none}
+  /* ── LOGIN ── */
+  #login-screen {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+  }
+  .login-card {
+    background: white; border-radius: 20px; padding: 48px 40px;
+    text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 380px; width: 90%;
+  }
+  .login-card h1 { font-size: 2rem; margin-bottom: 6px; }
+  .login-card p { color: #666; margin-bottom: 28px; font-size: 0.95rem; }
+  .login-card input {
+    width: 100%; padding: 14px 18px; border: 2px solid #e0e0e0;
+    border-radius: 12px; font-size: 1.1rem; text-align: center;
+    letter-spacing: 4px; outline: none; transition: border-color 0.2s;
+  }
+  .login-card input:focus { border-color: #667eea; }
+  .login-btn {
+    width: 100%; margin-top: 16px; padding: 14px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white; border: none; border-radius: 12px;
+    font-size: 1.05rem; font-weight: 600; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .login-btn:hover { opacity: 0.9; }
+  .login-error { color: #e74c3c; margin-top: 10px; font-size: 0.9rem; }
 
-  /* DASHBOARD */
-  #dashboard{display:none;padding-bottom:40px}
+  /* ── DASHBOARD ── */
+  #dashboard { display: none; }
+  .header {
+    background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+    padding: 18px 24px; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .header-title { color: white; font-size: 1.4rem; font-weight: 700; }
+  .header-date { color: rgba(255,255,255,0.85); font-size: 0.9rem; }
+  .logout-btn {
+    background: rgba(255,255,255,0.25); color: white; border: 1px solid rgba(255,255,255,0.4);
+    padding: 7px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+  .logout-btn:hover { background: rgba(255,255,255,0.4); }
 
-  /* HEADER */
-  .header{background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.2)}
-  .header h1{color:#fff;font-size:1.4rem;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,0.2)}
-  .header-right{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-  .header-date{color:rgba(255,255,255,0.9);font-size:0.875rem;font-weight:500}
-  .logout-btn{background:rgba(255,255,255,0.25);color:#fff;border:1px solid rgba(255,255,255,0.5);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-weight:600;transition:background 0.2s}
-  .logout-btn:hover{background:rgba(255,255,255,0.4)}
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
 
-  /* MAIN */
-  .main{max-width:1100px;margin:0 auto;padding:20px 16px}
+  /* ── CARDS ── */
+  .card {
+    background: white; border-radius: 16px; padding: 20px;
+    margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .card h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
 
-  /* CARDS */
-  .card{background:#fff;border-radius:16px;padding:20px 24px;margin-bottom:18px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
-  .card-title{font-size:1.1rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  /* ── URGENT ALERTS ── */
+  .urgent-card {
+    background: #fff5f5; border: 2px solid #fc8181; border-radius: 16px;
+    padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(252,129,129,0.2);
+  }
+  .urgent-card h2 { color: #c0392b; font-size: 1.1rem; font-weight: 700; margin-bottom: 14px; }
+  .alert-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 12px; border-radius: 10px; margin-bottom: 8px;
+    background: white; border-left: 4px solid #e74c3c;
+  }
+  .alert-item:last-child { margin-bottom: 0; }
+  .alert-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-text { font-size: 0.9rem; line-height: 1.4; }
+  .alert-text strong { display: block; font-size: 0.95rem; }
+  .alert-label {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 20px; margin-top: 3px;
+  }
+  .label-overdue { background: #fde8e8; color: #c0392b; }
+  .label-today { background: #fef3cd; color: #856404; }
+  .label-warn { background: #fdecd5; color: #7d3a0a; }
 
-  /* URGENT */
-  .urgent-box{background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;border-radius:16px;padding:20px 24px;margin-bottom:18px;box-shadow:0 4px 20px rgba(238,90,36,0.3)}
-  .urgent-box .card-title{color:#fff}
-  .urgent-item{background:rgba(255,255,255,0.2);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:0.9rem;line-height:1.5}
-  .urgent-item:last-child{margin-bottom:0}
-  .urgent-item strong{display:block;margin-bottom:2px}
+  /* ── SCHEDULE / EVENT ROWS ── */
+  .event-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 12px; border-radius: 10px; margin-bottom: 8px;
+    border-left: 4px solid #ddd; background: #fafafa;
+  }
+  .event-time { font-size: 0.8rem; color: #666; min-width: 70px; margin-top: 2px; font-weight: 600; }
+  .event-details { flex: 1; }
+  .event-details strong { font-size: 0.95rem; display: block; }
+  .event-details span { font-size: 0.82rem; color: #666; }
+  .person-badge {
+    font-size: 0.7rem; font-weight: 700; padding: 2px 8px;
+    border-radius: 20px; display: inline-block; margin-top: 3px;
+  }
+  .badge-mom    { background: #d5f5e3; color: #1a6b3c; }
+  .badge-maggie { background: #e8d5f5; color: #5b2d82; }
+  .badge-brooks { background: #d5e8f5; color: #1a4b82; }
+  .badge-sybil  { background: #fde1f0; color: #8b1a5a; }
+  .badge-emmet  { background: #fdecd5; color: #7d3a0a; }
+  .badge-family { background: #d5f5f5; color: #0a6b6b; }
+  .badge-randy  { background: #e8f4fd; color: #1a5276; }
 
-  /* SCHEDULE */
-  .schedule-person{margin-bottom:12px}
-  .person-label{display:inline-block;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
-  .person-maggie .person-label{background:#9b59b6;color:#fff}
-  .person-brooks .person-label{background:#3498db;color:#fff}
-  .person-sybil .person-label{background:#fd79a8;color:#333}
-  .person-emmet .person-label{background:#e17055;color:#fff}
-  .person-mom .person-label{background:#00b894;color:#fff}
-  .person-family .person-label{background:#636e72;color:#fff}
-  .event-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0f0f0}
-  .event-row:last-child{border-bottom:none}
-  .event-time{font-size:0.8rem;color:#888;min-width:82px;font-weight:600;padding-top:1px;flex-shrink:0}
-  .event-info{flex:1}
-  .event-name{font-size:0.95rem;font-weight:600;color:#2d3436}
-  .event-loc{font-size:0.8rem;color:#888;margin-top:2px}
+  /* ── TOP ACTION ITEMS ── */
+  .action-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 12px; border-radius: 10px; margin-bottom: 8px;
+    background: #f8f9fa; border-left: 4px solid #667eea;
+  }
+  .action-item input[type="checkbox"] { margin-top: 3px; width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; accent-color: #667eea; }
+  .action-label { font-size: 0.9rem; line-height: 1.4; flex: 1; }
+  .action-label strong { display: block; font-size: 0.92rem; }
+  .action-label small { color: #888; font-size: 0.78rem; }
+  .urgency-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .dot-red    { background: #e74c3c; }
+  .dot-orange { background: #f39c12; }
+  .dot-blue   { background: #3498db; }
 
-  /* ACTION ITEMS */
-  .action-list{list-style:none}
-  .action-list li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #f5f5f5;font-size:0.9rem;line-height:1.4}
-  .action-list li:last-child{border-bottom:none}
-  .action-list input[type=checkbox]{margin-top:2px;width:16px;height:16px;accent-color:#667eea;cursor:pointer;flex-shrink:0}
-  .action-text{flex:1}
-  .action-badge{font-size:0.7rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:6px;white-space:nowrap}
-  .badge-urgent{background:#ffeaa7;color:#d35400}
-  .badge-overdue{background:#ffcccc;color:#c0392b}
-  .badge-soon{background:#dfe6e9;color:#2d3436}
+  /* ── WEEK GLANCE GRID ── */
+  .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  @media(max-width: 700px) { .week-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media(max-width: 420px) { .week-grid { grid-template-columns: repeat(2, 1fr); } }
+  .day-card {
+    border-radius: 12px; padding: 10px; text-align: center;
+    background: #f0f2ff; border: 1px solid #e0e4ff;
+  }
+  .day-card.today-card { background: linear-gradient(135deg,#667eea,#764ba2); color: white; border-color: transparent; }
+  .day-card.busy-card { background: #fffbeb; border-color: #f59e0b; }
+  .day-card.conflict-card { background: #fff5f5; border-color: #fc8181; }
+  .day-name { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .day-num  { font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
+  .day-events-mini { font-size: 0.68rem; margin-top: 4px; line-height: 1.4; text-align: left; }
+  .busy-badge { font-size: 0.65rem; background: #f59e0b; color: white; border-radius: 4px; padding: 1px 5px; display: inline-block; margin-top: 3px; }
+  .conflict-badge { font-size: 0.65rem; background: #fc8181; color: white; border-radius: 4px; padding: 1px 5px; display: inline-block; margin-top: 3px; }
 
-  /* WEEK GRID */
-  .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
-  @media(max-width:600px){.week-grid{grid-template-columns:repeat(4,1fr)}}
-  .day-card{background:#f8f9fa;border-radius:12px;padding:10px 8px;text-align:center;border:2px solid transparent}
-  .day-card.today{border-color:#667eea;background:linear-gradient(135deg,rgba(102,126,234,0.1),rgba(118,75,162,0.1))}
-  .day-card.past{opacity:0.45}
-  .day-name{font-size:0.7rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.5px}
-  .day-date{font-size:1.1rem;font-weight:700;color:#2d3436;margin:2px 0}
-  .day-count{font-size:0.75rem;color:#666;margin-top:3px}
-  .day-badge{font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:6px;margin-top:4px;display:inline-block}
-  .today-badge{background:#667eea;color:#fff}
-  .holiday-badge{background:#6c5ce7;color:#fff}
+  /* ── QUICK STATS ── */
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media(max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat-box {
+    background: white; border-radius: 14px; padding: 16px 12px;
+    text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .stat-num { font-size: 2.4rem; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .stat-label { font-size: 0.78rem; color: #666; font-weight: 600; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.3px; }
 
-  /* QUICK STATS */
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
-  @media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
-  .stat-box{background:#fff;border-radius:14px;padding:16px 12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
-  .stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .stat-label{font-size:0.75rem;color:#888;margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px}
+  /* ── QUICK LINKS ── */
+  .links-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media(max-width: 500px) { .links-row { grid-template-columns: 1fr; } }
+  .quick-link-btn {
+    display: block; text-align: center; padding: 14px 16px;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    color: white; text-decoration: none; border-radius: 14px;
+    font-weight: 700; font-size: 0.9rem; letter-spacing: 0.3px;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .quick-link-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102,126,234,0.5); }
+  .quick-link-btn span { display: block; font-size: 0.78rem; opacity: 0.85; font-weight: 400; margin-top: 2px; }
 
-  /* QUICK LINKS */
-  .quick-links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
-  @media(max-width:480px){.quick-links{grid-template-columns:1fr}}
-  .quick-link-btn{display:block;padding:14px 18px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-decoration:none;border-radius:14px;font-weight:700;font-size:0.9rem;text-align:center;box-shadow:0 4px 15px rgba(102,126,234,0.4);transition:opacity 0.2s}
-  .quick-link-btn:hover{opacity:0.9}
+  /* ── EXPANDABLE SECTIONS ── */
+  details { background: white; border-radius: 16px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
+  details summary {
+    padding: 18px 20px; font-weight: 700; font-size: 1.05rem;
+    cursor: pointer; list-style: none; display: flex; align-items: center;
+    gap: 8px; user-select: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: '&#9662;'; margin-left: auto; font-size: 1.1rem; transition: transform 0.2s; }
+  details[open] summary::after { transform: rotate(180deg); }
+  details summary:hover { background: #f8f9fa; }
+  .details-body { padding: 0 20px 20px; }
 
-  /* EXPANDABLE */
-  details{margin-bottom:14px}
-  summary{background:#fff;border-radius:14px;padding:16px 20px;cursor:pointer;font-size:1rem;font-weight:700;color:#2d3436;box-shadow:0 4px 15px rgba(0,0,0,0.07);list-style:none;display:flex;align-items:center;gap:8px;transition:background 0.2s;user-select:none}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:'▾';margin-left:auto;font-size:1rem;color:#667eea;transition:transform 0.2s}
-  details[open] summary::after{transform:rotate(180deg)}
-  details[open] summary{border-radius:14px 14px 0 0;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-  .details-body{background:#fff;border-radius:0 0 14px 14px;padding:16px 20px;box-shadow:0 4px 15px rgba(0,0,0,0.07)}
+  /* ── TASK TABLE ── */
+  .task-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .task-table th {
+    text-align: left; padding: 8px 10px; background: #f0f2ff;
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.4px; color: #555;
+    border-bottom: 2px solid #e0e4ff;
+  }
+  .task-table td { padding: 9px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .task-table tr.overdue-row { background: #fff5f5; }
+  .task-table tr.overdue-row td:first-child { border-left: 3px solid #e74c3c; }
+  .task-table tr:last-child td { border-bottom: none; }
+  .status-badge {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    padding: 2px 8px; border-radius: 20px; white-space: nowrap;
+  }
+  .status-todo       { background: #fef3cd; color: #856404; }
+  .status-inprogress { background: #dbeafe; color: #1e40af; }
+  .status-done       { background: #d1fae5; color: #065f46; }
+  .status-recurring  { background: #ede9fe; color: #5b21b6; }
+  .priority-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 6px; border-radius: 20px; }
+  .p-high   { background: #fee2e2; color: #991b1b; }
+  .p-medium { background: #fef3cd; color: #854d0e; }
+  .p-low    { background: #f0fdf4; color: #166534; }
+  .owner-melissa { color: #16a34a; font-weight: 700; }
+  .owner-randy   { color: #2563eb; font-weight: 700; }
 
-  /* TASK TABLE */
-  .task-table{width:100%;border-collapse:collapse;font-size:0.85rem}
-  .task-table th{background:#f8f9fa;padding:8px 10px;text-align:left;font-size:0.75rem;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;border-bottom:2px solid #eee}
-  .task-table td{padding:9px 10px;border-bottom:1px solid #f5f5f5;vertical-align:top}
-  .task-table tr:last-child td{border-bottom:none}
-  .task-table tr.overdue td{background:#fff5f5}
-  .status-badge{display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap}
-  .status-todo{background:#ffeaa7;color:#7d5700}
-  .status-inprogress{background:#74b9ff;color:#0c5a9e}
-  .status-done{background:#55efc4;color:#00695c}
-  .status-recurring{background:#e5d4ff;color:#6c3483}
-  .owner-melissa{color:#00897b;font-weight:700}
-  .owner-randy{color:#1565c0;font-weight:700}
-  .overdue-flag{color:#e74c3c;font-size:0.7rem;font-weight:700;display:block;margin-top:2px}
+  /* ── RENOVATION CARDS ── */
+  .renov-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .renov-card { border-radius: 12px; padding: 16px; border: 1px solid #e5e7eb; background: #fafafa; }
+  .renov-card.rc-active   { background: #f0fdf4; border-color: #86efac; }
+  .renov-card.rc-planning { background: #eff6ff; border-color: #93c5fd; }
+  .renov-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+  .renov-meta { font-size: 0.8rem; color: #555; margin-bottom: 3px; }
+  .renov-meta span { font-weight: 600; color: #333; }
+  .renov-note { font-size: 0.78rem; color: #666; margin-top: 8px; font-style: italic; border-top: 1px solid #e5e7eb; padding-top: 8px; }
+  .renov-status { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 9px; border-radius: 20px; margin-bottom: 8px; }
+  .rs-active     { background: #dcfce7; color: #15803d; }
+  .rs-planning   { background: #dbeafe; color: #1d4ed8; }
+  .rs-notstarted { background: #f1f5f9; color: #475569; }
 
-  /* RENO CARDS */
-  .reno-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-  .reno-card{background:#f8f9fa;border-radius:12px;padding:16px;border-left:4px solid #ccc}
-  .reno-card.active{border-left-color:#00b894}
-  .reno-card.planning{border-left-color:#fdcb6e}
-  .reno-card.notstarted{border-left-color:#b2bec3}
-  .reno-card h4{font-size:0.95rem;font-weight:700;margin-bottom:8px}
-  .reno-status{display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:8px;margin-bottom:8px}
-  .reno-active{background:#55efc4;color:#00695c}
-  .reno-planning{background:#ffeaa7;color:#7d5700}
-  .reno-notstarted{background:#dfe6e9;color:#636e72}
-  .reno-meta{font-size:0.78rem;color:#888;margin-bottom:3px}
-  .reno-notes{font-size:0.8rem;color:#555;margin-top:6px;line-height:1.4;border-top:1px solid #e0e0e0;padding-top:6px}
+  /* ── FULL WEEK SCHEDULE ── */
+  .week-day-block { margin-bottom: 20px; }
+  .week-day-block h3 {
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: #667eea; border-bottom: 2px solid #e0e4ff;
+    padding-bottom: 6px; margin-bottom: 10px;
+  }
+  .today-block h3 { color: #764ba2; }
 
-  /* FULL WEEK */
-  .week-day{margin-bottom:16px}
-  .week-day-header{font-size:0.85rem;font-weight:700;color:#667eea;padding:6px 0;border-bottom:2px solid #667eea;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+  /* ── EMAIL SECTION ── */
+  .email-item { padding: 12px 14px; border-radius: 10px; margin-bottom: 8px; background: #fafafa; border-left: 4px solid #667eea; }
+  .email-item.e-week   { border-left-color: #f39c12; background: #fffbf0; }
+  .email-from { font-size: 0.78rem; color: #888; margin-bottom: 2px; }
+  .email-subject { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+  .email-snippet { font-size: 0.8rem; color: #555; line-height: 1.4; }
+  .email-action { font-size: 0.75rem; font-weight: 700; color: #c0392b; margin-top: 4px; }
+  .section-label { font-size: 0.82rem; font-weight: 700; margin: 14px 0 8px; }
+  .section-label:first-child { margin-top: 0; }
 
-  /* EMAILS */
-  .email-item{padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:0.875rem}
-  .email-item:last-child{border-bottom:none}
-  .email-from{font-size:0.75rem;color:#888;margin-bottom:2px}
-  .email-subject{font-weight:600;color:#2d3436;margin-bottom:3px}
-  .email-snippet{color:#636e72;font-size:0.8rem;line-height:1.4}
-  .email-section-title{font-size:0.8rem;font-weight:700;color:#e74c3c;margin:12px 0 6px;text-transform:uppercase;letter-spacing:0.5px}
-  .email-section-title.warn{color:#f39c12}
-  .email-section-title.info{color:#636e72}
+  /* ── HOUSEHOLD SECTION ── */
+  .household-item { padding: 10px 12px; border-radius: 10px; margin-bottom: 8px; background: #fafafa; border-left: 3px solid #999; }
+  .household-item h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 3px; }
+  .household-item p  { font-size: 0.82rem; color: #555; line-height: 1.5; }
+  .hs-header { font-size: 0.9rem; font-weight: 700; color: #444; margin: 18px 0 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+  .hs-header:first-child { margin-top: 0; }
 
-  /* HOUSEHOLD */
-  .household-section{margin-bottom:16px}
-  .household-title{font-size:0.85rem;font-weight:700;color:#667eea;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #eee}
-  .household-item{font-size:0.875rem;color:#444;padding:5px 0;border-bottom:1px solid #f5f5f5;line-height:1.45}
-  .household-item:last-child{border-bottom:none}
+  /* ── CALENDAR NOTES ── */
+  .cal-note { padding: 10px 14px; border-radius: 10px; margin-bottom: 8px; background: #fffbf0; border-left: 4px solid #f59e0b; font-size: 0.87rem; line-height: 1.5; }
+  .cal-note strong { display: block; margin-bottom: 2px; }
 
-  /* CAL NOTES */
-  .cal-note{background:#fff8e1;border-left:3px solid #f9ca24;border-radius:0 8px 8px 0;padding:8px 12px;margin-bottom:8px;font-size:0.875rem;color:#555;line-height:1.4}
+  /* ── FOOTER ── */
+  .footer { text-align: center; color: rgba(255,255,255,0.6); font-size: 0.78rem; padding: 20px; }
 </style>
 </head>
 <body>
 
 <!-- LOGIN -->
 <div id="login-screen">
-  <div class="login-box">
-    <h1>🏠</h1>
-    <h2 style="margin-bottom:4px;font-size:1.4rem">Witt Family</h2>
-    <h3 style="font-weight:500;color:#667eea;margin-bottom:8px">Command Center</h3>
-    <p>Enter password to continue</p>
-    <input type="password" id="pw-input" placeholder="Password">
-    <button onclick="doLogin()">Enter</button>
-    <div class="login-error" id="login-error">Incorrect password. Try again.</div>
+  <div class="login-card">
+    <div style="font-size:3rem; margin-bottom:10px;">&#127968;</div>
+    <h1>Witt Family</h1>
+    <p>Command Center &middot; Enter password to access</p>
+    <input type="password" id="pw-input" placeholder="password" autofocus>
+    <button class="login-btn" onclick="tryLogin()">Unlock Dashboard</button>
+    <div class="login-error" id="pw-error" style="display:none">Incorrect password. Try again.</div>
   </div>
 </div>
 
@@ -178,519 +268,945 @@
 <div id="dashboard">
 
   <div class="header">
-    <h1>🏠 WITT FAMILY COMMAND CENTER</h1>
-    <div class="header-right">
-      <span class="header-date">📅 Thursday, March 19, 2026</span>
-      <button class="logout-btn" onclick="doLogout()">Logout</button>
+    <div>
+      <div class="header-title">&#127968; WITT FAMILY COMMAND CENTER</div>
+      <div class="header-date">Friday, March 20, 2026 &nbsp;&middot;&nbsp; Generated at <span id="gen-time"></span></div>
     </div>
+    <button class="logout-btn" onclick="logout()">&#128274; Lock</button>
   </div>
 
-  <div class="main">
+  <div class="container">
 
     <!-- URGENT ALERTS -->
-    <div class="urgent-box">
-      <div class="card-title">🚨 URGENT ALERTS</div>
+    <div class="urgent-card">
+      <h2>&#128680; URGENT ALERTS</h2>
 
-      <div class="urgent-item">
-        <strong>📞 CALL TODAY — Emmet ENT Referral (Ft. Meade Rader Clinic)</strong>
-        Existing ENT referral stands — a new one will be rejected as a duplicate. Appointment slots with NP McKenzie offered: <strong>TODAY at 3:25 PM or 4:05 PM</strong>, or Friday 3/20 at 7:05 AM. Call: <strong>1-855-227-6331</strong>. Act now — today's slots may still be open!
+      <div class="alert-item">
+        <div class="alert-icon">&#128203;</div>
+        <div class="alert-text">
+          <strong>Emmet's Ear Appointment</strong>
+          Referral in progress &mdash; confirm appt with Dr. Daniel B. Spielman, 6862 Elm St #800B, McLean VA
+          <br><span class="alert-label label-overdue">5 DAYS OVERDUE</span>
+        </div>
       </div>
 
-      <div class="urgent-item">
-        <strong>🦷 OVERDUE — 4 Kids Dental Check Ups (Melissa · due 3/17)</strong>
-        Still "To Do" — need to schedule for all four kids.
+      <div class="alert-item">
+        <div class="alert-icon">&#128231;</div>
+        <div class="alert-text">
+          <strong>GOTR Family Email</strong>
+          Coach communication to GOTR families still not sent
+          <br><span class="alert-label label-overdue">4 DAYS OVERDUE</span>
+        </div>
       </div>
 
-      <div class="urgent-item">
-        <strong>📧 OVERDUE — GOTR Family Email (Melissa · due 3/16)</strong>
-        Girls on the Run family email not yet sent.
+      <div class="alert-item">
+        <div class="alert-icon">&#129463;</div>
+        <div class="alert-text">
+          <strong>4 Kids Dental Check-Ups</strong>
+          All four children still need appointments scheduled
+          <br><span class="alert-label label-overdue">3 DAYS OVERDUE</span>
+        </div>
       </div>
 
-      <div class="urgent-item">
-        <strong>🗂️ OVERDUE — List Sanders for Rent (Melissa · due 3/18)</strong>
-        Still "To Do" — needs to be listed.
+      <div class="alert-item">
+        <div class="alert-icon">&#128028;</div>
+        <div class="alert-text">
+          <strong>Ants &mdash; Seal Kids Bathroom (Randy)</strong>
+          High priority, still pending
+          <br><span class="alert-label label-overdue">3 DAYS OVERDUE</span>
+        </div>
       </div>
 
-      <div class="urgent-item">
-        <strong>🐜 OVERDUE — Ants / Seal Kids Bathroom (Randy · due 3/17 · HIGH)</strong>
-        High-priority ant issue still unaddressed.
+      <div class="alert-item">
+        <div class="alert-icon">&#128221;</div>
+        <div class="alert-text">
+          <strong>List Sanders for Rent</strong>
+          Still on Melissa's to-do list
+          <br><span class="alert-label label-overdue">2 DAYS OVERDUE</span>
+        </div>
       </div>
 
-      <div class="urgent-item">
-        <strong>👂 OVERDUE — Emmet's Ear Appt (Melissa · due 3/15 · In Progress)</strong>
-        Linked to ENT referral situation above. Follow up after calling the clinic today.
+      <div class="alert-item">
+        <div class="alert-icon">&#129658;</div>
+        <div class="alert-text">
+          <strong>Melissa Breast Check-Up Referral</strong>
+          In Progress &mdash; referral request sent; awaiting confirmation
+          <br><span class="alert-label label-today">DUE TODAY</span>
+        </div>
+      </div>
+
+      <div class="alert-item">
+        <div class="alert-icon">&#128295;</div>
+        <div class="alert-text">
+          <strong>Oven Sensor + Dryer Drum (Randy)</strong>
+          Both due today &mdash; Dryer Drum in progress
+          <br><span class="alert-label label-today">DUE TODAY</span>
+        </div>
+      </div>
+
+      <div class="alert-item" style="border-left-color:#f39c12;">
+        <div class="alert-icon">&#9888;&#65039;</div>
+        <div class="alert-text">
+          <strong>SCHEDULE CONFLICT &mdash; Sunday 3/22 &mdash; Maggie</strong>
+          Flag Promo Day Girls (3:30&ndash;5:00 PM @ Langley) overlaps Trinity Youth Group (4:30&ndash;6:00 PM @ Trinity UMC). Decide which she attends 4:30&ndash;5:00 PM.
+          <br><span class="alert-label label-warn">THIS SUNDAY</span>
+        </div>
       </div>
     </div>
 
     <!-- TODAY'S SCHEDULE -->
     <div class="card">
-      <div class="card-title">📆 TODAY'S SCHEDULE — Thursday, March 19</div>
+      <h2>&#128197; TODAY'S SCHEDULE &mdash; Friday, March 20</h2>
 
-      <div class="schedule-person person-family">
-        <span class="person-label">🐕 Bob</span>
-        <div class="event-row">
-          <div class="event-time">All Day</div>
-          <div class="event-info">
-            <div class="event-name">Bob Dental Appointment</div>
-            <div class="event-loc">Drop-off window: 7–7:30 AM · No food after midnight Wed ✓ · No water after 6 AM ✓</div>
-          </div>
+      <div class="event-row" style="border-left-color:#95a5a6; background:#f8f8f8;">
+        <div class="event-time">All Day</div>
+        <div class="event-details">
+          <strong>No School &mdash; Eid al-Fitr Holiday (FCPS)</strong>
+          <span>All Fairfax County schools closed</span><br>
+          <span class="person-badge badge-family">All Kids</span>
         </div>
       </div>
 
-      <div class="schedule-person person-maggie">
-        <span class="person-label">✨ Maggie</span>
-        <div class="event-row">
-          <div class="event-time">7:00–9:00 PM</div>
-          <div class="event-info">
-            <div class="event-name">Unruly Theater Project</div>
-            <div class="event-loc">McLean Old Fire House Center · 1440 Chain Bridge Rd, McLean</div>
-          </div>
+      <div class="event-row" style="border-left-color:#27ae60;">
+        <div class="event-time">11:00 AM</div>
+        <div class="event-details">
+          <strong>HIIT HOPS AND POPS</strong>
+          <span>11:00 AM &ndash; 12:00 PM</span><br>
+          <span class="person-badge badge-mom">Mom</span>
         </div>
-      </div>
-
-      <div style="background:#fff8e1;border-left:3px solid #f9ca24;border-radius:0 8px 8px 0;padding:8px 12px;margin-top:10px;font-size:0.85rem;color:#555">
-        📌 <strong>FYI — Langley Pyramid Youth Art Show Opening:</strong> TODAY 4:30–6:00 PM at McLean Community Center / MPA Galleries (Langley pyramid student artwork, incl. elementary through high school)
       </div>
     </div>
 
     <!-- TOP ACTION ITEMS -->
     <div class="card">
-      <div class="card-title">✅ TOP ACTION ITEMS</div>
-      <ul class="action-list">
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>📞 Call Ft. Meade Rader — Emmet ENT</strong> · TODAY: 3:25 PM or 4:05 PM available · Fri: 7:05 AM · Call 1-855-227-6331 <span class="action-badge badge-urgent">URGENT TODAY</span></div>
-        </li>
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>🏥 Inova eCheck-in</strong> · Appointment Monday 3/23 at 11:15 AM with Nicole K. Derosier, PA · Complete at MyChart before visit <span class="action-badge badge-soon">MON 3/23</span></div>
-        </li>
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>📧 Send GOTR Family Email</strong> (Girls on the Run) <span class="action-badge badge-overdue">OVERDUE 3/16</span></div>
-        </li>
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>🦷 Schedule 4 Kids Dental Check Ups</strong> <span class="action-badge badge-overdue">OVERDUE 3/17</span></div>
-        </li>
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>🗂️ List Sanders for Rent</strong> <span class="action-badge badge-overdue">OVERDUE 3/18</span></div>
-        </li>
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>🩺 Melissa Breast Check Up</strong> · Referral request submitted — follow up if no response <span class="action-badge badge-soon">DUE 3/20</span></div>
-        </li>
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>🏠 Find Cloudy Creek Lease</strong> · Tenants need it for pool fobs · Randy checking on laptop <span class="action-badge badge-urgent">FOLLOW UP</span></div>
-        </li>
-        <li>
-          <input type="checkbox">
-          <div class="action-text"><strong>💰 Pay Caroline</strong> · Weekly Wed — confirm paid this week <span class="action-badge badge-soon">RECURRING</span></div>
-        </li>
-      </ul>
+      <h2>&#9989; TOP ACTION ITEMS</h2>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-red"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Send GOTR Family Email</strong>
+          <small>4 days overdue (due 3/16) &middot; Coach communication to families</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-red"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Schedule Emmet's ENT Appointment</strong>
+          <small>5 days overdue &middot; Dr. Daniel B. Spielman &middot; 6862 Elm St #800B, McLean VA &middot; New referral requested from primary doc</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-red"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Schedule All 4 Kids Dental Check-Ups</strong>
+          <small>3 days overdue (due 3/17)</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-red"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>List Sanders for Rent</strong>
+          <small>2 days overdue (due 3/18)</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-red"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Follow Up on Breast Check-Up Referral</strong>
+          <small>Due today &middot; Referral request sent &mdash; confirm it was received</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-orange"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Complete GOTR NOVA Week 3 Coach Check-In Survey</strong>
+          <small>Received today from Jaimi Taylor &middot; jtaylor@gotrnova.org</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-orange"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Register Kids for Churchill Road Spring ASA</strong>
+          <small>Deadline: Sunday 3/29 at 11:59 PM &middot; Options: Bulls &amp; Bears, Debate Club, Lego Club, Typing Club, Money Math, Bobcat Dance, Go Club &mdash; churchillroadpta.org</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-orange"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Resolve Sunday 3/22 Conflict &mdash; Maggie's Schedule</strong>
+          <small>Flag Promo Day Girls (3:30&ndash;5pm @ Langley) overlaps Trinity Youth Group (4:30&ndash;6pm @ Trinity UMC)</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-orange"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Langley PTSA Virtual Meeting &mdash; Wednesday 3/25 at 9:00 AM</strong>
+          <small>Zoom link on LHSPTSA website &middot; Add to calendar if not already there</small>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="urgency-dot dot-blue"></div>
+        <input type="checkbox">
+        <div class="action-label">
+          <strong>Pay Caroline &mdash; Next Wednesday 3/25</strong>
+          <small>Recurring weekly on Wednesdays</small>
+        </div>
+      </div>
     </div>
 
     <!-- THIS WEEK AT A GLANCE -->
     <div class="card">
-      <div class="card-title">📊 THIS WEEK AT A GLANCE</div>
+      <h2>&#128198; THIS WEEK AT A GLANCE</h2>
       <div class="week-grid">
-        <div class="day-card past"><div class="day-name">Mon</div><div class="day-date">16</div><div class="day-count">No events</div></div>
-        <div class="day-card past"><div class="day-name">Tue</div><div class="day-date">17</div><div class="day-count">No events</div></div>
-        <div class="day-card past"><div class="day-name">Wed</div><div class="day-date">18</div><div class="day-count">No events</div></div>
-        <div class="day-card today"><div class="day-name">Thu</div><div class="day-date">19</div><div class="day-count">2 events</div><div class="day-badge today-badge">TODAY</div></div>
-        <div class="day-card"><div class="day-name">Fri</div><div class="day-date">20</div><div class="day-count">1 event</div><div class="day-badge holiday-badge">No School</div></div>
-        <div class="day-card"><div class="day-name">Sat</div><div class="day-date">21</div><div class="day-count">1 event</div></div>
-        <div class="day-card"><div class="day-name">Sun</div><div class="day-date">22</div><div class="day-count">2 events</div></div>
+        <div class="day-card today-card">
+          <div class="day-name">Fri</div>
+          <div class="day-num">20</div>
+          <div class="day-events-mini">HIIT (Mom)<br>No School</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Sat</div>
+          <div class="day-num">21</div>
+          <div class="day-events-mini">Comedy Show<br>(Mom)</div>
+        </div>
+        <div class="day-card conflict-card">
+          <div class="day-name">Sun</div>
+          <div class="day-num">22</div>
+          <div class="day-events-mini">Baseball (Brooks)<br>Flag Promo (Girls)<br>Youth Group</div>
+          <div><span class="conflict-badge">CONFLICT</span></div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Mon</div>
+          <div class="day-num">23</div>
+          <div class="day-events-mini">Inova Appt (Mom)<br>GOTR (Sybil)<br>Soccer (Sybil)</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Tue</div>
+          <div class="day-num">24</div>
+          <div class="day-events-mini">Baseball (Brooks)<br>Unruly Theater (Maggie)</div>
+        </div>
+        <div class="day-card busy-card">
+          <div class="day-name">Wed</div>
+          <div class="day-num">25</div>
+          <div class="day-events-mini">Caroline Mtg<br>PTSA Virtual<br>GOTR<br>Emmet Pic Day</div>
+          <div><span class="busy-badge">BUSY</span></div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Thu</div>
+          <div class="day-num">26</div>
+          <div class="day-events-mini">Unruly Theater<br>(Maggie)</div>
+        </div>
+      </div>
+      <div style="font-size:0.78rem; color:#888; margin-top:10px;">
+        Also: Sun 3/29 &mdash; Brooks Baseball + Flag Football (Rec) &nbsp;&middot;&nbsp; Fri 3/27 &mdash; Julia arrives Dulles &nbsp;&middot;&nbsp; Sat 3/28&ndash;Wed 4/2 &mdash; Jerry &amp; Suzy in town
       </div>
     </div>
 
     <!-- QUICK STATS -->
-    <div class="stats-grid">
-      <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Activities This Week</div></div>
-      <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Open Tasks (Melissa)</div></div>
-      <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Urgent Alerts</div></div>
-      <div class="stat-box"><div class="stat-num">1</div><div class="stat-label">Active Renovations</div></div>
+    <div class="stats-grid" style="margin-bottom:20px;">
+      <div class="stat-box">
+        <div class="stat-num">17</div>
+        <div class="stat-label">Activities This Week</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Open Tasks (Melissa)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Urgent Alerts</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Active Renovations</div>
+      </div>
     </div>
 
     <!-- QUICK LINKS -->
-    <div class="quick-links">
-      <a class="quick-link-btn" href="https://docs.google.com/spreadsheets/d/1p7F4Jryd-vpqE8sDCuGfipFy4ivLa0do/edit?gid=1649146518#gid=1649146518" target="_blank">🏗️ RENOVATION TRACKER</a>
-      <a class="quick-link-btn" href="https://docs.google.com/spreadsheets/d/1ruQ3UyRfdKQbF93IAvGHLeze13h0jcaB/edit?gid=1088828674#gid=1088828674" target="_blank">✅ TASK TRACKER</a>
+    <div class="links-row">
+      <a class="quick-link-btn" href="https://docs.google.com/spreadsheets/d/1p7F4Jryd-vpqE8sDCuGfipFy4ivLa0do/edit?gid=1649146518#gid=1649146518" target="_blank">
+        &#127959;&#65039; RENOVATION TRACKER
+        <span>View all 7 projects</span>
+      </a>
+      <a class="quick-link-btn" href="https://docs.google.com/spreadsheets/d/1ruQ3UyRfdKQbF93IAvGHLeze13h0jcaB/edit?gid=1088828674#gid=1088828674" target="_blank">
+        &#9989; TASK TRACKER
+        <span>Team Witt to-do list</span>
+      </a>
     </div>
 
-    <!-- TASK TRACKER (open by default) -->
+    <!-- ===== EXPANDABLE SECTIONS ===== -->
+
+    <!-- 1. TASK TRACKER -->
     <details open>
-      <summary>✅ TEAM WITT TASK TRACKER</summary>
+      <summary>&#9989; TEAM WITT TASK TRACKER</summary>
       <div class="details-body">
-        <div style="overflow-x:auto">
+        <div style="overflow-x:auto;">
         <table class="task-table">
           <thead>
-            <tr><th>Task</th><th>Owner</th><th>Due Date</th><th>Priority</th><th>Status</th><th>Notes</th></tr>
+            <tr>
+              <th>Task</th><th>Owner</th><th>Due Date</th><th>Priority</th><th>Status</th><th>Notes</th>
+            </tr>
           </thead>
           <tbody>
-            <tr class="overdue">
-              <td>Emmet's Ear Appt<span class="overdue-flag">⚠️ OVERDUE</span></td>
-              <td class="owner-melissa">Melissa</td><td>3/15/2026</td><td>Medium</td>
+            <tr class="overdue-row">
+              <td><strong>Emmet's Ear Appt</strong></td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/15/2026</td>
+              <td><span class="priority-badge p-medium">Medium</span></td>
               <td><span class="status-badge status-inprogress">In Progress</span></td>
-              <td style="font-size:0.78rem">Cannot find in Tricare/Genesis. Confirmed local ENT: Dr. Daniel B. Spielman, MD, 6862 Elm St #800B, McLean. Requested new referral.</td>
+              <td style="font-size:0.78rem;">Tricare contacted. Referral requested for Dr. Spielman, 6862 Elm St #800B, McLean VA.</td>
             </tr>
-            <tr class="overdue">
-              <td>GOTR Family Email<span class="overdue-flag">⚠️ OVERDUE</span></td>
-              <td class="owner-melissa">Melissa</td><td>3/16/2026</td><td>Medium</td>
-              <td><span class="status-badge status-todo">To Do</span></td><td></td>
+            <tr class="overdue-row">
+              <td><strong>GOTR Family Email</strong></td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/16/2026</td>
+              <td><span class="priority-badge p-medium">Medium</span></td>
+              <td><span class="status-badge status-todo">To Do</span></td>
+              <td></td>
             </tr>
-            <tr class="overdue">
-              <td>4 Kids Dental Check Ups<span class="overdue-flag">⚠️ OVERDUE</span></td>
-              <td class="owner-melissa">Melissa</td><td>3/17/2026</td><td>Medium</td>
-              <td><span class="status-badge status-todo">To Do</span></td><td></td>
+            <tr class="overdue-row">
+              <td><strong>4 Kids Dental Check Ups</strong></td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/17/2026</td>
+              <td><span class="priority-badge p-medium">Medium</span></td>
+              <td><span class="status-badge status-todo">To Do</span></td>
+              <td></td>
             </tr>
-            <tr class="overdue">
-              <td>Ants — Seal Kids Bathroom<span class="overdue-flag">⚠️ OVERDUE</span></td>
-              <td class="owner-randy">Randy</td><td>3/17/2026</td><td>High</td>
-              <td><span class="status-badge status-todo">To Do</span></td><td></td>
-            </tr>
-            <tr class="overdue">
-              <td>List Sanders for Rent<span class="overdue-flag">⚠️ OVERDUE</span></td>
-              <td class="owner-melissa">Melissa</td><td>3/18/2026</td><td>Medium</td>
-              <td><span class="status-badge status-todo">To Do</span></td><td></td>
+            <tr class="overdue-row">
+              <td><strong>Ants &mdash; Seal Kids Bathroom</strong></td>
+              <td><span class="owner-randy">Randy</span></td>
+              <td>3/17/2026</td>
+              <td><span class="priority-badge p-high">High</span></td>
+              <td><span class="status-badge status-todo">To Do</span></td>
+              <td></td>
             </tr>
             <tr>
               <td>Nominations Meeting</td>
-              <td class="owner-melissa">Melissa</td><td>3/17/2026</td><td>High</td>
-              <td><span class="status-badge status-done">Done</span></td><td></td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/17/2026</td>
+              <td><span class="priority-badge p-high">High</span></td>
+              <td><span class="status-badge status-done">Done</span></td>
+              <td></td>
             </tr>
             <tr>
               <td>Melissa PT Appointment</td>
-              <td class="owner-melissa">Melissa</td><td>3/17/2026</td><td>High</td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/17/2026</td>
+              <td><span class="priority-badge p-high">High</span></td>
               <td><span class="status-badge status-done">Done</span></td>
-              <td>Confirmed for Monday, March 25</td>
+              <td style="font-size:0.78rem;">Confirmed for Monday, March 25</td>
             </tr>
             <tr>
               <td>Melissa Derm Appointment</td>
-              <td class="owner-melissa">Melissa</td><td>3/17/2026</td><td>High</td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/17/2026</td>
+              <td><span class="priority-badge p-high">High</span></td>
               <td><span class="status-badge status-done">Done</span></td>
-              <td>Booked for April 1 at 9:15am</td>
+              <td style="font-size:0.78rem;">Booked April 1 at 9:15 AM</td>
             </tr>
-            <tr>
-              <td>Oven Sensor</td>
-              <td class="owner-randy">Randy</td><td>3/20/2026</td><td>Medium</td>
-              <td><span class="status-badge status-todo">To Do</span></td><td></td>
+            <tr class="overdue-row">
+              <td><strong>List Sanders for Rent</strong></td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/18/2026</td>
+              <td><span class="priority-badge p-medium">Medium</span></td>
+              <td><span class="status-badge status-todo">To Do</span></td>
+              <td></td>
             </tr>
-            <tr>
-              <td>Dryer Drum</td>
-              <td class="owner-randy">Randy</td><td>3/20/2026</td><td>Medium</td>
-              <td><span class="status-badge status-inprogress">In Progress</span></td><td></td>
+            <tr class="overdue-row">
+              <td><strong>Oven Sensor</strong></td>
+              <td><span class="owner-randy">Randy</span></td>
+              <td>3/20/2026</td>
+              <td><span class="priority-badge p-medium">Medium</span></td>
+              <td><span class="status-badge status-todo">To Do</span></td>
+              <td></td>
             </tr>
-            <tr>
-              <td>Melissa Breast Check Up</td>
-              <td class="owner-melissa">Melissa</td><td>3/20/2026</td><td>High</td>
+            <tr class="overdue-row">
+              <td><strong>Dryer Drum</strong></td>
+              <td><span class="owner-randy">Randy</span></td>
+              <td>3/20/2026</td>
+              <td><span class="priority-badge p-medium">Medium</span></td>
               <td><span class="status-badge status-inprogress">In Progress</span></td>
-              <td>Sent another request for referral</td>
+              <td></td>
+            </tr>
+            <tr class="overdue-row">
+              <td><strong>Melissa Breast Check Up</strong></td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>3/20/2026</td>
+              <td><span class="priority-badge p-high">High</span></td>
+              <td><span class="status-badge status-inprogress">In Progress</span></td>
+              <td style="font-size:0.78rem;">Sent another referral request; awaiting confirmation</td>
             </tr>
             <tr>
               <td>Replace Filter on Pot Filler</td>
-              <td class="owner-randy">Randy</td><td>3/22/2026</td><td>Low</td>
+              <td><span class="owner-randy">Randy</span></td>
+              <td>3/22/2026</td>
+              <td><span class="priority-badge p-low">Low</span></td>
               <td><span class="status-badge status-todo">To Do</span></td>
-              <td>Filters on top of fridge, bring bucket</td>
+              <td style="font-size:0.78rem;">Filters on top of fridge, bring bucket</td>
             </tr>
             <tr>
               <td>Fireplace Downstairs</td>
-              <td class="owner-randy">Randy</td><td>4/15/2026</td><td>Low</td>
-              <td><span class="status-badge status-todo">To Do</span></td><td></td>
+              <td><span class="owner-randy">Randy</span></td>
+              <td>4/15/2026</td>
+              <td><span class="priority-badge p-low">Low</span></td>
+              <td><span class="status-badge status-todo">To Do</span></td>
+              <td></td>
             </tr>
             <tr>
               <td>Remote for Fireplace Upstairs</td>
-              <td class="owner-randy">Randy</td><td>4/15/2026</td><td>Low</td>
-              <td><span class="status-badge status-todo">To Do</span></td><td></td>
+              <td><span class="owner-randy">Randy</span></td>
+              <td>4/15/2026</td>
+              <td><span class="priority-badge p-low">Low</span></td>
+              <td><span class="status-badge status-todo">To Do</span></td>
+              <td></td>
             </tr>
             <tr>
               <td>Pay Caroline</td>
-              <td class="owner-melissa">Melissa</td><td>Weekly on Wed</td><td>High</td>
-              <td><span class="status-badge status-recurring">Recurring</span></td><td></td>
+              <td><span class="owner-melissa">Melissa</span></td>
+              <td>Weekly / Wed</td>
+              <td><span class="priority-badge p-high">High</span></td>
+              <td><span class="status-badge status-recurring">Recurring</span></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
         </div>
-        <div style="font-size:0.75rem;color:#888;margin-top:10px">🔴 Red rows = overdue (past due date, not Done)</div>
-      </div>
-    </details>
-
-    <!-- RENOVATION TRACKER -->
-    <details>
-      <summary>🏗️ HOME RENOVATION TRACKER</summary>
-      <div class="details-body">
-        <div class="reno-grid">
-          <div class="reno-card active">
-            <span class="reno-status reno-active">🟢 Active</span>
-            <h4>#1 — New Office Build + Basement Storage</h4>
-            <div class="reno-meta">📅 Spring 2026 → August 2026</div>
-            <div class="reno-meta">🔨 General Contractor</div>
-            <div class="reno-notes">Enclose current patio to create new office; add storage room in basement below. Currently underway.</div>
-          </div>
-          <div class="reno-card planning">
-            <span class="reno-status reno-planning">🟡 Planning</span>
-            <h4>#2 — Outdoor Living / Backyard Reno</h4>
-            <div class="reno-meta">📅 Spring 2026 → Spring 2026</div>
-            <div class="reno-meta">🌿 Landscape Designer</div>
-            <div class="reno-notes">Full design plan needed BEFORE new patio. Address drainage &amp; water runoff; resolve mud under swingset. Integrate with patio footprint. Can run simultaneously with #3 &amp; #4 once addition goes interior-only (~May/June 2026).</div>
-          </div>
-          <div class="reno-card notstarted">
-            <span class="reno-status reno-notstarted">⚪ Not Started</span>
-            <h4>#3 — New Driveway</h4>
-            <div class="reno-meta">📅 Summer 2026 → Fall 2026</div>
-            <div class="reno-meta">🚧 Paving Contractor</div>
-            <div class="reno-notes">Expand for two-car capacity with turnaround. Coordinate grading with backyard reno. Get bids for #2, #3, #4 together.</div>
-          </div>
-          <div class="reno-card notstarted">
-            <span class="reno-status reno-notstarted">⚪ Not Started</span>
-            <h4>#4 — New Patio off Addition</h4>
-            <div class="reno-meta">📅 Summer 2026 → Summer 2026</div>
-            <div class="reno-meta">🧱 Hardscape / Masonry · Deps: #1 &amp; #2</div>
-            <div class="reno-notes">New patio off new office addition. Can run concurrently with #3 &amp; #2 once addition is interior-only. Get bids for #2, #3, #4 together.</div>
-          </div>
-          <div class="reno-card notstarted">
-            <span class="reno-status reno-notstarted">⚪ Not Started</span>
-            <h4>#5 — Dining Room Renovation</h4>
-            <div class="reno-meta">📅 Fall 2026 → Winter 2027</div>
-            <div class="reno-meta">🔨 General Contractor / Carpenter</div>
-            <div class="reno-notes">Remove current shelves. Add bay window. Create new hi-rise shelves on back wall. Open stairs to basement; rethink stairs to bedrooms.</div>
-          </div>
-          <div class="reno-card notstarted">
-            <span class="reno-status reno-notstarted">⚪ Not Started</span>
-            <h4>#6 — Basement Extension → Sunroom</h4>
-            <div class="reno-meta">📅 Spring 2027 → Summer 2027</div>
-            <div class="reno-meta">🔨 General Contractor · Deps: #1</div>
-            <div class="reno-notes">Extend basement to create sunroom or screened-in patio area. Extra storage and guest room closet on basement level.</div>
-          </div>
-          <div class="reno-card notstarted">
-            <span class="reno-status reno-notstarted">⚪ Not Started</span>
-            <h4>#7 — Front Porch</h4>
-            <div class="reno-meta">📅 Spring 2028 → Summer 2028</div>
-            <div class="reno-meta">🔨 General Contractor / Carpenter</div>
-            <div class="reno-notes">New front porch addition. Scope TBD — covered, open, or screened. Coordinate with facade and landscaping.</div>
-          </div>
-        </div>
-        <div style="margin-top:16px;text-align:center">
-          <a href="https://docs.google.com/spreadsheets/d/1p7F4Jryd-vpqE8sDCuGfipFy4ivLa0do/edit?gid=1649146518#gid=1649146518" target="_blank" style="color:#667eea;font-size:0.875rem;font-weight:600;text-decoration:none">📊 View Full Renovation Tracker →</a>
+        <div style="font-size:0.75rem; color:#999; margin-top:10px;">
+          Red rows = overdue and not Done &nbsp;&middot;&nbsp; <span class="owner-melissa">Green = Melissa</span> &nbsp;&middot;&nbsp; <span class="owner-randy">Blue = Randy</span>
         </div>
       </div>
     </details>
 
-    <!-- FULL WEEK SCHEDULE -->
+    <!-- 2. RENOVATION TRACKER -->
     <details>
-      <summary>📆 FULL WEEK SCHEDULE</summary>
+      <summary>&#127959;&#65039; HOME RENOVATION TRACKER</summary>
       <div class="details-body">
-        <div class="week-day">
-          <div class="week-day-header">Monday, March 16 — Past</div>
-          <div style="color:#aaa;font-size:0.875rem;padding:4px 0">No calendar events</div>
+        <div class="renov-grid">
+          <div class="renov-card rc-active">
+            <span class="renov-status rs-active">Active</span>
+            <h3>#1 &middot; New Office Build + Basement Storage</h3>
+            <div class="renov-meta">Timeline: <span>Spring 2026 &ndash; August 2026</span></div>
+            <div class="renov-meta">Lead: <span>General Contractor</span></div>
+            <div class="renov-meta">Priority: <span>1 &mdash; Active Now</span></div>
+            <div class="renov-note">Enclose current patio to create new office; add storage room in basement below. Currently underway.</div>
+          </div>
+          <div class="renov-card rc-planning">
+            <span class="renov-status rs-planning">Planning</span>
+            <h3>#2 &middot; Outdoor Living / Backyard Reno Plan</h3>
+            <div class="renov-meta">Timeline: <span>Spring 2026</span></div>
+            <div class="renov-meta">Lead: <span>Landscape Designer</span></div>
+            <div class="renov-meta">Priority: <span>2 &mdash; Plan Now</span></div>
+            <div class="renov-note">Full design plan needed BEFORE new patio. Address drainage, water runoff &amp; mud under swingset. Coordinate grading with driveway. Can run simultaneously with #3 &amp; #4 once addition is interior-only (est. May/June 2026).</div>
+          </div>
+          <div class="renov-card">
+            <span class="renov-status rs-notstarted">Not Started</span>
+            <h3>#3 &middot; New Driveway</h3>
+            <div class="renov-meta">Timeline: <span>Summer &ndash; Fall 2026</span></div>
+            <div class="renov-meta">Lead: <span>Paving Contractor</span></div>
+            <div class="renov-note">Expand for two-car capacity. Get bids for #2, #3, #4 together. Can run alongside #2 &amp; #4.</div>
+          </div>
+          <div class="renov-card">
+            <span class="renov-status rs-notstarted">Not Started</span>
+            <h3>#4 &middot; New Patio off Addition</h3>
+            <div class="renov-meta">Timeline: <span>Summer 2026</span></div>
+            <div class="renov-meta">Lead: <span>Hardscape / Masonry</span></div>
+            <div class="renov-meta">Depends on: <span>Projects #1 &amp; #2</span></div>
+            <div class="renov-note">New patio off the new office addition. Can run concurrently with #2 &amp; #3 once addition is interior-only. Coordinate grading with backyard drainage plan.</div>
+          </div>
+          <div class="renov-card">
+            <span class="renov-status rs-notstarted">Not Started</span>
+            <h3>#5 &middot; Dining Room Renovation</h3>
+            <div class="renov-meta">Timeline: <span>Fall 2026 &ndash; Winter 2027</span></div>
+            <div class="renov-meta">Lead: <span>General Contractor / Carpenter</span></div>
+            <div class="renov-note">Remove current shelves. Add bay window. Hi-rise shelves on back wall. Open up stairs to basement; rethink stairs to bedrooms.</div>
+          </div>
+          <div class="renov-card">
+            <span class="renov-status rs-notstarted">Not Started</span>
+            <h3>#6 &middot; Basement Extension &rarr; Sunroom</h3>
+            <div class="renov-meta">Timeline: <span>Spring &ndash; Summer 2027</span></div>
+            <div class="renov-meta">Lead: <span>General Contractor</span></div>
+            <div class="renov-meta">Depends on: <span>Project #1</span></div>
+            <div class="renov-note">Extend basement to create sunroom or screened-in patio. Extra storage and guest room closet on basement level.</div>
+          </div>
+          <div class="renov-card">
+            <span class="renov-status rs-notstarted">Not Started</span>
+            <h3>#7 &middot; Front Porch</h3>
+            <div class="renov-meta">Timeline: <span>Spring &ndash; Summer 2028</span></div>
+            <div class="renov-meta">Lead: <span>General Contractor / Carpenter</span></div>
+            <div class="renov-note">New front porch addition. Scope TBD &mdash; covered, open, or screened. Coordinate with facade/landscaping.</div>
+          </div>
         </div>
-        <div class="week-day">
-          <div class="week-day-header">Tuesday, March 17 — Past</div>
-          <div style="color:#aaa;font-size:0.875rem;padding:4px 0">No calendar events</div>
+        <div style="margin-top:16px; text-align:center;">
+          <a href="https://docs.google.com/spreadsheets/d/1p7F4Jryd-vpqE8sDCuGfipFy4ivLa0do/edit?gid=1649146518#gid=1649146518" target="_blank"
+             style="color:#667eea; font-size:0.85rem; font-weight:600; text-decoration:none;">
+            View Full Renovation Spreadsheet &rarr;
+          </a>
         </div>
-        <div class="week-day">
-          <div class="week-day-header">Wednesday, March 18 — Past</div>
-          <div style="color:#aaa;font-size:0.875rem;padding:4px 0">No calendar events</div>
-        </div>
-        <div class="week-day">
-          <div class="week-day-header">Thursday, March 19 — TODAY ⭐</div>
-          <div class="event-row">
+      </div>
+    </details>
+
+    <!-- 3. FULL WEEK SCHEDULE -->
+    <details>
+      <summary>&#128198; FULL WEEK SCHEDULE</summary>
+      <div class="details-body">
+
+        <div class="week-day-block today-block">
+          <h3>TODAY &mdash; Friday, March 20</h3>
+          <div class="event-row" style="border-left-color:#95a5a6;">
             <div class="event-time">All Day</div>
-            <div class="event-info">
-              <div class="event-name">🐕 Bob — Dental Appointment</div>
-              <div class="event-loc">Drop-off 7–7:30 AM</div>
+            <div class="event-details">
+              <strong>No School &mdash; Eid al-Fitr Holiday (FCPS)</strong>
+              <span>All Fairfax County schools closed</span><br>
+              <span class="person-badge badge-family">All Kids</span>
             </div>
           </div>
-          <div class="event-row">
-            <div class="event-time">7:00–9:00 PM</div>
-            <div class="event-info">
-              <div class="event-name"><span style="color:#9b59b6;font-weight:700">Maggie</span> — Unruly Theater Project</div>
-              <div class="event-loc">McLean Old Fire House Center · 1440 Chain Bridge Rd, McLean</div>
-            </div>
-          </div>
-        </div>
-        <div class="week-day">
-          <div class="week-day-header">Friday, March 20 — 🎉 FCPS Eid-al-Fitr Holiday — No School</div>
-          <div class="event-row">
-            <div class="event-time">All Day</div>
-            <div class="event-info">
-              <div class="event-name">🏫 No School — Eid-al-Fitr (FCPS)</div>
-              <div class="event-loc">Maggie, Brooks, Sybil home all day · Emmet also home (sick)</div>
-            </div>
-          </div>
-          <div class="event-row">
-            <div class="event-time">11:00 AM–12:00 PM</div>
-            <div class="event-info">
-              <div class="event-name"><span style="color:#00b894;font-weight:700">Mom</span> — HIIT Hops and Pops</div>
-              <div class="event-loc">Fitness class</div>
+          <div class="event-row" style="border-left-color:#27ae60;">
+            <div class="event-time">11:00 AM</div>
+            <div class="event-details">
+              <strong>HIIT HOPS AND POPS</strong>
+              <span>11:00 AM &ndash; 12:00 PM</span><br>
+              <span class="person-badge badge-mom">Mom</span>
             </div>
           </div>
         </div>
-        <div class="week-day">
-          <div class="week-day-header">Saturday, March 21</div>
-          <div class="event-row">
-            <div class="event-time">3:30–9:30 PM</div>
-            <div class="event-info">
-              <div class="event-name"><span style="color:#636e72;font-weight:700">Family</span> — Comedy, Etc.: 14 Acts, 1 Stage, Endless Connection</div>
-              <div class="event-loc">1st Stage Theater · 1524 Spring Hill Rd, Suite LL, Tysons, VA 22102</div>
+
+        <div class="week-day-block">
+          <h3>Saturday, March 21</h3>
+          <div class="event-row" style="border-left-color:#27ae60;">
+            <div class="event-time">3:30 PM</div>
+            <div class="event-details">
+              <strong>Comedy, Etc. &mdash; 14 Acts, 1 Stage, Endless Connection</strong>
+              <span>3:30 PM &ndash; 9:30 PM &middot; 1st Stage Theater, 1524 Spring Hill Rd, Suite LL, Tysons VA</span><br>
+              <span class="person-badge badge-mom">Mom</span>
             </div>
           </div>
         </div>
-        <div class="week-day">
-          <div class="week-day-header">Sunday, March 22</div>
-          <div class="event-row">
-            <div class="event-time">1:30–3:00 PM</div>
-            <div class="event-info">
-              <div class="event-name"><span style="color:#3498db;font-weight:700">Brooks</span> — Baseball Practice</div>
-              <div class="event-loc">Linway Terrace Park · 6246 Linway Terr, McLean, VA 22101</div>
+
+        <div class="week-day-block">
+          <h3>Sunday, March 22 &mdash; Schedule Conflict</h3>
+          <div class="event-row" style="border-left-color:#3498db;">
+            <div class="event-time">1:30 PM</div>
+            <div class="event-details">
+              <strong>Brooks Baseball Practice</strong>
+              <span>1:30 PM &ndash; 3:00 PM &middot; Linway Terrace Park, 6246 Linway Terr, McLean VA</span><br>
+              <span class="person-badge badge-brooks">Brooks</span>
             </div>
           </div>
-          <div class="event-row">
-            <div class="event-time">3:30–5:00 PM</div>
-            <div class="event-info">
-              <div class="event-name"><span style="color:#fd79a8;font-weight:700">Girls</span> — Flag Promo Day (Girls)</div>
-              <div class="event-loc">Langley High School · 6520 Georgetown Pike, McLean, VA 22101</div>
+          <div class="event-row" style="border-left-color:#9b59b6;">
+            <div class="event-time">3:30 PM</div>
+            <div class="event-details">
+              <strong>Flag Promo Day Girls</strong>
+              <span>3:30 PM &ndash; 5:00 PM &middot; Langley High School, 6520 Georgetown Pike, McLean VA</span><br>
+              <span class="person-badge badge-maggie">Maggie</span>
+              <span class="person-badge badge-sybil">Sybil</span>
             </div>
           </div>
-          <div class="event-row">
+          <div class="event-row" style="border-left-color:#e74c3c; background:#fff8f8;">
+            <div class="event-time">4:30 PM</div>
+            <div class="event-details">
+              <strong>Trinity Youth Group &mdash; Last Supper Experience</strong>
+              <span>4:30 PM &ndash; 6:00 PM &middot; Trinity UMC, 1205 Dolley Madison Blvd, McLean VA</span>
+              <span style="display:block; font-size:0.75rem; color:#e74c3c; margin-top:2px;">Overlaps Flag Promo 4:30&ndash;5:00 PM &mdash; decide Maggie's plan</span><br>
+              <span class="person-badge badge-family">Church / Youth</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#aaa;">
             <div class="event-time">9:00 PM</div>
-            <div class="event-info">
-              <div class="event-name"><span style="color:#1565c0;font-weight:700">Randy</span> — Pay DoubleCash Card Bill</div>
-              <div class="event-loc">Pay Citi DoubleCash on USAA Billpay</div>
+            <div class="event-details">
+              <strong>Pay DoubleCash Card Bill (Randy)</strong>
+              <span>Reminder: Pay Citi DoubleCash via USAA billpay</span><br>
+              <span class="person-badge badge-randy">Randy</span>
             </div>
           </div>
         </div>
+
+        <div class="week-day-block">
+          <h3>Monday, March 23</h3>
+          <div class="event-row" style="border-left-color:#27ae60;">
+            <div class="event-time">11:15 AM</div>
+            <div class="event-details">
+              <strong>Follow-Up Appointment &mdash; Nicole K. Derosier, PA (Inova)</strong>
+              <span>11:15 AM &ndash; 11:45 AM &middot; 8100 Innovation Park Drive, Fairfax VA 22031 &middot; 571-472-6464</span>
+              <span style="display:block; font-size:0.75rem; color:#666; margin-top:1px;">Update medication list in MyChart before appointment</span><br>
+              <span class="person-badge badge-mom">Mom</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#e91e8c;">
+            <div class="event-time">3:15 PM</div>
+            <div class="event-details">
+              <strong>GOTR Practice</strong>
+              <span>3:15 PM &ndash; 4:45 PM &middot; Churchill Road Elementary, 7100 Churchill Rd, McLean VA</span><br>
+              <span class="person-badge badge-sybil">Sybil</span>
+              <span class="person-badge badge-mom">Mom (Coach)</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#e91e8c;">
+            <div class="event-time">5:00 PM</div>
+            <div class="event-details">
+              <strong>Sybil Soccer Training</strong>
+              <span>5:00 PM &ndash; 6:15 PM &middot; McLean Governmental Center, 1437 Balls Hill Rd, McLean VA</span><br>
+              <span class="person-badge badge-sybil">Sybil</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-day-block">
+          <h3>Tuesday, March 24</h3>
+          <div class="event-row" style="border-left-color:#3498db;">
+            <div class="event-time">6:15 PM</div>
+            <div class="event-details">
+              <strong>Brooks Baseball Practice</strong>
+              <span>6:15 PM &ndash; 7:30 PM &middot; Spring Hill RECenter, 1239 Spring Hill Rd, McLean VA</span><br>
+              <span class="person-badge badge-brooks">Brooks</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#9b59b6;">
+            <div class="event-time">7:00 PM</div>
+            <div class="event-details">
+              <strong>Unruly Theater Project</strong>
+              <span>7:00 PM &ndash; 9:00 PM &middot; McLean Old Fire House, 1440 Chain Bridge Rd, McLean VA</span><br>
+              <span class="person-badge badge-maggie">Maggie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-day-block">
+          <h3>Wednesday, March 25 &mdash; Busy Day</h3>
+          <div class="event-row" style="border-left-color:#f39c12; background:#fffbf0;">
+            <div class="event-time">All Day</div>
+            <div class="event-details">
+              <strong>Emmet Picture Day at MCA</strong>
+              <span>McLean Children's Academy</span><br>
+              <span class="person-badge badge-emmet">Emmet</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#27ae60;">
+            <div class="event-time">6:30 AM</div>
+            <div class="event-details">
+              <strong>Melissa / Caroline Weekly Meeting</strong>
+              <span>6:30 AM &ndash; 7:30 AM</span><br>
+              <span class="person-badge badge-mom">Mom</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#667eea; background:#f0f2ff;">
+            <div class="event-time">9:00 AM</div>
+            <div class="event-details">
+              <strong>Langley PTSA General Membership Meeting (Virtual)</strong>
+              <span>9:00 AM &middot; Zoom &mdash; see LHSPTSA website for link</span><br>
+              <span class="person-badge badge-mom">Mom</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#e91e8c;">
+            <div class="event-time">3:15 PM</div>
+            <div class="event-details">
+              <strong>GOTR Practice</strong>
+              <span>3:15 PM &ndash; 4:45 PM &middot; Churchill Road Elementary, 7100 Churchill Rd, McLean VA</span><br>
+              <span class="person-badge badge-sybil">Sybil</span>
+              <span class="person-badge badge-mom">Mom (Coach)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-day-block">
+          <h3>Thursday, March 26</h3>
+          <div class="event-row" style="border-left-color:#9b59b6;">
+            <div class="event-time">7:00 PM</div>
+            <div class="event-details">
+              <strong>Unruly Theater Project</strong>
+              <span>7:00 PM &ndash; 9:00 PM &middot; McLean Old Fire House, 1440 Chain Bridge Rd, McLean VA</span><br>
+              <span class="person-badge badge-maggie">Maggie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-day-block">
+          <h3>Friday, March 27</h3>
+          <div class="event-row" style="border-left-color:#1abc9c;">
+            <div class="event-time">11:41 PM</div>
+            <div class="event-details">
+              <strong>Julia Arrives at Dulles &mdash; Delta 4129</strong>
+              <span>Dulles International Airport</span><br>
+              <span class="person-badge badge-family">Family</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-day-block">
+          <h3>Saturday, March 28</h3>
+          <div class="event-row" style="border-left-color:#1abc9c; background:#f0fdfa;">
+            <div class="event-time">All Week</div>
+            <div class="event-details">
+              <strong>Jerry &amp; Suzy in Town (through April 2)</strong>
+              <span>Staying at 1303 Earnestine St, McLean VA</span><br>
+              <span class="person-badge badge-family">Family Guests</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#1abc9c;">
+            <div class="event-time">12:15 PM</div>
+            <div class="event-details">
+              <strong>Jerry &amp; Suzy Arrive &mdash; United Flight 2265</strong>
+              <span>Reagan National Airport, Arlington VA &middot; Connection: United 1857 FSD&ndash;ORD</span><br>
+              <span class="person-badge badge-family">Family</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-day-block">
+          <h3>Sunday, March 29</h3>
+          <div class="event-row" style="border-left-color:#9b59b6; background:#f8f5ff;">
+            <div class="event-time">All Day</div>
+            <div class="event-details">
+              <strong>Palm Sunday &mdash; No Trinity Youth Group</strong>
+              <span>Youth group also canceled Easter Sunday (4/5). Next meeting: 4/11 SHARE Volunteer 8:30am&ndash;1pm.</span><br>
+              <span class="person-badge badge-family">Church Note</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#3498db;">
+            <div class="event-time">1:30 PM</div>
+            <div class="event-details">
+              <strong>Brooks Baseball Practice</strong>
+              <span>1:30 PM &ndash; 3:00 PM &middot; Linway Terrace Park, 6246 Linway Terr, McLean VA</span><br>
+              <span class="person-badge badge-brooks">Brooks</span>
+            </div>
+          </div>
+          <div class="event-row" style="border-left-color:#3498db;">
+            <div class="event-time">5:00 PM</div>
+            <div class="event-details">
+              <strong>Flag Football (Rec)</strong>
+              <span>5:00 PM &ndash; 6:30 PM &middot; Check Sports Engine app for field location &mdash; changes weekly</span><br>
+              <span class="person-badge badge-brooks">Brooks</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </details>
 
-    <!-- EMAILS -->
+    <!-- 4. UNANSWERED EMAILS -->
     <details>
-      <summary>📧 RECENT EMAILS</summary>
+      <summary>&#128231; UNANSWERED EMAILS</summary>
       <div class="details-body">
 
-        <div class="email-section-title">🚨 URGENT — Needs Response Today</div>
-        <div class="email-item">
-          <div class="email-from">From: Col Randy Witt (forwarding Ft. Meade Rader Clinic) · Wed 3/18</div>
-          <div class="email-subject">Emmet ENT Response</div>
-          <div class="email-snippet">Rader clinic confirms existing referral stands — a new one would be rejected as duplicate. NP McKenzie phone slots: TODAY 3:25 PM or 4:05 PM, or Fri 3/20 at 7:05 AM. Call 1-855-227-6331. Same thread: Melissa asked Randy about Cloudy Creek lease (tenants need for pool fobs) — Randy said "maybe on my laptop."</div>
+        <div class="section-label" style="color:#f39c12;">Needs Response This Week</div>
+
+        <div class="email-item e-week">
+          <div class="email-from">From: Jaimi Taylor &middot; jtaylor@gotrnova.org &middot; Received Fri 3/20</div>
+          <div class="email-subject">GOTR NOVA &mdash; Week 3 Coach Check-In Survey</div>
+          <div class="email-snippet">How is the spring season going? Coaches asked to fill out check-in survey to confirm team is on track for the season.</div>
+          <div class="email-action">ACTION: Complete survey &mdash; reply to Jaimi Taylor</div>
         </div>
 
-        <div class="email-section-title warn">⚠️ Needs Attention This Week</div>
-        <div class="email-item">
-          <div class="email-from">From: Inova Health (donotreply@inova.org) · Wed 3/18</div>
-          <div class="email-subject">Upcoming Inova Appointment — Monday 3/23 at 11:15 AM</div>
-          <div class="email-snippet">Appointment with Nicole K. Derosier, PA. Complete eCheck-in at Inova MyChart before visit. Questions: call 571-472-6464.</div>
+        <div class="email-item e-week">
+          <div class="email-from">From: Churchill Road PTA &middot; afterschoolactivities@churchillroadpta.org &middot; Thu 3/19</div>
+          <div class="email-subject">Spring ASA Registration is Open to All!</div>
+          <div class="email-snippet">Via Spark Business Academy: Bulls &amp; Bears, Debate Club (Tue/Fri), Lego Club, Typing Club, Money Math, Lemonade Stand. Via PTA login: Bobcat Dance, Go Club.</div>
+          <div class="email-action">ACTION: Register by Sunday 3/29 at 11:59 PM &mdash; churchillroadpta.org</div>
         </div>
 
-        <div class="email-section-title info">📧 Informational</div>
+        <div class="section-label" style="color:#888; margin-top:16px;">Recent &mdash; Informational</div>
+
         <div class="email-item">
-          <div class="email-from">From: McLean Project for the Arts · Wed 3/18</div>
-          <div class="email-subject">Langley Pyramid Youth Art Show — Opening Reception TODAY 4:30–6 PM</div>
-          <div class="email-snippet">FCPS Langley pyramid student artwork (elementary through high school) at MPA galleries, McLean Community Center. Exhibition runs March 19–April 6.</div>
+          <div class="email-from">From: Flag Star Football (SportsEngine) &middot; Thu 3/19</div>
+          <div class="email-subject">Rosters | Schedules | Pre-Season Logistics</div>
+          <div class="email-snippet">Season starts April 12. Rosters &amp; schedules on Sports Engine app. Check field location each week &mdash; fields rotate. K-1: 60-min window. 2nd&ndash;12th: 90-min window. Final game June 7, weather makeup June 14. Off May 24. Jersey given on Day 1.</div>
         </div>
+
         <div class="email-item">
-          <div class="email-from">From: Melissa (sent) · Thu 3/19 7:45 AM</div>
-          <div class="email-subject">Emmet Out Today (to MCA)</div>
-          <div class="email-snippet">Emmet has fever, productive cough, slightly runny nose, swollen throat (no strep). Slept well overnight — no extra meds needed. Likely keeping home Friday too since FCPS is out.</div>
+          <div class="email-from">From: Langley PTSA eNews &middot; Thu 3/19</div>
+          <div class="email-subject">new energy this spring...</div>
+          <div class="email-snippet">PTSA General Membership Meeting VIRTUAL on Wednesday March 25 at 9:00 AM. Zoom link posted on LHSPTSA website.</div>
         </div>
+
         <div class="email-item">
-          <div class="email-from">From: FCPS Dept. of Special Services · Wed 3/18</div>
-          <div class="email-subject">2026 Special Education Family Conference — Sat April 18, 8 AM–2 PM</div>
-          <div class="email-snippet">"Stronger Together: Connecting Families &amp; Schools" — informational. Mark calendar if relevant.</div>
+          <div class="email-from">From: Mrs. Phipps &amp; Mr. Walsh (FCPS) &middot; Thu 3/19</div>
+          <div class="email-subject">Weekly Agenda + Agenda for Week of March 23</div>
+          <div class="email-snippet">Assessment-heavy week March 23&ndash;27 (end of Quarter 3). Spring break approaching. Plan for additional study time at home for Churchill Road kids.</div>
         </div>
+
         <div class="email-item">
-          <div class="email-from">From: McLean Community Center · Wed 3/18</div>
-          <div class="email-subject">What's Coming Up at the MCC?</div>
-          <div class="email-snippet">Spring events newsletter — upcoming programs and classes at MCC.</div>
+          <div class="email-from">From: Trinity United Methodist Youth Group &middot; Fri 3/20</div>
+          <div class="email-subject">Last Supper Experience</div>
+          <div class="email-snippet">This Sunday 3/22: Youth Group 4:30&ndash;6pm, Last Supper Experience. 3/29: No Youth Group (Palm Sunday). 4/5: No Youth Group (Easter). 4/11: SHARE New Beginnings Volunteer, 8:30am&ndash;1pm. Retreat rescheduled &mdash; watch for poll.</div>
         </div>
+
       </div>
     </details>
 
-    <!-- HOUSEHOLD & SERVICES -->
+    <!-- 5. HOUSEHOLD & SERVICES -->
     <details>
-      <summary>🏡 HOUSEHOLD &amp; SERVICES</summary>
+      <summary>&#127968; HOUSEHOLD &amp; SERVICES</summary>
       <div class="details-body">
 
-        <div class="household-section">
-          <div class="household-title">🐕 Bob</div>
-          <div class="household-item">Dental appointment TODAY — drop-off 7–7:30 AM. No food after midnight Wed night; no water after 6 AM this morning. All set.</div>
+        <div class="hs-header">Bob</div>
+        <div class="household-item" style="border-left-color:#f39c12;">
+          <h4>Chewy Autoship Order Being Prepared</h4>
+          <p>Email received Thu 3/19 &mdash; Bob's regular autoship is processing and will ship soon. No action needed.</p>
         </div>
 
-        <div class="household-section">
-          <div class="household-title">🏥 Medical</div>
-          <div class="household-item"><strong>Melissa — Inova:</strong> Appointment Monday 3/23 at 11:15 AM with Nicole K. Derosier, PA. Complete eCheck-in at MyChart. Questions: 571-472-6464.</div>
-          <div class="household-item"><strong>Emmet — ENT:</strong> Existing referral goes to Ft. Belvoir MTF. To use local Dr. Spielman (6862 Elm St #800B, McLean, VA 22101), need to speak with NP McKenzie. Call Rader Clinic: 1-855-227-6331. Emmet currently home sick — fever, cough, no strep. Likely home Fri too.</div>
-          <div class="household-item"><strong>Melissa — Breast Check Up:</strong> In Progress — another referral request sent. Follow up if no response by end of week.</div>
-          <div class="household-item"><strong>Melissa — PT:</strong> Done ✅ — Confirmed for Monday, March 25.</div>
-          <div class="household-item"><strong>Melissa — Derm:</strong> Done ✅ — Booked for April 1 at 9:15 AM.</div>
+        <div class="hs-header">Home Maintenance</div>
+        <div class="household-item" style="border-left-color:#f39c12;">
+          <h4>Replace Filter on Pot Filler &mdash; Due Sunday 3/22 (Randy)</h4>
+          <p>Filters are on top of the fridge. Bring a bucket.</p>
+        </div>
+        <div class="household-item" style="border-left-color:#e74c3c;">
+          <h4>Oven Sensor &mdash; Due Today (Randy)</h4>
+          <p>Still on task list as To Do.</p>
+        </div>
+        <div class="household-item" style="border-left-color:#f39c12;">
+          <h4>Dryer Drum &mdash; Due Today (Randy, In Progress)</h4>
+          <p>Currently in progress.</p>
         </div>
 
-        <div class="household-section">
-          <div class="household-title">🏠 Home Maintenance</div>
-          <div class="household-item"><strong>Ants / Seal Kids Bathroom (Randy):</strong> HIGH priority — overdue since 3/17. Target this weekend.</div>
-          <div class="household-item"><strong>Oven Sensor (Randy):</strong> To Do — due 3/20.</div>
-          <div class="household-item"><strong>Dryer Drum (Randy):</strong> In Progress — due 3/20.</div>
-          <div class="household-item"><strong>Replace Filter on Pot Filler (Randy):</strong> To Do — due 3/22. Filters are on top of fridge; bring a bucket.</div>
-          <div class="household-item"><strong>Cloudy Creek Lease:</strong> Tenants need the signed lease for pool fobs. Randy said it may be on his laptop — follow up today.</div>
+        <div class="hs-header">Church &mdash; Trinity United Methodist</div>
+        <div class="household-item" style="border-left-color:#9b59b6;">
+          <h4>Youth Group Upcoming Schedule</h4>
+          <p>
+            <strong>3/22:</strong> Youth Group 4:30&ndash;6pm &mdash; Last Supper Experience (fellowship building)<br>
+            <strong>3/29:</strong> Palm Sunday &mdash; NO Youth Group<br>
+            <strong>4/5:</strong> Easter Sunday &mdash; NO Youth Group<br>
+            <strong>4/11:</strong> SHARE New Beginnings Volunteer, 8:30 AM &ndash; 1:00 PM<br>
+            <em>Retreat rescheduled &mdash; watch for date poll</em>
+          </p>
+        </div>
+
+        <div class="hs-header">Medical</div>
+        <div class="household-item" style="border-left-color:#27ae60;">
+          <h4>Inova Follow-Up Appointment &mdash; Monday 3/23 at 11:15 AM</h4>
+          <p>Nicole K. Derosier, PA &middot; 8100 Innovation Park Drive, Fairfax VA 22031 &middot; 571-472-6464<br>
+          Update medication list in MyChart before the appointment.</p>
+        </div>
+        <div class="household-item" style="border-left-color:#27ae60;">
+          <h4>Melissa PT Appointment &mdash; Monday 3/25</h4>
+          <p>Confirmed (task marked done). Verify it's on the calendar.</p>
+        </div>
+        <div class="household-item" style="border-left-color:#27ae60;">
+          <h4>Melissa Derm Appointment &mdash; April 1 at 9:15 AM</h4>
+          <p>Booked and confirmed (task marked done).</p>
+        </div>
+        <div class="household-item" style="border-left-color:#e74c3c;">
+          <h4>Breast Check-Up Referral &mdash; Still Pending</h4>
+          <p>Another referral request submitted. Follow up to confirm receipt and next steps.</p>
+        </div>
+        <div class="household-item" style="border-left-color:#e74c3c;">
+          <h4>Emmet's ENT Referral &mdash; In Progress (5 Days Overdue)</h4>
+          <p>Tricare contacted. New referral requested for Dr. Daniel B. Spielman, MD &middot; 6862 Elm St #800B, McLean VA 22101. Call to confirm referral was received.</p>
+        </div>
+        <div class="household-item" style="border-left-color:#667eea;">
+          <h4>TRICARE Dental Newsletter &mdash; Issue 1 (Thu 3/19)</h4>
+          <p>Informational: dental provider types, teledentistry. No action needed.</p>
+        </div>
+
+        <div class="hs-header">School Updates</div>
+        <div class="household-item" style="border-left-color:#667eea;">
+          <h4>Assessment Week at Churchill Road &mdash; March 23&ndash;27</h4>
+          <p>End of Quarter 3. Spring break approaching. Plan for extra study time. From Mrs. Phipps &amp; Mr. Walsh (FCPS).</p>
+        </div>
+        <div class="household-item" style="border-left-color:#f39c12;">
+          <h4>MCA &mdash; Emmet Recovering Well</h4>
+          <p>Fever broke Thursday night &mdash; feeling better. Would have returned Friday but school was closed for holiday. MCA director updated.</p>
+        </div>
+
+        <div class="hs-header">Family Visits</div>
+        <div class="household-item" style="border-left-color:#1abc9c;">
+          <h4>Julia Arrives Friday 3/27 at 11:41 PM &mdash; Delta 4129 (Dulles)</h4>
+          <p>Plan for late pickup from Dulles International Airport.</p>
+        </div>
+        <div class="household-item" style="border-left-color:#1abc9c;">
+          <h4>Jerry &amp; Suzy in Town: Saturday 3/28 &ndash; Wednesday 4/2</h4>
+          <p>United 2265 arrives Reagan National 12:15 PM on 3/28. Staying at 1303 Earnestine St, McLean.</p>
         </div>
 
       </div>
     </details>
 
-    <!-- CALENDAR NOTES -->
+    <!-- 6. CALENDAR NOTES -->
     <details>
-      <summary>🗒️ CALENDAR NOTES</summary>
+      <summary>&#128221; CALENDAR NOTES</summary>
       <div class="details-body">
+
         <div class="cal-note">
-          📅 <strong>Inova Appointment NOT on Calendar:</strong> Melissa has an Inova visit Monday 3/23 at 11:15 AM with Nicole K. Derosier, PA — not visible on Melissa's or Randy's calendar. Consider adding it.
+          <strong>Langley PTSA Virtual Meeting &mdash; Wed 3/25 at 9:00 AM</strong>
+          In PTSA email but not confirmed on Melissa's primary Google Calendar. Get Zoom link from LHSPTSA website and add to calendar.
         </div>
+
         <div class="cal-note">
-          🏫 <strong>FCPS Eid-al-Fitr Holiday — Friday 3/20:</strong> All FCPS kids (Maggie, Brooks, Sybil) have no school. Emmet (MCA) also home sick. All four kids home Friday!
+          <strong>Trinity Youth Group &mdash; Sun 3/22 at 4:30 PM</strong>
+          In Trinity UMC email but not appearing on Melissa's calendar. Add if desired. Note the conflict with Flag Promo Day Girls (3:30&ndash;5:00 PM @ Langley).
         </div>
+
         <div class="cal-note">
-          🎭 <strong>Langley Pyramid Youth Art Show:</strong> Opening reception is TODAY 4:30–6 PM at MCC — not on calendar. May be of interest given Maggie's connection to Langley.
+          <strong>Melissa PT Appointment &mdash; Monday 3/25</strong>
+          Confirmed per task tracker ("Confirmed for Monday, March 25") but not visible in calendar pull. Verify it's booked and on the calendar.
         </div>
+
         <div class="cal-note">
-          🏈 <strong>Flag Promo Day Girls (Sun 3/22, 3:30–5 PM at Langley HS):</strong> Calendar says "Flag Promo Day Girls" — confirm which girls (Maggie? Sybil? Both?) are attending and if transportation is lined up.
+          <strong>Flag Star Football Season Starts April 12</strong>
+          No individual game/practice events on calendar yet. Check Sports Engine app for the full schedule and add to family calendar. Important: field locations change every week &mdash; always verify before heading out.
         </div>
+
+        <div class="cal-note">
+          <strong>Trinity 4/11 SHARE Volunteer Project &mdash; 8:30 AM &ndash; 1:00 PM</strong>
+          Not on calendar. Add if youth will participate.
+        </div>
+
+        <div class="cal-note">
+          <strong>Spring Break Approaching</strong>
+          Quarter 3 ends the week of March 23&ndash;27. Confirm FCPS spring break dates on the FCPS calendar.
+        </div>
+
       </div>
     </details>
-
-    <div style="text-align:center;margin-top:24px;color:rgba(255,255,255,0.45);font-size:0.75rem">
-      Witt Family Command Center · Generated Thursday, March 19, 2026
-    </div>
 
   </div>
+
+  <div class="footer">
+    Witt Family Command Center &nbsp;&middot;&nbsp; Generated <span id="footer-date"></span> &nbsp;&middot;&nbsp; Password Protected
+  </div>
+
 </div>
 
 <script>
-  function doLogin(){
-    var pw=document.getElementById('pw-input').value;
-    if(pw==='hippo'){
-      document.getElementById('login-screen').style.display='none';
-      document.getElementById('dashboard').style.display='block';
-      sessionStorage.setItem('wfc_auth','1');
+  function tryLogin() {
+    var val = document.getElementById('pw-input').value;
+    if (val === 'hippo') {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      var now = new Date();
+      var timeStr = now.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'});
+      var dateStr = now.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+      document.getElementById('gen-time').textContent = timeStr;
+      document.getElementById('footer-date').textContent = dateStr;
     } else {
-      document.getElementById('login-error').style.display='block';
-      document.getElementById('pw-input').value='';
+      document.getElementById('pw-error').style.display = 'block';
+      document.getElementById('pw-input').value = '';
       document.getElementById('pw-input').focus();
     }
   }
-  function doLogout(){
-    sessionStorage.removeItem('wfc_auth');
-    document.getElementById('dashboard').style.display='none';
-    document.getElementById('login-screen').style.display='flex';
-    document.getElementById('pw-input').value='';
-    document.getElementById('login-error').style.display='none';
+  function logout() {
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-error').style.display = 'none';
   }
-  if(sessionStorage.getItem('wfc_auth')==='1'){
-    document.getElementById('login-screen').style.display='none';
-    document.getElementById('dashboard').style.display='block';
-  }
-  document.getElementById('pw-input').addEventListener('keydown',function(e){
-    if(e.key==='Enter') doLogin();
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') tryLogin();
   });
 </script>
 </body>
