@@ -39,7 +39,7 @@
     display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
   }
   header h1 { font-size: 1.5rem; font-weight: 700; }
-  header .date-tag { font-size: 0.9rem; opacity: 0.85; margin-top: 2px; }
+  .date-tag { font-size: 0.9rem; opacity: 0.85; margin-top: 2px; }
   .logout-btn {
     background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
     color: white; padding: 7px 16px; border-radius: 8px; cursor: pointer;
@@ -65,6 +65,7 @@
   }
   .alert-badge.orange { background: #dd6b20; }
   .alert-badge.yellow { background: #d69e2e; }
+  .alert-badge.purple { background: #805ad5; }
   .alert-text { color: #4a1919; line-height: 1.4; }
   .alert-text strong { color: #742a2a; }
 
@@ -79,7 +80,7 @@
     padding: 10px 0; border-bottom: 1px solid #f0f0f0;
   }
   .schedule-event:last-child { border-bottom: none; }
-  .time-col { font-size: 0.82rem; color: #718096; white-space: nowrap; min-width: 95px; font-weight: 600; padding-top: 2px; }
+  .time-col { font-size: 0.82rem; color: #718096; white-space: nowrap; min-width: 95px; font-weight: 600; padding-top: 3px; }
   .event-pill {
     display: inline-block; padding: 3px 10px; border-radius: 20px;
     color: white; font-size: 0.75rem; font-weight: 700; white-space: nowrap; margin-bottom: 3px; margin-right: 3px;
@@ -93,6 +94,7 @@
   .event-name { font-weight: 600; color: #2d3748; font-size: 0.92rem; }
   .event-loc { font-size: 0.8rem; color: #718096; margin-top: 1px; }
   .conflict-warning { font-size: 0.78rem; color: #e53e3e; font-weight: 600; margin-top: 3px; }
+  .event-note { font-size: 0.78rem; color: #805ad5; font-weight: 600; margin-top: 3px; }
 
   .action-list { list-style: none; }
   .action-list li {
@@ -118,9 +120,9 @@
   .today-card .day-date { color: #667eea; }
   .day-count { font-size: 0.75rem; color: #4a5568; font-weight: 600; }
   .day-tag-lbl { font-size: 0.65rem; border-radius: 4px; padding: 1px 5px; display: inline-block; margin-top: 4px; font-weight: 700; }
-  .busy .day-tag-lbl { background: #f6e05e; color: #744210; }
   .conflict .day-tag-lbl { background: #fc8181; color: white; }
-  .today-card .day-tag-lbl { background: #667eea; color: white; }
+  .busy .day-tag-lbl { background: #f6e05e; color: #744210; }
+  .today-card:not(.conflict):not(.busy) .day-tag-lbl { background: #667eea; color: white; }
   .day-events { margin-top: 5px; text-align: left; }
   .day-dot { font-size: 0.68rem; color: #4a5568; line-height: 1.5; }
 
@@ -184,9 +186,24 @@
   .renov-meta strong { color: #4a5568; }
   .renov-notes { font-size: 0.78rem; color: #4a5568; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e8eaf0; line-height: 1.5; }
 
-  .week-day-block { margin-bottom: 18px; }
-  .week-day-title { font-weight: 700; color: #667eea; font-size: 0.9rem; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid #e8eaf0; }
-  .week-event-row { display: flex; align-items: flex-start; gap: 8px; padding: 4px 0; font-size: 0.87rem; flex-wrap: wrap; }
+  .week-day-block { margin-bottom: 20px; }
+  .week-day-title {
+    font-weight: 700; color: #667eea; font-size: 0.9rem; margin-bottom: 8px;
+    padding-bottom: 4px; border-bottom: 2px solid #e8eaf0;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .wdt-conflict { font-size: 0.72rem; background: #fc8181; color: white; border-radius: 4px; padding: 1px 7px; font-weight: 700; }
+  .wdt-busy { font-size: 0.72rem; background: #f6e05e; color: #744210; border-radius: 4px; padding: 1px 7px; font-weight: 700; }
+  .wdt-game { font-size: 0.72rem; background: #48bb78; color: white; border-radius: 4px; padding: 1px 7px; font-weight: 700; }
+  .week-event-row { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; font-size: 0.87rem; flex-wrap: wrap; border-bottom: 1px solid #f7f7f7; }
+  .week-event-row:last-child { border-bottom: none; }
+  .week-event-row .wer-info { flex: 1; min-width: 0; }
+  .wer-time { font-weight: 600; color: #4a5568; font-size: 0.82rem; white-space: nowrap; }
+  .wer-name { font-weight: 600; color: #2d3748; }
+  .wer-loc { font-size: 0.78rem; color: #718096; }
+  .wer-conflict { font-size: 0.75rem; color: #e53e3e; font-weight: 700; }
+  .wer-note { font-size: 0.75rem; color: #805ad5; font-weight: 600; }
+  .game-badge { font-size: 0.68rem; background: #c6f6d5; color: #22543d; border-radius: 4px; padding: 1px 5px; font-weight: 700; margin-left: 4px; }
 
   .email-group-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; margin: 14px 0 8px; }
   .email-item { border-left: 3px solid #e8eaf0; padding: 8px 12px; margin-bottom: 8px; background: #fafafa; border-radius: 0 8px 8px 0; }
@@ -205,9 +222,14 @@
 
   .cal-note { padding: 8px 12px; border-left: 3px solid #f6e05e; background: #fffbeb; border-radius: 0 8px 8px 0; margin-bottom: 8px; font-size: 0.87rem; color: #4a5568; line-height: 1.5; }
   .cal-note strong { color: #2d3748; }
+  .cal-note.red { border-left-color: #fc8181; background: #fff5f5; }
 
   a { color: #667eea; text-decoration: none; }
   a:hover { text-decoration: underline; }
+
+  .person-key { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .pk-item { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; font-weight: 600; color: #4a5568; }
+  .pk-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -227,7 +249,7 @@
   <header>
     <div>
       <h1>&#127968; WITT FAMILY COMMAND CENTER</h1>
-      <div class="date-tag">Monday, March 23, 2026</div>
+      <div class="date-tag">Monday, March 23, 2026 &mdash; All 8 calendars synced</div>
     </div>
     <button class="logout-btn" onclick="doLogout()">&#128274; Logout</button>
   </header>
@@ -237,21 +259,33 @@
     <!-- URGENT ALERTS -->
     <div class="urgent-box">
       <h2>&#128680; URGENT ALERTS</h2>
+
       <div class="alert-item">
-        <span class="alert-badge">TODAY</span>
-        <div class="alert-text"><strong>Inova Appointment TODAY at 11:15 AM</strong> &mdash; Nicole K Derosier, PA. Check in online at <a href="https://mychart.inova.org/mychart/" target="_blank">mychart.inova.org</a> before you arrive. Call 571-472-6464 with questions.</div>
+        <span class="alert-badge purple">CONFLICT TODAY</span>
+        <div class="alert-text"><strong>Monday afternoon has 4 overlapping activities &mdash; 2 drivers needed minimum:</strong>
+          Grease Rehearsal (Maggie) 3:00&ndash;6:30 PM &bull; GOTR Practice (Sybil+Mom) 3:15&ndash;4:45 PM &bull;
+          McLean Group Training (Brooks) 4:30&ndash;6:00 PM at Georgetown Pike &bull; Sybil Soccer 5:00&ndash;6:15 PM at Balls Hill Rd.
+          GOTR ends 4:45 and Group Training started at 4:30 at a different location &mdash; someone needs to cover Brooks.</div>
       </div>
       <div class="alert-item">
         <span class="alert-badge">TODAY</span>
-        <div class="alert-text"><strong>FCPS Family Engagement Survey closes TODAY</strong> &mdash; 10-min survey on Langley. <a href="https://bit.ly/FESURVEY2026" target="_blank">bit.ly/FESURVEY2026</a></div>
+        <div class="alert-text"><strong>Inova Appointment TODAY at 11:15 AM</strong> &mdash; Nicole K Derosier, PA. Check in at <a href="https://mychart.inova.org/mychart/" target="_blank">mychart.inova.org</a> before arrival. Call 571-472-6464.</div>
+      </div>
+      <div class="alert-item">
+        <span class="alert-badge">TODAY</span>
+        <div class="alert-text"><strong>FCPS Family Engagement Survey closes TODAY</strong> &mdash; <a href="https://bit.ly/FESURVEY2026" target="_blank">bit.ly/FESURVEY2026</a></div>
+      </div>
+      <div class="alert-item">
+        <span class="alert-badge purple">CONFLICT TUE</span>
+        <div class="alert-text"><strong>Tuesday: Brooks has X-Factors Practice 5:00&ndash;6:30 PM then Baseball Practice 6:15&ndash;7:30 PM</strong> &mdash; 15-minute overlap. Plus Maggie has Grease Rehearsal 3&ndash;6 PM AND Unruly Theater 7&ndash;9 PM. Busy night for two kids.</div>
       </div>
       <div class="alert-item">
         <span class="alert-badge orange">DUE TODAY</span>
-        <div class="alert-text"><strong>Melissa Breast Check Up</strong> &mdash; Due today (3/23). In Progress &mdash; referral submitted, scheduling appointment.</div>
+        <div class="alert-text"><strong>Melissa Breast Check Up</strong> &mdash; Due today (3/23). In Progress &mdash; referral submitted, scheduling.</div>
       </div>
       <div class="alert-item">
         <span class="alert-badge orange">OVERDUE</span>
-        <div class="alert-text"><strong>Emmet's Ear Appt (Melissa)</strong> &mdash; Was due 3/22. Call Ft. Belvoir today to schedule. Referral for Dr. Daniel B. Spielman MD, 6862 Elm St #800B, McLean VA.</div>
+        <div class="alert-text"><strong>Emmet's Ear Appt (Melissa)</strong> &mdash; Was due 3/22. Call Ft. Belvoir today. Referral for Dr. Daniel B. Spielman MD, 6862 Elm St #800B, McLean VA.</div>
       </div>
       <div class="alert-item">
         <span class="alert-badge orange">OVERDUE</span>
@@ -259,40 +293,61 @@
       </div>
       <div class="alert-item">
         <span class="alert-badge yellow">OVERDUE</span>
-        <div class="alert-text"><strong>Oven Sensor (Randy)</strong> &mdash; Was due 3/20. Still To Do.</div>
-      </div>
-      <div class="alert-item">
-        <span class="alert-badge yellow">OVERDUE</span>
-        <div class="alert-text"><strong>Dryer Drum (Randy)</strong> &mdash; Was due 3/20. In Progress.</div>
-      </div>
-      <div class="alert-item">
-        <span class="alert-badge yellow">OVERDUE</span>
-        <div class="alert-text"><strong>Replace Filter on Pot Filler (Randy)</strong> &mdash; Was due 3/22. Filters on top of fridge; bring bucket.</div>
+        <div class="alert-text"><strong>Oven Sensor (Randy)</strong> &mdash; Was due 3/20. To Do. &nbsp;&bull;&nbsp; <strong>Dryer Drum (Randy)</strong> &mdash; Was due 3/20. In Progress. &nbsp;&bull;&nbsp; <strong>Replace Filter on Pot Filler (Randy)</strong> &mdash; Was due 3/22.</div>
       </div>
     </div>
 
     <!-- TODAY'S SCHEDULE -->
     <div class="card">
       <h2>&#128197; TODAY'S SCHEDULE &mdash; Monday, March 23</h2>
+      <div class="person-key">
+        <div class="pk-item"><div class="pk-dot" style="background:#805ad5"></div>Maggie</div>
+        <div class="pk-item"><div class="pk-dot" style="background:#3182ce"></div>Brooks</div>
+        <div class="pk-item"><div class="pk-dot" style="background:#d53f8c"></div>Sybil</div>
+        <div class="pk-item"><div class="pk-dot" style="background:#dd6b20"></div>Emmet</div>
+        <div class="pk-item"><div class="pk-dot" style="background:#2f855a"></div>Mom</div>
+      </div>
+
       <div class="schedule-event">
         <div class="time-col">11:15 AM</div>
         <div>
           <span class="event-pill pill-green">Mom</span>
           <div class="event-name">Inova Appointment &mdash; Nicole K Derosier, PA</div>
           <div class="event-loc">&#128205; Online check-in at mychart.inova.org &middot; 571-472-6464</div>
-          <div class="conflict-warning">&#9888; Confirmed via email &mdash; calendar shows a follow-up on Fri 3/27 (verify both)</div>
+          <div class="conflict-warning">&#9888; Confirmed via email; calendar shows a follow-up Fri 3/27 &mdash; may be two separate visits</div>
         </div>
       </div>
-      <div class="schedule-event">
+
+      <div class="schedule-event" style="background:#fff5f5;border-radius:8px;padding:10px;border:1px solid #fed7d7;">
+        <div class="time-col">3:00&ndash;6:30 PM</div>
+        <div>
+          <span class="event-pill pill-purple">Maggie</span>
+          <div class="event-name">Grease Rehearsal</div>
+          <div class="event-loc">&#128205; Langley High School</div>
+        </div>
+      </div>
+
+      <div class="schedule-event" style="background:#fff5f5;border-radius:8px;padding:10px;border:1px solid #fed7d7;margin-top:4px;">
         <div class="time-col">3:15&ndash;4:45 PM</div>
         <div>
           <span class="event-pill pill-pink">Sybil</span><span class="event-pill pill-green">Mom</span>
           <div class="event-name">GOTR Practice (Girls on the Run)</div>
           <div class="event-loc">&#128205; Churchill Road Elementary School &middot; 7100 Churchill Rd, McLean</div>
-          <div class="conflict-warning">&#9888; Tight turnaround &mdash; Sybil Soccer at 5:00 PM at a different location (only 15 min gap!)</div>
+          <div class="conflict-warning">&#9888; Ends 4:45 &mdash; Brooks Group Training ALREADY started at 4:30 at different location</div>
         </div>
       </div>
-      <div class="schedule-event">
+
+      <div class="schedule-event" style="background:#fff5f5;border-radius:8px;padding:10px;border:1px solid #fed7d7;margin-top:4px;">
+        <div class="time-col">4:30&ndash;6:00 PM</div>
+        <div>
+          <span class="event-pill pill-blue">Brooks</span>
+          <div class="event-name">McLean Group Training Session (3rd&ndash;5th Graders)</div>
+          <div class="event-loc">&#128205; 6250 Georgetown Pike, McLean VA &middot; (SportsEngine)</div>
+          <div class="conflict-warning">&#9888; Overlaps with GOTR (4:30&ndash;4:45) and Sybil Soccer (5:00&ndash;6:00) &mdash; need separate driver for Brooks</div>
+        </div>
+      </div>
+
+      <div class="schedule-event" style="background:#fff5f5;border-radius:8px;padding:10px;border:1px solid #fed7d7;margin-top:4px;">
         <div class="time-col">5:00&ndash;6:15 PM</div>
         <div>
           <span class="event-pill pill-pink">Sybil</span>
@@ -302,22 +357,24 @@
       </div>
     </div>
 
-    <!-- TOP ACTION ITEMS -->
+    <!-- ACTION ITEMS -->
     <div class="card">
       <h2>&#9989; TOP ACTION ITEMS</h2>
       <ul class="action-list">
-        <li><input type="checkbox" id="a1"><label for="a1">Complete Inova online check-in before 11:15 AM appointment &mdash; <a href="https://mychart.inova.org/mychart/s/BAYKXAQCXJXIMNRJ43KKERUZ5Y/echeckin" target="_blank">MyChart check-in</a> <span class="tag urgent">TODAY</span></label></li>
-        <li><input type="checkbox" id="a2"><label for="a2">Read 2 new Inova MyChart messages &mdash; <a href="https://mychart.inova.org/mychart/" target="_blank">mychart.inova.org</a> <span class="tag urgent">TODAY</span></label></li>
-        <li><input type="checkbox" id="a3"><label for="a3">Complete FCPS Family Engagement Survey &mdash; closes TODAY &mdash; <a href="https://bit.ly/FESURVEY2026" target="_blank">bit.ly/FESURVEY2026</a> <span class="tag today">TODAY</span></label></li>
-        <li><input type="checkbox" id="a4"><label for="a4">Call Ft. Belvoir to schedule Emmet's ear appointment (Tricare referral &mdash; Dr. Daniel Spielman) <span class="tag urgent">OVERDUE</span></label></li>
-        <li><input type="checkbox" id="a5"><label for="a5">Sign 2025 Tax Engagement Letter &mdash; Bass &amp; Associates LLC (10 days pending) &mdash; <a href="https://bassassociatesllc.taxdome.com/app/dashboard" target="_blank">TaxDome portal</a></label></li>
-        <li><input type="checkbox" id="a6"><label for="a6">Respond to NRC Landscaping (Kelvin Ramirez) re: Tue 3/24 at 12pm consultation &mdash; <a href="mailto:kelvin@nrclandscaping.com">kelvin@nrclandscaping.com</a> &middot; 571-216-5050</label></li>
-        <li><input type="checkbox" id="a7"><label for="a7">Volunteer for Grease backstage (urgently needed) &mdash; <a href="https://www.signupgenius.com/go/10C0E45AFA62CA7FACF8-58178699-2026#/" target="_blank">SignUpGenius</a></label></li>
-        <li><input type="checkbox" id="a8"><label for="a8">Acknowledge Maggie's 2026&ndash;27 course requests in ParentVUE &mdash; deadline Fri 3/27 <span class="tag today">DUE FRI</span></label></li>
-        <li><input type="checkbox" id="a9"><label for="a9">Schedule 4 Kids Dental Check-Ups &mdash; due 3/27 <span class="tag today">DUE FRI</span></label></li>
-        <li><input type="checkbox" id="a10"><label for="a10">Sign family up for GOTR 5K &mdash; due 3/25 &mdash; <a href="https://www.pinwheel.us/register/index/GOTRNOVA5KSP26?sid=ba0d679a4cce4f6b9bcbb9938ea561bf" target="_blank">Register here</a> <span class="tag today">DUE WED</span></label></li>
-        <li><input type="checkbox" id="a11"><label for="a11">Follow up on Radon Fix &mdash; confirm contractor timeline <span class="tag urgent">OVERDUE</span></label></li>
-        <li><input type="checkbox" id="a12"><label for="a12">Continue scheduling Melissa Breast Check Up &mdash; referral submitted, appointment pending</label></li>
+        <li><input type="checkbox" id="a1"><label for="a1">Arrange coverage for Brooks's 4:30 PM Group Training &mdash; GOTR doesn't end until 4:45 (different location) <span class="tag urgent">CONFLICT TODAY</span></label></li>
+        <li><input type="checkbox" id="a2"><label for="a2">Complete Inova online check-in before 11:15 AM &mdash; <a href="https://mychart.inova.org/mychart/s/BAYKXAQCXJXIMNRJ43KKERUZ5Y/echeckin" target="_blank">MyChart check-in link</a> <span class="tag urgent">TODAY</span></label></li>
+        <li><input type="checkbox" id="a3"><label for="a3">Read 2 new Inova MyChart messages &mdash; <a href="https://mychart.inova.org/mychart/" target="_blank">mychart.inova.org</a> <span class="tag urgent">TODAY</span></label></li>
+        <li><input type="checkbox" id="a4"><label for="a4">Complete FCPS Family Engagement Survey &mdash; <a href="https://bit.ly/FESURVEY2026" target="_blank">bit.ly/FESURVEY2026</a> <span class="tag today">CLOSES TODAY</span></label></li>
+        <li><input type="checkbox" id="a5"><label for="a5">Plan for Tuesday: Brooks has X-Factors Practice 5&ndash;6:30 PM AND Baseball 6:15&ndash;7:30 PM (15-min overlap) + Maggie has Grease 3&ndash;6 PM AND Unruly 7&ndash;9 PM <span class="tag urgent">TUE CONFLICT</span></label></li>
+        <li><input type="checkbox" id="a6"><label for="a6">Call Ft. Belvoir to schedule Emmet's ear appointment (Tricare referral &mdash; Dr. Daniel Spielman) <span class="tag urgent">OVERDUE</span></label></li>
+        <li><input type="checkbox" id="a7"><label for="a7">Sign 2025 Tax Engagement Letter &mdash; Bass &amp; Associates LLC (10 days pending) &mdash; <a href="https://bassassociatesllc.taxdome.com/app/dashboard" target="_blank">TaxDome portal</a></label></li>
+        <li><input type="checkbox" id="a8"><label for="a8">Respond to NRC Landscaping (Kelvin Ramirez) re: Tue 3/24 at 12pm outdoor consultation &mdash; <a href="mailto:kelvin@nrclandscaping.com">kelvin@nrclandscaping.com</a> &middot; 571-216-5050</label></li>
+        <li><input type="checkbox" id="a9"><label for="a9">Volunteer for Grease backstage (urgently needed) &mdash; <a href="https://www.signupgenius.com/go/10C0E45AFA62CA7FACF8-58178699-2026#/" target="_blank">SignUpGenius</a></label></li>
+        <li><input type="checkbox" id="a10"><label for="a10">Acknowledge Maggie's 2026&ndash;27 course requests in ParentVUE &mdash; due Fri 3/27 <span class="tag today">DUE FRI</span></label></li>
+        <li><input type="checkbox" id="a11"><label for="a11">Schedule 4 Kids Dental Check-Ups &mdash; due Fri 3/27 <span class="tag today">DUE FRI</span></label></li>
+        <li><input type="checkbox" id="a12"><label for="a12">Sign family up for GOTR 5K &mdash; due Wed 3/25 &mdash; <a href="https://www.pinwheel.us/register/index/GOTRNOVA5KSP26?sid=ba0d679a4cce4f6b9bcbb9938ea561bf" target="_blank">Register here</a> <span class="tag today">DUE WED</span></label></li>
+        <li><input type="checkbox" id="a13"><label for="a13">Follow up on Radon Fix &mdash; confirm contractor timeline <span class="tag urgent">OVERDUE</span></label></li>
+        <li><input type="checkbox" id="a14"><label for="a14">Continue scheduling Melissa Breast Check Up (referral submitted)</label></li>
       </ul>
     </div>
 
@@ -325,81 +382,101 @@
     <div class="card">
       <h2>&#128198; THIS WEEK AT A GLANCE</h2>
       <div class="week-grid">
-        <div class="day-card today-card conflict">
+
+        <div class="day-card conflict today-card">
           <div class="day-name">Mon</div>
           <div class="day-date">23</div>
-          <div class="day-count">3 events</div>
-          <span class="day-tag-lbl">TODAY &#9888;</span>
+          <div class="day-count">5 events</div>
+          <span class="day-tag-lbl">CONFLICT &#9888;</span>
           <div class="day-events">
-            <div class="day-dot" style="color:#2f855a">&#9679; Inova 11:15am</div>
-            <div class="day-dot" style="color:#d53f8c">&#9679; GOTR 3:15pm</div>
+            <div class="day-dot" style="color:#2f855a">&#9679; Inova 11:15</div>
+            <div class="day-dot" style="color:#805ad5">&#9679; Grease 3pm</div>
+            <div class="day-dot" style="color:#d53f8c">&#9679; GOTR 3:15</div>
+            <div class="day-dot" style="color:#3182ce">&#9679; Group Train 4:30</div>
             <div class="day-dot" style="color:#d53f8c">&#9679; Soccer 5pm</div>
           </div>
         </div>
-        <div class="day-card busy">
+
+        <div class="day-card conflict">
           <div class="day-name">Tue</div>
           <div class="day-date">24</div>
-          <div class="day-count">2 events</div>
-          <span class="day-tag-lbl">BUSY</span>
+          <div class="day-count">4 events</div>
+          <span class="day-tag-lbl">CONFLICT &#9888;</span>
           <div class="day-events">
-            <div class="day-dot" style="color:#3182ce">&#9679; Baseball 6:15pm</div>
+            <div class="day-dot" style="color:#805ad5">&#9679; Grease 3pm</div>
+            <div class="day-dot" style="color:#3182ce">&#9679; X-Factors 5pm</div>
+            <div class="day-dot" style="color:#3182ce">&#9679; Baseball 6:15</div>
             <div class="day-dot" style="color:#805ad5">&#9679; Unruly 7pm</div>
           </div>
         </div>
-        <div class="day-card">
+
+        <div class="day-card busy">
           <div class="day-name">Wed</div>
           <div class="day-date">25</div>
-          <div class="day-count">2 events</div>
+          <div class="day-count">3 events</div>
+          <span class="day-tag-lbl">BUSY</span>
           <div class="day-events">
-            <div class="day-dot" style="color:#d53f8c">&#9679; GOTR 3:15pm</div>
+            <div class="day-dot" style="color:#805ad5">&#9679; Grease 3pm</div>
+            <div class="day-dot" style="color:#d53f8c">&#9679; GOTR 3:15</div>
             <div class="day-dot" style="color:#dd6b20">&#9679; Emmet Pic Day</div>
           </div>
         </div>
-        <div class="day-card">
+
+        <div class="day-card busy">
           <div class="day-name">Thu</div>
           <div class="day-date">26</div>
-          <div class="day-count">1 event</div>
+          <div class="day-count">3 events</div>
+          <span class="day-tag-lbl">GAME DAY</span>
           <div class="day-events">
+            <div class="day-dot" style="color:#805ad5">&#9679; Grease 3pm</div>
+            <div class="day-dot" style="color:#3182ce">&#9679; &#9917; Baseball 5:15</div>
             <div class="day-dot" style="color:#805ad5">&#9679; Unruly 7pm</div>
           </div>
         </div>
+
         <div class="day-card busy">
           <div class="day-name">Fri</div>
           <div class="day-date">27</div>
           <div class="day-count">3 events</div>
           <span class="day-tag-lbl">EARLY RELEASE</span>
           <div class="day-events">
-            <div class="day-dot" style="color:#2f855a">&#9679; Inova FU 11:30am</div>
-            <div class="day-dot" style="color:#718096">&#9679; 2-Hr Early Release</div>
+            <div class="day-dot" style="color:#2f855a">&#9679; Inova FU 11:30</div>
+            <div class="day-dot" style="color:#805ad5">&#9679; Grease 1pm</div>
             <div class="day-dot" style="color:#718096">&#9679; Julia &#9992; 11:41pm</div>
           </div>
         </div>
-        <div class="day-card">
+
+        <div class="day-card busy">
           <div class="day-name">Sat</div>
           <div class="day-date">28</div>
-          <div class="day-count">Guests arrive</div>
+          <div class="day-count">3 events</div>
+          <span class="day-tag-lbl">GAME DAY</span>
           <div class="day-events">
-            <div class="day-dot" style="color:#553c9a">&#9679; Jerry &amp; Suzy in town</div>
+            <div class="day-dot" style="color:#553c9a">&#9679; Jerry &amp; Suzy</div>
+            <div class="day-dot" style="color:#3182ce">&#9679; &#127944; X-Factors 1pm</div>
+            <div class="day-dot" style="color:#718096">&#9679; J&amp;S flight noon</div>
           </div>
         </div>
+
         <div class="day-card busy">
           <div class="day-name">Sun</div>
           <div class="day-date">29</div>
           <div class="day-count">2 events</div>
           <span class="day-tag-lbl">BUSY</span>
           <div class="day-events">
-            <div class="day-dot" style="color:#3182ce">&#9679; Baseball 1:30pm</div>
+            <div class="day-dot" style="color:#3182ce">&#9679; Baseball 1:30</div>
             <div class="day-dot" style="color:#3182ce">&#9679; Flag Football 5pm</div>
           </div>
         </div>
+
       </div>
     </div>
 
     <!-- QUICK STATS -->
     <div class="stats-grid">
-      <div class="stat-box"><div class="stat-num">10</div><div class="stat-label">Activities This Week</div></div>
+      <div class="stat-box"><div class="stat-num">18</div><div class="stat-label">Activities This Week</div></div>
       <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Open Tasks (Melissa)</div></div>
-      <div class="stat-box"><div class="stat-num">8</div><div class="stat-label">Urgent Alerts</div></div>
+      <div class="stat-box"><div class="stat-num">9</div><div class="stat-label">Urgent Alerts</div></div>
       <div class="stat-box"><div class="stat-num">1</div><div class="stat-label">Active Renovations</div></div>
     </div>
 
@@ -421,7 +498,7 @@
             <tr class="overdue"><td>Oven Sensor <span class="overdue-label">OVERDUE</span></td><td class="owner-randy">Randy</td><td>3/20/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-todo">To Do</span></td><td>&mdash;</td></tr>
             <tr class="overdue"><td>Dryer Drum <span class="overdue-label">OVERDUE</span></td><td class="owner-randy">Randy</td><td>3/20/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-inprogress">In Progress</span></td><td>&mdash;</td></tr>
             <tr><td>4 Kids Dental Check Ups</td><td class="owner-melissa">Melissa</td><td>3/27/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-todo">To Do</span></td><td>&mdash;</td></tr>
-            <tr><td>Melissa Breast Check Up</td><td class="owner-melissa">Melissa</td><td><strong>3/23/2026 &#9888;</strong></td><td class="priority-high">High</td><td><span class="status-badge status-inprogress">In Progress</span></td><td>Referral submitted; scheduling appointment.</td></tr>
+            <tr><td>Melissa Breast Check Up</td><td class="owner-melissa">Melissa</td><td><strong>3/23/2026 &#9888;</strong></td><td class="priority-high">High</td><td><span class="status-badge status-inprogress">In Progress</span></td><td>Referral submitted; scheduling.</td></tr>
             <tr class="overdue"><td>Emmet's Ear Appt <span class="overdue-label">OVERDUE</span></td><td class="owner-melissa">Melissa</td><td>3/22/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-inprogress">In Progress</span></td><td>Call Ft. Belvoir. Referral for Dr. Daniel B. Spielman MD, 6862 Elm St #800B, McLean VA 22101.</td></tr>
             <tr class="overdue"><td>Radon Fix <span class="overdue-label">OVERDUE</span></td><td class="owner-melissa">Melissa</td><td>3/22/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-inprogress">In Progress</span></td><td>Sent email to get things moving.</td></tr>
             <tr><td>Sign Fam up for 5K</td><td class="owner-melissa">Melissa</td><td>3/25/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-todo">To Do</span></td><td><a href="https://www.pinwheel.us/register/index/GOTRNOVA5KSP26?sid=ba0d679a4cce4f6b9bcbb9938ea561bf" target="_blank">GOTR 5K Registration</a></td></tr>
@@ -432,7 +509,7 @@
             <tr><td>Nominations Meeting</td><td class="owner-melissa">Melissa</td><td>3/17/2026</td><td class="priority-high">High</td><td><span class="status-badge status-done">Done</span></td><td>&mdash;</td></tr>
             <tr><td>Melissa PT Appointment</td><td class="owner-melissa">Melissa</td><td>3/17/2026</td><td class="priority-high">High</td><td><span class="status-badge status-done">Done</span></td><td>Confirmed for Monday, March 25</td></tr>
             <tr><td>GOTR Family Email</td><td class="owner-melissa">Melissa</td><td>3/16/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-done">Done</span></td><td>&mdash;</td></tr>
-            <tr><td>Melissa Derm Appointment</td><td class="owner-melissa">Melissa</td><td>3/17/2026</td><td class="priority-high">High</td><td><span class="status-badge status-done">Done</span></td><td>Booked for April 9 at 1:30 PM</td></tr>
+            <tr><td>Melissa Derm Appointment</td><td class="owner-melissa">Melissa</td><td>3/17/2026</td><td class="priority-high">High</td><td><span class="status-badge status-done">Done</span></td><td>Booked April 9 at 1:30 PM</td></tr>
             <tr><td>Order Key Fob Battery for Van</td><td class="owner-melissa">Melissa</td><td>3/21/2026</td><td class="priority-medium">Medium</td><td><span class="status-badge status-done">Done</span></td><td>Ordered</td></tr>
           </tbody>
         </table>
@@ -453,26 +530,26 @@
           <div class="renov-card planning">
             <h3>&#127807; Outdoor Living / Backyard Reno Plan</h3>
             <span class="renov-status rs-planning">Planning</span>
-            <div class="renov-meta"><strong>Timeline:</strong> Spring 2026 &ndash; Spring 2026<br><strong>Lead:</strong> Landscape Designer<br><strong>Dependencies:</strong> None</div>
-            <div class="renov-notes">Full design plan needed BEFORE new patio. Address drainage, mud under swingset. Coordinate grading with driveway work &mdash; can run simultaneously once addition goes interior-only (est. May/June 2026).</div>
+            <div class="renov-meta"><strong>Timeline:</strong> Spring 2026 &ndash; Spring 2026<br><strong>Lead:</strong> Landscape Designer</div>
+            <div class="renov-notes">Full design plan needed BEFORE new patio. Address drainage, mud under swingset. Coordinate with driveway work. Can run simultaneously once addition goes interior-only (est. May/June 2026).</div>
           </div>
           <div class="renov-card notstarted">
             <h3>&#128663; New Driveway</h3>
             <span class="renov-status rs-notstarted">Not Started</span>
-            <div class="renov-meta"><strong>Timeline:</strong> Summer 2026 &ndash; Fall 2026<br><strong>Lead:</strong> Paving Contractor<br><strong>Dependencies:</strong> Can run alongside #2 &amp; #4</div>
-            <div class="renov-notes">Expand for two-car capacity. Add basketball hoop pad. Coordinate grading &amp; drainage with backyard reno.</div>
+            <div class="renov-meta"><strong>Timeline:</strong> Summer 2026 &ndash; Fall 2026<br><strong>Lead:</strong> Paving Contractor</div>
+            <div class="renov-notes">Expand for two-car capacity. Add basketball hoop pad. Coordinate with backyard reno.</div>
           </div>
           <div class="renov-card notstarted">
             <h3>&#127968; New Patio off Addition</h3>
             <span class="renov-status rs-notstarted">Not Started</span>
             <div class="renov-meta"><strong>Timeline:</strong> Summer 2026 &ndash; Summer 2026<br><strong>Lead:</strong> Hardscape / Masonry<br><strong>Dependencies:</strong> Projects #1 &amp; #2</div>
-            <div class="renov-notes">New patio off the new office addition. Can run concurrently with Driveway once addition is interior-only (est. May/June 2026).</div>
+            <div class="renov-notes">New patio off the new office addition. Can run concurrently with Driveway once addition is interior-only.</div>
           </div>
           <div class="renov-card notstarted">
             <h3>&#127860; Dining Room Renovation</h3>
             <span class="renov-status rs-notstarted">Not Started</span>
-            <div class="renov-meta"><strong>Timeline:</strong> Fall 2026 &ndash; Winter 2027<br><strong>Lead:</strong> General Contractor / Carpenter<br><strong>Dependencies:</strong> None</div>
-            <div class="renov-notes">Remove shelves. Add bay window. Hi-rise shelves on back wall. Open up stairs to basement; rethink stairs to bedrooms.</div>
+            <div class="renov-meta"><strong>Timeline:</strong> Fall 2026 &ndash; Winter 2027<br><strong>Lead:</strong> General Contractor / Carpenter</div>
+            <div class="renov-notes">Remove shelves. Add bay window. Hi-rise shelves on back wall. Open stairs to basement; rethink stairs to bedrooms.</div>
           </div>
           <div class="renov-card notstarted">
             <h3>&#9728; Basement Extension &rarr; Sunroom</h3>
@@ -483,8 +560,8 @@
           <div class="renov-card notstarted">
             <h3>&#127804; Front Porch</h3>
             <span class="renov-status rs-notstarted">Not Started</span>
-            <div class="renov-meta"><strong>Timeline:</strong> Spring 2028 &ndash; Summer 2028<br><strong>Lead:</strong> General Contractor / Carpenter<br><strong>Dependencies:</strong> None</div>
-            <div class="renov-notes">New front porch addition. Scope TBD &mdash; covered, open, or screened. Coordinate with facade/landscaping.</div>
+            <div class="renov-meta"><strong>Timeline:</strong> Spring 2028 &ndash; Summer 2028<br><strong>Lead:</strong> General Contractor / Carpenter</div>
+            <div class="renov-notes">New front porch addition. Scope TBD &mdash; covered, open, or screened.</div>
           </div>
         </div>
         <p style="margin-top:14px;font-size:0.8rem;color:#718096;"><a href="https://docs.google.com/spreadsheets/d/1p7F4Jryd-vpqE8sDCuGfipFy4ivLa0do/edit?gid=1649146518#gid=1649146518" target="_blank">&rarr; Open full Renovation Tracker in Google Sheets</a></p>
@@ -493,44 +570,235 @@
 
     <!-- FULL WEEK SCHEDULE -->
     <details>
-      <summary>&#128198; FULL WEEK SCHEDULE</summary>
+      <summary>&#128198; FULL WEEK SCHEDULE (All 8 Calendars)</summary>
       <div class="details-body">
+
         <div class="week-day-block">
-          <div class="week-day-title">Monday, March 23 &mdash; TODAY</div>
-          <div class="week-event-row"><span class="event-pill pill-green">Mom</span><strong>11:15 AM</strong> &mdash; Inova Appt, Nicole K Derosier PA (from email; verify vs. Fri calendar entry)</div>
-          <div class="week-event-row"><span class="event-pill pill-pink">Sybil</span><span class="event-pill pill-green">Mom</span><strong>3:15&ndash;4:45 PM</strong> &mdash; GOTR Practice, Churchill Road Elementary</div>
-          <div class="week-event-row"><span class="event-pill pill-pink">Sybil</span><strong>5:00&ndash;6:15 PM</strong> &mdash; Soccer Training, McLean Governmental Center</div>
+          <div class="week-day-title">Monday, March 23 &mdash; TODAY <span class="wdt-conflict">&#9888; CONFLICTS</span></div>
+          <div class="week-event-row">
+            <span class="event-pill pill-green">Mom</span>
+            <div class="wer-info">
+              <div class="wer-time">11:15 AM &ndash; ~noon</div>
+              <div class="wer-name">Inova Appointment &mdash; Nicole K Derosier, PA</div>
+              <div class="wer-loc">&#128205; Online check-in; 571-472-6464</div>
+              <div class="wer-conflict">From email confirmation (not on primary calendar)</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-purple">Maggie</span>
+            <div class="wer-info">
+              <div class="wer-time">3:00 &ndash; 6:30 PM</div>
+              <div class="wer-name">Grease Rehearsal</div>
+              <div class="wer-loc">&#128205; Langley High School</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-pink">Sybil</span><span class="event-pill pill-green">Mom</span>
+            <div class="wer-info">
+              <div class="wer-time">3:15 &ndash; 4:45 PM</div>
+              <div class="wer-name">GOTR Practice</div>
+              <div class="wer-loc">&#128205; Churchill Road Elementary, 7100 Churchill Rd, McLean</div>
+              <div class="wer-conflict">&#9888; Ends 4:45 &mdash; Brooks Group Training starts 4:30 at Georgetown Pike (15 min overlap, different location)</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-blue">Brooks</span>
+            <div class="wer-info">
+              <div class="wer-time">4:30 &ndash; 6:00 PM</div>
+              <div class="wer-name">McLean Group Training Session (3rd&ndash;5th Graders)</div>
+              <div class="wer-loc">&#128205; 6250 Georgetown Pike, McLean VA &middot; (SportsEngine)</div>
+              <div class="wer-conflict">&#9888; Needs separate driver from GOTR</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-pink">Sybil</span>
+            <div class="wer-info">
+              <div class="wer-time">5:00 &ndash; 6:15 PM</div>
+              <div class="wer-name">Sybil Soccer Training</div>
+              <div class="wer-loc">&#128205; McLean Governmental Center, 1437 Balls Hill Rd, McLean</div>
+            </div>
+          </div>
         </div>
+
         <div class="week-day-block">
-          <div class="week-day-title">Tuesday, March 24</div>
-          <div class="week-event-row"><span class="event-pill pill-blue">Brooks</span><strong>6:15&ndash;7:30 PM</strong> &mdash; Baseball Practice, Spring Hill RECenter</div>
-          <div class="week-event-row"><span class="event-pill pill-purple">Maggie</span><strong>7:00&ndash;9:00 PM</strong> &mdash; Unruly Theater Project, McLean Old Fire House Center, 1440 Chain Bridge Rd</div>
+          <div class="week-day-title">Tuesday, March 24 <span class="wdt-conflict">&#9888; CONFLICTS</span></div>
+          <div class="week-event-row">
+            <span class="event-pill pill-purple">Maggie</span>
+            <div class="wer-info">
+              <div class="wer-time">3:00 &ndash; 6:00 PM</div>
+              <div class="wer-name">Grease Rehearsal</div>
+              <div class="wer-loc">&#128205; Langley High School</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-blue">Brooks</span>
+            <div class="wer-info">
+              <div class="wer-time">5:00 &ndash; 6:30 PM</div>
+              <div class="wer-name">X-Factors Team Practice (Flagstar Elite Flag Football)</div>
+              <div class="wer-loc">&#128205; 6250 Georgetown Pike, McLean VA &middot; (SportsEngine)</div>
+              <div class="wer-conflict">&#9888; Ends 6:30 &mdash; Baseball Practice starts 6:15 (15 min overlap &mdash; need to leave early or arrive late)</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-blue">Brooks</span>
+            <div class="wer-info">
+              <div class="wer-time">6:15 &ndash; 7:30 PM</div>
+              <div class="wer-name">Brooks Baseball Practice (NB6 &mdash; Wheats)</div>
+              <div class="wer-loc">&#128205; Spring Hill RECenter, 1239 Spring Hill Rd, McLean</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-purple">Maggie</span>
+            <div class="wer-info">
+              <div class="wer-time">7:00 &ndash; 9:00 PM</div>
+              <div class="wer-name">Unruly Theater Project</div>
+              <div class="wer-loc">&#128205; McLean Old Fire House Center, 1440 Chain Bridge Rd, McLean</div>
+              <div class="wer-note">Maggie's 2nd commitment tonight (after Grease 3&ndash;6 PM)</div>
+            </div>
+          </div>
         </div>
+
         <div class="week-day-block">
-          <div class="week-day-title">Wednesday, March 25</div>
-          <div class="week-event-row"><span class="event-pill pill-pink">Sybil</span><span class="event-pill pill-green">Mom</span><strong>3:15&ndash;4:45 PM</strong> &mdash; GOTR Practice, Churchill Road Elementary</div>
-          <div class="week-event-row" style="font-size:0.82rem;color:#718096;padding-top:2px;">&#128247; Emmet Picture Day at McLean Children's Academy (all day &mdash; on Randy's calendar)</div>
+          <div class="week-day-title">Wednesday, March 25 <span class="wdt-busy">BUSY</span></div>
+          <div class="week-event-row">
+            <span class="event-pill pill-orange">Emmet</span>
+            <div class="wer-info">
+              <div class="wer-time">All Day</div>
+              <div class="wer-name">Emmet Picture Day</div>
+              <div class="wer-loc">&#128205; McLean Children's Academy (on Randy's calendar)</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-purple">Maggie</span>
+            <div class="wer-info">
+              <div class="wer-time">3:00 &ndash; 5:00 PM</div>
+              <div class="wer-name">Grease Rehearsal</div>
+              <div class="wer-loc">&#128205; Langley High School</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-pink">Sybil</span><span class="event-pill pill-green">Mom</span>
+            <div class="wer-info">
+              <div class="wer-time">3:15 &ndash; 4:45 PM</div>
+              <div class="wer-name">GOTR Practice</div>
+              <div class="wer-loc">&#128205; Churchill Road Elementary, 7100 Churchill Rd, McLean</div>
+            </div>
+          </div>
         </div>
+
         <div class="week-day-block">
-          <div class="week-day-title">Thursday, March 26</div>
-          <div class="week-event-row"><span class="event-pill pill-purple">Maggie</span><strong>7:00&ndash;9:00 PM</strong> &mdash; Unruly Theater Project, McLean Old Fire House Center</div>
+          <div class="week-day-title">Thursday, March 26 <span class="wdt-game">&#9917; GAME DAY</span></div>
+          <div class="week-event-row">
+            <span class="event-pill pill-purple">Maggie</span>
+            <div class="wer-info">
+              <div class="wer-time">3:00 &ndash; 5:00 PM</div>
+              <div class="wer-name">Grease Rehearsal</div>
+              <div class="wer-loc">&#128205; Langley High School</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-blue">Brooks</span>
+            <div class="wer-info">
+              <div class="wer-time">5:15 &ndash; 7:15 PM</div>
+              <div class="wer-name">&#9917; BASEBALL GAME &mdash; NB6 Wheats vs NB1 Rock Hard Excavating <span class="game-badge">GAME</span></div>
+              <div class="wer-loc">&#128205; 1836 Westmoreland St, McLean VA &middot; Field 3</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-purple">Maggie</span>
+            <div class="wer-info">
+              <div class="wer-time">7:00 &ndash; 9:00 PM</div>
+              <div class="wer-name">Unruly Theater Project</div>
+              <div class="wer-loc">&#128205; McLean Old Fire House Center, 1440 Chain Bridge Rd</div>
+              <div class="wer-note">Maggie's 2nd commitment tonight (after Grease 3&ndash;5 PM)</div>
+            </div>
+          </div>
         </div>
+
         <div class="week-day-block">
           <div class="week-day-title">Friday, March 27 &mdash; End of 3rd Quarter &middot; 2-Hour Early Release</div>
-          <div class="week-event-row"><span class="event-pill pill-green">Mom</span><strong>11:30 AM&ndash;12:00 PM</strong> &mdash; Inova Follow-Up, Nicole K Derosier PA &middot; 8100 Innovation Park Dr, Fairfax</div>
-          <div class="week-event-row" style="font-size:0.82rem;color:#718096;">&#128197; 3rd Quarter ends; 2-hour early release for all FCPS kids</div>
-          <div class="week-event-row" style="font-size:0.82rem;color:#718096;">&#9992; Julia arrives Dulles &middot; Delta 4129 &middot; 11:41 PM</div>
+          <div class="week-event-row">
+            <span class="event-pill pill-green">Mom</span>
+            <div class="wer-info">
+              <div class="wer-time">11:30 AM &ndash; 12:00 PM</div>
+              <div class="wer-name">Inova Follow-Up &mdash; Nicole K Derosier, PA</div>
+              <div class="wer-loc">&#128205; 8100 Innovation Park Drive, Fairfax VA 22031 &middot; 571-472-6464</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-purple">Maggie</span>
+            <div class="wer-info">
+              <div class="wer-time">1:00 &ndash; 3:00 PM</div>
+              <div class="wer-name">Grease Rehearsal (after early release)</div>
+              <div class="wer-loc">&#128205; Langley High School</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-gray">All Kids</span>
+            <div class="wer-info">
+              <div class="wer-time">Early Dismissal</div>
+              <div class="wer-name">End of 3rd Quarter &mdash; 2-Hour Early Release</div>
+              <div class="wer-loc">Langley HS + Churchill Road Elementary</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-gray">Family</span>
+            <div class="wer-info">
+              <div class="wer-time">11:41 PM</div>
+              <div class="wer-name">Julia arrives at Dulles &mdash; Delta 4129</div>
+              <div class="wer-loc">&#128205; Dulles International Airport</div>
+            </div>
+          </div>
         </div>
+
         <div class="week-day-block">
-          <div class="week-day-title">Saturday, March 28</div>
-          <div class="week-event-row" style="color:#553c9a;font-size:0.85rem;">&#127968; Jerry &amp; Suzy in Town (through April 1) &middot; 1303 Earnestine St, McLean</div>
-          <div class="week-event-row" style="font-size:0.82rem;color:#718096;">&#9992; Jerry &amp; Suzy depart Reagan National &middot; United 2265 (12:15 PM)</div>
+          <div class="week-day-title">Saturday, March 28 <span class="wdt-game">&#127944; GAME DAY</span></div>
+          <div class="week-event-row">
+            <span class="event-pill pill-gray">Guests</span>
+            <div class="wer-info">
+              <div class="wer-time">All Weekend</div>
+              <div class="wer-name">Jerry &amp; Suzy in Town (through April 1)</div>
+              <div class="wer-loc">&#128205; 1303 Earnestine St, McLean</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-gray">Guests</span>
+            <div class="wer-info">
+              <div class="wer-time">12:15 PM</div>
+              <div class="wer-name">Jerry &amp; Suzy &mdash; Flight Departure (Reagan National)</div>
+              <div class="wer-loc">&#9992; United 2265 &rarr; ORD &middot; then United 1857 FSD&ndash;ORD</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-blue">Brooks</span>
+            <div class="wer-info">
+              <div class="wer-time">1:00 &ndash; 2:30 PM</div>
+              <div class="wer-name">&#127944; FLAG FOOTBALL GAME &mdash; McLean X-Factors 5th vs McLean Wolverines 5th <span class="game-badge">GAME</span></div>
+              <div class="wer-loc">&#128205; 1766 Old Meadow Lane, McLean VA &middot; (SportsEngine)</div>
+            </div>
+          </div>
         </div>
+
         <div class="week-day-block">
           <div class="week-day-title">Sunday, March 29</div>
-          <div class="week-event-row"><span class="event-pill pill-blue">Brooks</span><strong>1:30&ndash;3:00 PM</strong> &mdash; Baseball Practice, Linway Terrace Park, 6246 Linway Terr, McLean</div>
-          <div class="week-event-row"><span class="event-pill pill-blue">Brooks/Sybil?</span><strong>5:00&ndash;6:30 PM</strong> &mdash; Flag Football (Rec) &middot; location TBD &mdash; confirm player &amp; venue</div>
+          <div class="week-event-row">
+            <span class="event-pill pill-blue">Brooks</span>
+            <div class="wer-info">
+              <div class="wer-time">1:30 &ndash; 3:00 PM</div>
+              <div class="wer-name">Brooks Baseball Practice (NB6 &mdash; Wheats)</div>
+              <div class="wer-loc">&#128205; Linway Terrace Park, 6246 Linway Terr, McLean</div>
+            </div>
+          </div>
+          <div class="week-event-row">
+            <span class="event-pill pill-blue">Brooks/Sybil?</span>
+            <div class="wer-info">
+              <div class="wer-time">5:00 &ndash; 6:30 PM</div>
+              <div class="wer-name">Flag Football (Rec)</div>
+              <div class="wer-loc">&#128205; Location TBD &mdash; confirm player &amp; venue</div>
+            </div>
+          </div>
         </div>
+
       </div>
     </details>
 
@@ -547,7 +815,7 @@
         <div class="email-item urgent-email">
           <div class="email-from">NRC Landscaping &mdash; Kelvin Ramirez &middot; Sun, March 22</div>
           <div class="email-subject">Appointment Schedule &mdash; Outdoor Project Consultation</div>
-          <div class="email-snippet">Requesting in-person consultation for outdoor project &mdash; Tuesday, March 24 at 12pm. Reply to confirm: <a href="mailto:kelvin@nrclandscaping.com">kelvin@nrclandscaping.com</a> &middot; 571-216-5050</div>
+          <div class="email-snippet">Requesting in-person consultation &mdash; Tuesday, March 24 at 12pm. Reply: <a href="mailto:kelvin@nrclandscaping.com">kelvin@nrclandscaping.com</a> &middot; 571-216-5050</div>
         </div>
         <div class="email-group-title">&#9888; NEEDS RESPONSE THIS WEEK</div>
         <div class="email-item needs-response">
@@ -564,17 +832,17 @@
         <div class="email-item recent">
           <div class="email-from">Langley HS (FCPS) &middot; Sun, March 22</div>
           <div class="email-subject">This Week at Langley</div>
-          <div class="email-snippet">Fri 3/27: End of Q3, 2-hr early release. Spring Break Mar 30&ndash;Apr 3. Grease shows Apr 9&ndash;12. Langley 60th Anniversary Apr 11 &mdash; <a href="https://forms.gle/A55KV2SAGjqYVFGt9" target="_blank">RSVP</a>. Course acknowledgment window closes March 27. Family Engagement Survey closes TODAY.</div>
+          <div class="email-snippet">Fri 3/27: End of Q3, 2-hr early release. Spring Break Mar 30&ndash;Apr 3. Grease shows Apr 9&ndash;12. Langley 60th Anniversary Apr 11 &mdash; <a href="https://forms.gle/A55KV2SAGjqYVFGt9" target="_blank">RSVP here</a>. Course acknowledgment window closes March 27.</div>
         </div>
         <div class="email-item recent">
-          <div class="email-from">Langley HS Athletics (FCPS) &middot; Sun, March 22</div>
+          <div class="email-from">Langley HS Athletics &middot; Sun, March 22</div>
           <div class="email-subject">This Week in Athletics &amp; Activities</div>
-          <div class="email-snippet">Mon 3/23: Boys/Girls Lacrosse vs Washington-Liberty (home &amp; away). Tue 3/24: Baseball vs McLean, Soccer vs Annandale. Spring Break sports schedule continues after 3/27.</div>
+          <div class="email-snippet">Mon 3/23: Boys/Girls Lacrosse vs Washington-Liberty. Tue 3/24: Baseball vs McLean, Soccer vs Annandale. Spring Break sports schedule continues after 3/27.</div>
         </div>
         <div class="email-item recent">
-          <div class="email-from">Here Comes the Bus &middot; Mon, March 23 AM</div>
+          <div class="email-from">Here Comes the Bus &middot; Mon, March 23</div>
           <div class="email-subject">Bus Substitution &mdash; AM Route</div>
-          <div class="email-snippet">Bus 0636 substituted with 0365 for today's AM route. Bus arrived at Brooks &amp; Sybil's stops at 8:06 AM &mdash; already handled.</div>
+          <div class="email-snippet">Bus 0636 substituted with 0365 for today's AM route. Arrived at Brooks &amp; Sybil's stops at 8:06 AM &mdash; already handled.</div>
         </div>
       </div>
     </details>
@@ -584,16 +852,16 @@
       <summary>&#127968; HOUSEHOLD &amp; SERVICES</summary>
       <div class="details-body">
         <div class="hh-section-title">&#127968; Home &amp; Renovation</div>
-        <div class="hh-item"><strong>NRC Landscaping (Kelvin Ramirez)</strong> &mdash; Responded to outdoor project inquiry; wants to meet Tue 3/24 at 12pm. Response needed. 571-216-5050 / 703-242-7698 &middot; kelvin@nrclandscaping.com</div>
-        <div class="hh-item"><strong>Radon Fix</strong> &mdash; Email sent to get things moving (overdue as of 3/22). Follow up to confirm contractor timeline.</div>
-        <div class="hh-item"><strong>New Office Build + Basement Storage</strong> &mdash; Active renovation. General contractor engaged. Est. completion August 2026.</div>
-        <div class="hh-item"><strong>Backyard Reno Plan</strong> &mdash; Planning phase. Full landscape design needed before patio work. Get bids for projects #2, #3, #4 together.</div>
+        <div class="hh-item"><strong>NRC Landscaping (Kelvin Ramirez)</strong> &mdash; Wants to meet Tue 3/24 at 12pm. Response needed. 571-216-5050 &middot; kelvin@nrclandscaping.com</div>
+        <div class="hh-item"><strong>Radon Fix</strong> &mdash; Email sent (overdue 3/22). Follow up to confirm contractor timeline.</div>
+        <div class="hh-item"><strong>New Office Build + Basement Storage</strong> &mdash; Active. General contractor engaged. Est. August 2026.</div>
+        <div class="hh-item"><strong>Backyard Reno Plan</strong> &mdash; Planning phase. Full landscape design needed. Get bids for projects #2, #3, #4 together.</div>
 
         <div class="hh-section-title">&#127973; Medical</div>
-        <div class="hh-item"><strong>Melissa &mdash; Inova TODAY (from email)</strong> &mdash; 11:15 AM with Nicole K Derosier, PA. Check-in at mychart.inova.org. Call 571-472-6464.</div>
-        <div class="hh-item"><strong>Melissa &mdash; Inova Follow-Up (on calendar)</strong> &mdash; Fri March 27, 11:30 AM &middot; 8100 Innovation Park Dr, Fairfax. (May be two separate appointments or one rescheduled &mdash; verify.)</div>
-        <div class="hh-item"><strong>2 New Inova MyChart Messages</strong> &mdash; Received Sun 3/22 (1:21 PM) and Mon 3/23 (7:05 AM). Check mychart.inova.org for details.</div>
-        <div class="hh-item"><strong>Emmet's Ear Appointment</strong> &mdash; Referral for Dr. Daniel B. Spielman MD, 6862 Elm St #800B, McLean VA 22101. May need to book at Ft. Belvoir. <em>Call today.</em></div>
+        <div class="hh-item"><strong>Melissa &mdash; Inova TODAY (email confirmed)</strong> &mdash; 11:15 AM with Nicole K Derosier, PA. Check in at <a href="https://mychart.inova.org/mychart/" target="_blank">mychart.inova.org</a>. 571-472-6464.</div>
+        <div class="hh-item"><strong>Melissa &mdash; Inova Follow-Up (calendar)</strong> &mdash; Fri March 27, 11:30 AM &middot; 8100 Innovation Park Dr, Fairfax. Verify if this is the same visit or separate.</div>
+        <div class="hh-item"><strong>2 New Inova MyChart Messages</strong> &mdash; Sun 3/22 + Mon 3/23. Check <a href="https://mychart.inova.org/mychart/" target="_blank">mychart.inova.org</a>.</div>
+        <div class="hh-item"><strong>Emmet's Ear Appointment</strong> &mdash; Referral for Dr. Daniel B. Spielman MD, 6862 Elm St #800B, McLean VA 22101. May need Ft. Belvoir. <em>Call today.</em></div>
         <div class="hh-item"><strong>Melissa Breast Check Up</strong> &mdash; Referral submitted; scheduling in progress.</div>
         <div class="hh-item"><strong>Melissa Derm Appointment</strong> &mdash; &#9989; Booked April 9 at 1:30 PM.</div>
         <div class="hh-item"><strong>Melissa PT Appointment</strong> &mdash; &#9989; Confirmed Monday, March 25.</div>
@@ -605,14 +873,17 @@
     <details>
       <summary>&#128221; CALENDAR NOTES</summary>
       <div class="details-body">
-        <div class="cal-note"><strong>&#9888; Possible appointment discrepancy:</strong> Inova email (sent Sun 3/22) says appointment TODAY (3/23) at 11:15 AM with Nicole K Derosier PA. Google Calendar shows &ldquo;Follow Up Appointment&rdquo; with same provider on Fri, March 27 at 11:30 AM. May be two separate visits. Verify with Inova at 571-472-6464.</div>
-        <div class="cal-note"><strong>&#9888; GOTR &rarr; Soccer tight connection (today):</strong> GOTR ends 4:45 PM at Churchill Road Elementary; Sybil Soccer starts 5:00 PM at McLean Governmental Center. Only 15 minutes at different locations &mdash; plan for fast pickup/transit.</div>
-        <div class="cal-note"><strong>&#128247; Emmet Picture Day (Wed, March 25)</strong> &mdash; All-day event at McLean Children's Academy. Currently on Randy's calendar only.</div>
-        <div class="cal-note"><strong>&#9992; Julia arriving Fri night (3/27)</strong> &mdash; Delta 4129 at Dulles, 11:41 PM. Jerry &amp; Suzy depart Reagan National same afternoon (United 2265, 12:15 PM).</div>
-        <div class="cal-note"><strong>&#127968; Jerry &amp; Suzy in town Sat 3/28 through April 1</strong> &mdash; 1303 Earnestine St, McLean.</div>
-        <div class="cal-note"><strong>&#127944; Flag Football (Rec) Sun 3/29 at 5:00 PM</strong> &mdash; No location or player listed on calendar. Confirm whether Brooks (MVSU Delta Devils) or Sybil (Tulane Green Wave) and where.</div>
-        <div class="cal-note"><strong>&#128197; Key upcoming dates:</strong> Spring Break Mar 30&ndash;Apr 3 &middot; Teacher Workday Apr 6 &middot; School Planning Day Apr 10 &middot; Grease shows Apr 9 (7:30pm), Apr 10 (7:30pm), Apr 11 (6:30pm), Apr 12 (3:30pm) &middot; Langley 60th Anniversary Apr 11 11am&ndash;2pm &mdash; <a href="https://forms.gle/A55KV2SAGjqYVFGt9" target="_blank">RSVP here</a> &middot; Virginia Election Apr 21 (no school).</div>
-        <div class="cal-note"><strong>&#127884; Grease tickets available</strong> at <a href="https://www.etix.com/ticket/v/15635/langley-high-school-theatre" target="_blank">etix.com</a> (search &ldquo;Langley High School Theatre&rdquo;). Get tickets now &mdash; Maggie's in the cast!</div>
+        <div class="cal-note red"><strong>&#9888; Calendar was incomplete &mdash; now fixed (8 calendars).</strong> Previous version missed: Maggie's calendar (Grease Rehearsals daily), SportsEngine (Group Training &amp; X-Factors), Melissa Workout Calendar, Family Calendar, and Brooks Baseball (Wheats). Dashboard now reflects all calendars every run.</div>
+        <div class="cal-note red"><strong>&#9888; Monday afternoon has 4 simultaneous activities:</strong> Grease Rehearsal (Maggie, 3&ndash;6:30 PM), GOTR (Sybil+Mom, 3:15&ndash;4:45 PM at Churchill Rd), Group Training (Brooks, 4:30&ndash;6 PM at Georgetown Pike), Sybil Soccer (5&ndash;6:15 PM at Balls Hill Rd). Two drivers needed minimum. The 4:30&ndash;4:45 window is physically impossible with one car from Churchill Rd to Georgetown Pike to Balls Hill Rd.</div>
+        <div class="cal-note red"><strong>&#9888; Tuesday Brooks conflict:</strong> X-Factors Practice ends 6:30 PM; Baseball Practice starts 6:15 PM (15-minute overlap). He'll need to leave X-Factors ~15 min early or arrive late to baseball.</div>
+        <div class="cal-note"><strong>&#9888; Possible Inova discrepancy:</strong> Email says appointment TODAY (3/23) at 11:15 AM. Calendar shows follow-up Fri 3/27 at 11:30 AM. Verify &mdash; may be two separate visits. Call 571-472-6464.</div>
+        <div class="cal-note"><strong>&#9917; Thursday Brooks Baseball GAME</strong> (not practice): NB6 Wheats vs NB1 Rock Hard Excavating &middot; 5:15&ndash;7:15 PM &middot; 1836 Westmoreland St, McLean, Field 3.</div>
+        <div class="cal-note"><strong>&#127944; Saturday Brooks X-Factors GAME</strong> vs McLean Wolverines 5th &middot; 1:00&ndash;2:30 PM &middot; 1766 Old Meadow Lane, McLean. (Jerry &amp; Suzy depart Reagan National at 12:15 PM same day.)</div>
+        <div class="cal-note"><strong>&#128247; Emmet Picture Day Wed 3/25</strong> &mdash; McLean Children's Academy. Only on Randy's calendar.</div>
+        <div class="cal-note"><strong>&#9992; Julia arrives Fri 3/27 at 11:41 PM</strong> &mdash; Dulles, Delta 4129. Jerry &amp; Suzy in town Sat 3/28 through Apr 1 &middot; 1303 Earnestine St.</div>
+        <div class="cal-note"><strong>&#127944; Flag Football (Rec) Sun 3/29 at 5 PM</strong> &mdash; No location or player confirmed on calendar. Is this Brooks (MVSU Delta Devils) or Sybil (Tulane Green Wave)? Confirm venue.</div>
+        <div class="cal-note"><strong>&#128197; Key coming up:</strong> Spring Break Mar 30&ndash;Apr 3 &middot; Grease shows Apr 9 (7:30), Apr 10 (7:30), Apr 11 (6:30), Apr 12 (3:30) at Langley (Door 14) &middot; Langley 60th Anniversary Apr 11 11am&ndash;2pm &mdash; <a href="https://forms.gle/A55KV2SAGjqYVFGt9" target="_blank">RSVP</a> &middot; Virginia Election Apr 21 (no school).</div>
+        <div class="cal-note"><strong>&#127884; Grease tickets</strong> &mdash; <a href="https://www.etix.com/ticket/v/15635/langley-high-school-theatre" target="_blank">etix.com</a> &mdash; Maggie is in the cast! Also &mdash; Saxon Stage urgently needs backstage volunteers for all 4 shows.</div>
       </div>
     </details>
 
