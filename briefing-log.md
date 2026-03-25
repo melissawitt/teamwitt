@@ -41,3 +41,40 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 - Three landscape consultations this week (Colao & Peter Wed, NRC Thu, Outdoor Spaces Fri) — great time to compare.
 
 ---
+
+## Wednesday, March 25, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 6 events today (4 on-calendar + 2 from email alerts), 14 events this week
+**Tasks:** 17 total (1 recurring), 7 overdue/due-today, 8 done
+**Renovation items:** 7 total, 1 active, 1 planning, 5 future
+**Emails reviewed:** ~60 emails scanned across 11 queries
+
+### Urgent / Needs Attention Today:
+- 🚨 Bass & Associates tax engagement letter STILL unsigned — 2 TaxDome reminders sent (3/19 & 3/22) — critical!
+- 🚨 Pay Caroline (Wednesday recurring task)
+- 🚨 Sign family up for GOTR 5K — deadline TODAY (pinwheel.us link in task tracker)
+- ⚠️ Maggie: Grease Rehearsal 3–5 PM + McLean Seniors batting practice 6 PM tonight — need transport
+- ⚠️ ALSO tonight: McLean Cardinals batting practice 6 PM (Vance Zavela email) — which adult covers which team?
+- ⚠️ Reply to Josh Kane (Kane Landscapes) — Pool Project email arrived today, unread
+- ⚠️ Emmet school picture day at MCA today — dress nicely
+- ⚠️ Outdoor Spaces questionnaire overdue (3/23) — meeting with Lillian FRIDAY 3/27 at 3 PM
+- ⚠️ Emmet's ear appointment still needs scheduling (Ft. Belvoir / Dr. Spielman)
+- 📅 Friday 3/27: Inova appt 11:30 AM + 2-hour early release + Julia arrives Dulles 11:41 PM
+- 📅 Saturday 3/28: Jerry & Suzy arrive Reagan National ~2:14 PM + Brooks soccer game 1–2:30 PM
+- 🆕 Sybil selected for McLean Youth Soccer U9 Girls Team 7 (Spring 2026)
+
+### Emails Needing Response:
+- Bass & Associates (notifications@taxdome.com) — Engagement Letter pending signature ×2 — SIGN NOW
+- Josh Kane (jkane@kanelandscapes.com) — Pool Project / landscape call — unread today, reply ASAP
+
+### Key Notes:
+- Three landscape bids this week for Backyard Reno Project #2: Colao & Peter (today 9 AM), NRC Landscape (Thu 1 PM), Outdoor Spaces (Fri 3 PM)
+- Thursday scheduling tension: Brooks baseball ends 7:15 PM, Maggie's Unruly Theater starts 7:00 PM — need 2 adults
+- Radon system installation was scheduled for 3/24 (yesterday) by Janryk Bukowski — verify completed
+- Emmet's MLL Tee Ball White Sox team formed — coach Michael Hollows, Randy is parent helper
+- Spring Break 3/30–4/6 (Churchill Road ES & Langley HS confirmed)
+- Maggie's Grease rehearsals: Wed, Thu, Fri this week (heavy schedule)
+- Derm appointment booked April 9 at 1:30 PM (done ✓)
+- Radon fix was on schedule for 3/24 — update status in task tracker if done
+
+---
