@@ -4,6 +4,41 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Thursday, March 26, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 6 events today, 9 events this week
+**Tasks:** 15 total, 6 overdue, 7 completed
+**Renovation items:** 7 total, 1 active (Office/Basement), 1 planning (Outdoor Living)
+**Emails reviewed:** ~60 emails scanned across 8 search queries
+
+### Urgent / Needs Attention Today:
+- 🔴 Bass & Associates 2025 Engagement Letter MUST BE SIGNED via TaxDome — sent as reminder Wed 3/25
+- ⚠️ SCHEDULING CONFLICT: Brooks baseball game (5:15–7:15 PM at 1836 Westmoreland) overlaps with Maggie Unruly Theater (7–9 PM at McLean Old Fire House). Venues 5 min apart — need two adults or early Maggie drop.
+- 🛒 Wegmans pickup TONIGHT by 8 PM (Tysons, 1835 Capital One Drive South)
+- 🏥 Inova follow-up appointment TOMORROW Fri 3/27 at 11:30 AM — Nicole K Derosier PA, Fairfax. Bring medication list.
+- ✈️ 2-hr early release tomorrow (Churchill Road) + Julia arriving Dulles 11:41 PM Delta 4129 — airport pickup needed
+- 🌸 Spring Break starts Monday 3/30 through 4/6 — plan childcare
+
+### Emails Needing Response:
+- Bass & Associates (notifications@taxdome.com) — "Reminder, documents pending signature" — sign 2025 engagement letter NOW
+- Lisa Peter (lisa@colaopeter.com) — "Meeting Link" — schedule consultation with Colao & Peter Senior Landscape Architect
+- Frank Castillo, Baptist Health System — imaging records can be mailed (need physical address for CD/reports)
+
+### Key Notes:
+- Radon system: Janryk Bukowski scheduled Tue 3/24 11 AM–12 PM (~4 hr install). Likely complete — confirm system is working.
+- NRC Landscape meeting TODAY at 1 PM for outdoor living project.
+- Jerry & Suzy arriving Sat 3/28, in town through ~Wed 4/1.
+- Emmet MCA spring picture day was Wed 3/25 (Tiger graduation photos).
+- Maggie McLean Cardinals softball: Opening Day Parade + Team Photo Day both on Sat Apr 11 — big day.
+- Emmet Tee Ball (MLL White Sox) intro from coach Michael Hollows received.
+- Wait Until 8th pledge now active for 5th grade at Churchill Road ES.
+- Dryer Drum (Randy) still In Progress / overdue from 3/20.
+- Emmet's Ear Appt must be at Ft. Belvoir — still needs scheduling.
+- 4 Kids Dental Check-Ups due TOMORROW 3/27 — still To Do.
+
+---
+
+
 ## Tuesday, March 24, 2026 — Daily Briefing Log
 
 **Calendars checked:** 9 calendars · 6 events today · 22 events this week
