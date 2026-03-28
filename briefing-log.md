@@ -4,6 +4,79 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Saturday, March 28, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 3 events today, 11 events this week (Sat Mar 28 – Sun Apr 5)
+**Tasks:** ~17 total (from prior log), 2 confirmed overdue (tax engagement letter, dental check-ups)
+**Renovation items:** ~7 total, 1 active (Office/Basement/Radon), 1 planning (Outdoor)
+**Emails reviewed:** ~90 emails scanned across 10 search queries
+
+### Urgent / Needs Attention Today:
+- ⚾ Brooks X-Factors Game TODAY 1:00–2:30 PM — 6520 Georgetown Pike — Who's driving?
+- ✈️ Jerry & Suzy arrived at Reagan National today (United 2265, ~2:14 PM) — in town through April 1
+- ⚠️ TUESDAY CONFLICT: Brooks X-Factors Practice 5–6:30 PM overlaps Baseball Practice 6:15–7:30 PM at different locations + Maggie has Unruly Theater 7 PM — needs 2+ drivers, resolve NOW
+- 🏖️ Wednesday April 1 is a very busy departure day: Julia arrives Dulles 7 AM, Melissa DERM appt 9:15 AM, Jerry & Suzy fly home 1 PM, family departs to beach house
+- 🎭 FCPS may cut Theater department (Nextdoor alert) — directly affects Maggie (Unruly Theater + Grease)
+- 💰 PenFed HELOC statement arrived today — review balance/payment due date
+- 📬 2 USPS mailpieces arriving today
+
+### Emails Needing Response:
+- Pentagon Federal (memberinfo@penfed.info) — HELOC statement ready — review online
+- Nextdoor (no-reply@is.email.nextdoor.com) — FCPS Theater dept cut post — read full thread, consider engaging
+
+### Key Notes:
+- Spring Break starts Monday March 30 (Fairfax County Schools)
+- Family heading to beach house April 1–7
+- Jerry & Suzy visiting through April 1
+- Bass & Associates tax engagement letter still unsigned (carried over from Fri Mar 27 — critical)
+- Maggie's Unruly Theater events appear on Randy's calendar but are MAGGIE's activity (Tue Mar 31 + Thu Apr 2, 7–9 PM, McLean Old Fire House Center)
+- Brooks Baseball Practice listed for Easter Sunday Apr 5 at beach house — confirm with coach
+- Google Sheets (Task + Renovation Trackers) not accessible this run (no browser session) — carried from prior log data
+
+---
+
+## Friday, March 27, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 4 events today, 8 events this weekend (Fri–Sun)
+**Tasks:** 17 total, 5 overdue, 1 due today, 9 completed
+**Renovation items:** 7 total, 1 active (Office/Basement), 1 planning (Outdoor Living)
+**Emails reviewed:** ~90 emails scanned across 11 search queries
+
+### Urgent / Needs Attention Today:
+- 🏥 Inova Follow-Up Appointment TODAY 11:30 AM — Nicole K. Derosier, PA · 8100 Innovation Park Dr, Fairfax · Check in via MyChart first
+- 📝 Bass & Associates 2025 Engagement Letter STILL UNSIGNED — 3rd reminder (sent 3/22 + 3/25) via TaxDome — sign NOW
+- ⏰ Spring ASA Registration closes SUNDAY 3/29 @ 11:59 PM — decide today
+- 🦷 4 Kids Dental Check Ups DUE TODAY — task assigned to Melissa, not yet done
+- 🎭 Emmet RSVP: Nyra's 5th Birthday Party (evite from Sreeker Reddy, received today) — respond
+- ✈️ Julia arriving Dulles TONIGHT 11:41 PM (Delta 4129) — late pickup needed, who's going?
+- 🛬 Jerry & Suzy arrive Reagan TOMORROW 12:15 PM (United 2265) — staying through April 2
+- ⚠️ SAT CONFLICT: Jerry & Suzy airport pickup (12:15 PM) vs. Brooks X-Factors soccer game (1:00 PM) — need two drivers
+- 🏡 Outdoor Spaces Consultation TODAY 3:00 PM — Lisa Peter / ColaoPeter · 1303 Earnestine St
+- 🎭 Grease Rehearsal today 1–3 PM (Maggie) — 2-hour early release today, check transport timing
+
+### Emails Needing Response:
+- Bass & Associates (notifications@taxdome.com) — "Reminder, documents pending signature" × 2 — SIGN 2025 engagement letter
+- Sreeker Reddy via Evite — Emmet invited to Nyra's 5th Birthday Party — RSVP needed
+- Spring ASA Registration (membershiptoolkit.com) — last call, closes 3/29 — decide and register
+- McLean Youth Soccer (Spring Soccer, Spring Break Camps) — deadline Sat noon for camps
+
+### Key Notes:
+- TODAY: 2-Hour Early Release + Last Day of Q3 + Last school day before Spring Break (3/30–4/6)
+- Radon system CONFIRMED installed (Janryk Bukowski, 3/24) — done ✅
+- NRC Landscape site visit confirmed for Thursday 3/26 at 1 PM — done
+- Outdoor Spaces (ColaoPeter) consultation confirmed for TODAY at 3 PM — meeting link from Lisa Peter
+- Jerry & Suzy in town Sat 3/28 through Wed 4/1 (Randy's calendar shows through April 2)
+- Julia also arriving tonight at Dulles — full house during Spring Break!
+- Maggie: Grease Rehearsal today + batting practice next week + Opening Day + Team Photo on April 11
+- Brooks: X-Factors soccer Sat 1 PM + Baseball practice Sun 1:30 PM
+- Sybil: McLean Youth Soccer U9 Girls Team 7 placed (Coach Emily Wilczynski)
+- Emmet: MLL White Sox Tee Ball team formed (Coach Michael Hollows); Randy offered to help
+- April 11 is a VERY busy day: LL Opening Day Parade 8:30 AM + Cardinals Team Photo 10:30 AM + Langley 60th Celebration + Skyview HS Open House
+- Emmet's ear appointment still needs scheduling at Ft. Belvoir
+- Melissa Breast Check Up still In Progress / overdue since 3/23
+
+---
+
 ## Thursday, March 26, 2026 — Daily Briefing Log
 
 **Calendars checked:** 9 calendars, 6 events today, 9 events this week
