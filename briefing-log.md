@@ -186,3 +186,69 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 - Radon fix was on schedule for 3/24 — update status in task tracker if done
 
 ---
+
+---
+
+## Sunday, March 29, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 1 event today, 13 events this week
+**Tasks:** 17 total, 3 To Do (overdue), 3 In Progress, 10 Done, 1 Recurring
+**Renovation items:** 7 projects total, 1 active (Office Build), 1 planning (Backyard Reno)
+**Emails reviewed:** ~50 emails scanned across 11 search queries
+
+### Urgent / Needs Attention Today:
+- 🔴 Bass & Associates — 2025 Engagement Letter pending signature (3rd reminder sent 3/28!)
+- 🔴 Inova Health — New message from healthcare team needs review (3/27)
+- 🟡 Emmet's Ear Appt — Need to call Ft. Belvoir on Monday to schedule ENT
+- 🟡 4 Kids Dental Check Ups — Overdue (due 3/27), needs scheduling
+- 🟡 Sign Family up for GOTR 5K — Still To Do (due 3/25)
+- ⚠️ Tuesday 3/31 Schedule Conflict: X-Factors Practice 5:00-6:30 PM overlaps Brooks Baseball Practice 6:15-7:30 PM
+
+### Emails Needing Response:
+- Bass & Associates (TaxDome) — "Reminder, documents pending signature" — 3rd reminder for engagement letter
+- Inova Health — "New Message from Inova Health" — Login required to view message
+- Mr. Walsh — "Agenda Week of 4/6/26" — 5th grade agenda, informational (unread)
+- Mrs. Phipps — "Weekly Agenda" — 3rd grade weekly update, informational
+
+### Key Notes:
+- Spring Break starts tomorrow (3/30-4/6)
+- Jerry and Suzy visiting through 4/1
+- Beach house trip starts Wednesday 4/1
+- Julia flight home Wed 4/1 7:00 AM at Dulles
+- Jerry & Suzy depart Wed 4/1 1:00 PM at Reagan National
+- Sybil selected for McLean Youth Soccer U9 Girls Team 7 (Coach Emily Wilczynski)
+- Maggie's softball: Fielding practices scheduled for Apr 3, 10, 24; Team Photo Day Apr 11; Opening Day Parade Apr 11
+- Radon system installation completed (was scheduled 3/24) ✅
+- Intimate Rose GLP-1 subscription payment received 3/28
+
+---
+
+## Monday, March 30, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 3 events today, 14 events this week (Mon Mar 30 – Sun Apr 5)
+**Tasks:** 8 action items identified
+**Renovation items:** Radon system installed; no active renovation items this week
+**Emails reviewed:** ~80 emails scanned across 11 search queries
+
+### Urgent / Needs Attention Today:
+- Sign Bass & Associates 2025 Engagement Letter on TaxDome (2 reminders sent Mar 25 & 28)
+- Read new Inova Health message from care team (received Fri 3/27)
+- Brooks McLean Group Training 5:00-6:30 PM today at Georgetown Pike
+- USPS: 2 mailpieces arriving today
+
+### Emails Needing Response:
+- Bass & Associates (TaxDome) — Reminder, documents pending signature — SIGN ENGAGEMENT LETTER
+- Inova Health (donotreply@inova.org) — New message from care team — LOG IN TO MYCHART
+
+### Key Notes:
+- It's Spring Break week (3/30-4/6). No school.
+- Jerry & Suzy still in town through Apr 1
+- Tuesday 3/31 has scheduling conflicts: Brooks X-Factors 5-6:30 PM overlaps Baseball Practice 6:15-7:30 PM, plus Maggie Unruly Theater 7-9 PM — needs 2 drivers
+- Thursday 4/2: Maggie Theater 7-9 PM overlaps Brooks Chalk Talk 7:45-8:45 PM — 2 drivers needed
+- Wednesday 4/1: Julia flight home 7 AM Dulles, Jerry & Suzy fly out 1 PM Reagan, family heads to Beach House
+- Easter Sunday 4/5 falls during beach trip; Brooks has baseball practice 1:30-3:00 PM
+- Sybil selected for McLean Youth Soccer Team 7 (U9 Girls), spring season starting
+- Maggie softball: fielding practices Apr 3, 10, 24; Team Photo Day & Opening Day Parade Apr 11
+- Amazon Subscribe & Save auto-delivery coming by Apr 10 — last day to manage Sat 4/4
+
+---
