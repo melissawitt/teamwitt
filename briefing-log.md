@@ -4,6 +4,45 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Tuesday, March 31, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 4 events today, ~12 events this week
+**Tasks:** 17 total, 6 overdue/active (not done), 9 completed
+**Renovation items:** 7 projects (1 active, 1 planning, 5 not started)
+**Emails reviewed:** ~60 emails scanned across 9 search queries
+
+### Urgent / Needs Attention Today:
+- ⚠️ CONFLICT: Brooks has two overlapping events tonight — X-Factors Practice (5–6:30 PM, Georgetown Pike) vs Baseball Practice (6:15–7:30 PM, Spring Hill RECenter). Decision needed immediately.
+- 🚨 Tax: Bass & Associates engagement letter needs signature — reminded TWICE (3/25, 3/28) via TaxDome. Witt, Randolph & Melissa.
+- 📋 FCPS AAP Full-Time Placement Decision for "Christopher Witt" (received 3/30, UNREAD) — very important, read immediately.
+- 🏥 Inova Health secure message (received 3/27, UNREAD) — log in to MyChart.
+- 🏖️ Beach house trip starts TOMORROW April 1. Maggie has batting practice April 1 at 6 PM — logistics conflict.
+- ✈️ Tomorrow: Julia flight home (Dulles, Delta 1015, 7 AM) + Jerry & Suzy departure (Reagan, United 511, 1 PM) — airport logistics.
+- 🏥 Melissa Breast Check Up overdue (3/23) — In Progress, needs scheduling.
+- 👂 Emmet's Ear Appt overdue (3/22) — call Ft. Belvoir.
+- 🦷 4 Kids Dental Check Ups overdue (3/27) — schedule soon.
+
+### Emails Needing Response:
+- Bass & Associates (notifications@taxdome.com) — "Reminder, documents pending signature" — sign 2025 engagement letter ASAP
+- FCPS Advanced Academic Programs — "AAP Full-Time Placement Decision" — read and respond
+- Inova Health (donotreply@inova.org) — "New Message from Inova Health" — log in to read
+- Mr. Walsh (aewalsh@fcps.edu) — "Agenda Week of 4/6/26" — review attachment
+- McLean Youth Soccer / Coach Emily Wilczynski — "Spring Soccer Season" — review for Sybil's U9 team
+
+### Key Notes:
+- Spring Break week (Fairfax County Schools through April 7)
+- Maggie's McLean Cardinals softball season is very active: batting practice tomorrow (April 1), fielding practices April 3/10/24, Team Photo Day + Opening Day parade on April 11
+- April 11 is extremely busy for Maggie: Opening Day 8:30 AM + Photo Day 10:30 AM at McLean Little League
+- Brooks has X-Factors (soccer) AND Wheats baseball active — schedule conflict tonight
+- Easter Sunday April 5 — Brooks also has baseball practice 1:30 PM that day
+- Unruly Theater Project (Maggie) runs Tues + Thurs 7–9 PM at McLean Old Fire House
+- Renovation: New Office Build + Basement Storage actively underway; Outdoor Living in planning stage
+- Radon fix (Janryk Bukowski) marked Done
+- Randy volunteering with MLL Tee Ball White Sox — coordinating with Michael Hollows
+- Sybil's spring soccer season starting — Coach Emily Wilczynski, U9 Girls McLean Team 7
+
+---
+
 ## Saturday, March 28, 2026 — Daily Briefing Log
 
 **Calendars checked:** 9 calendars, 3 events today, 11 events this week (Sat Mar 28 – Sun Apr 5)
