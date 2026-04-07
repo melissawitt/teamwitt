@@ -4,6 +4,109 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Monday, April 6, 2026 — Daily Briefing Log
+
+**Calendars checked:** 10 calendars, 3 all-day events today (Easter Monday, Beach House return, Bob Pill), 28 events this week
+**Tasks:** Google Sheets not accessible (network restriction) — tasks reflected from prior log memory; 8 key action items
+**Renovation items:** 2 active/planning (Earnestine St build + Outdoor/Backyard) — Sheets unavailable, from prior log
+**Emails reviewed:** ~60+ emails scanned across 10 search queries
+
+### Urgent / Needs Attention Today:
+- 🖊️ Bass & Associates 2025 Engagement Letter — STILL UNSIGNED, 4+ weeks outstanding. Another TaxDome reminder arrived TODAY. Call Moni at 210-233-1758 or sign via TaxDome. Cannot wait any longer.
+- 🎭 Grease Volunteers Desperately Needed — email from Langley Saxon Stage today. Show opens THURSDAY Apr 9 — critical volunteer spots empty. Maggie is performing. Sign up ASAP.
+- ⚠️ CONFLICT Thursday Apr 9: Maggie's Unruly Theater Project (7pm, McLean Old Fire House) vs Grease Performance Opening Night (7:30pm, Langley HS). Must resolve — two different venues at same time.
+- ⚠️ CONFLICT Tuesday Apr 7: Brooks X-Factors (5–6:30pm, Georgetown Pike) overlaps Wheats Baseball Practice (6:15–7:30pm, Spring Hill Rec). Need driving plan TODAY.
+- 🚗 Family returns from Beach House today — school resumes TOMORROW (Tue Apr 7). Prep needed: laundry, groceries, early bedtime, uniforms.
+
+### Emails Needing Response:
+- Bass & Associates (notifications@taxdome.com) — "Reminder, documents pending signature" — SIGN NOW
+- Langley Saxon Stage (langleysaxonstage@gmail.com) — "Grease: Volunteers Desperately Needed" — sign up for volunteer slots before Apr 9
+- Skin & Laser Surgery Center (info@bderm.com) — "Your appointment with Dr. Amir Bajoghli" — confirms Apr 15 at 8am but calendar shows Apr 9 at 1:30pm — verify date!
+
+### Key Notes:
+- Easter Monday April 6 — no school today. Spring Break ends today, school RESUMES Tuesday April 7.
+- Grease show runs: Thu Apr 9 (opening), Fri Apr 10, Sat Apr 11, Sun Apr 12 (closing matinee) — all at Langley HS.
+- Maggie McLean Seniors Softball: batting practice Wed Apr 8 at 6pm (from TeamSnap reminder).
+- GOTR Practice: Wed Apr 8 at 3:15pm at Churchill Road Elementary (Melissa coaching/volunteering).
+- Kindergarten Orientation: Wed Apr 8, 9-10am, Churchill Road Elementary — Melissa signed up.
+- Pre-Construction Meeting (Randy): Thu Apr 9, 2:30pm at 1303 Earnestine St (renovation).
+- Brooks schedule this week: X-Factors Tue + Wheats practice Tue (conflict!), Wheats game Wed, Chalk Talk Thu, X-Factors game Sat, Wheats game Sat, Wheats practice + X-Factors x2 Sun.
+- Emmet has T8 game Saturday Apr 11 at 2:30pm (1836 Westmoreland).
+- Saturday Apr 11 is very busy: Emmet game 2:30pm + Brooks X-Factors 4:30pm + Grease 6:30pm + Brooks Wheats game 7:30pm.
+- FCPS Online Campus Summer Learning Health & PE — student enrolled, review details email.
+- Langley HS Principal message arrived today — 4th quarter begins, testing season, Class of 2026 news.
+- Google Sheets (Tasks + Renovation) not accessible due to network restriction on docs.google.com — open spreadsheet links directly from dashboard.
+
+---
+
+## Thursday, April 2, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 3 events today (incl. all-day), 6+ events this week
+**Tasks:** Google Sheets not accessible via current method — reflected as N/A in dashboard
+**Renovation items:** Google Sheets not accessible — reflected as N/A in dashboard
+**Emails reviewed:** ~50+ emails scanned across 7 search queries
+
+### Urgent / Needs Attention Today:
+- ⚾ TeamSnap RSVP needed: Coach Vance Zavela emailed about McLean Cardinals fielding practice Friday at Olney Park — Brooks' availability must be confirmed TODAY. Family is at beach this week.
+- 🧾 Green Hill Landscaping Invoice #20908: March invoice received (Apr 1) for 1303 Earnestine St. NET30 terms. Pay via greenhill.propertyserviceportal.com. PDF attached to email.
+- ❌ Brooks Chalk Talk CANCELED tonight: Sam Appel (Flag Star Football) confirmed coaches out of town. No games this weekend (Easter). Chalk Talk resumes next Thursday 8–8:30pm.
+- 🏈 Flag Star Football — Confirm Brooks availability for Apr 11 & 18 via SportsEngine ASAP.
+
+### Emails Needing Response:
+- Vance Zavela (vance.zavela@gmail.com) — "Friday's practice" — TeamSnap availability for Brooks needed today
+- Green Hill Landscaping — Invoice #20908 — payment action required
+
+### Key Notes:
+- Family at Beach House all week (Apr 1–7). Spring Break through Apr 6, school resumes Apr 7.
+- Easter Sunday Apr 5 — Brooks Baseball Practice ON at 1:30pm, Linway Terrace Park, McLean.
+- Maggie has Unruly Theater tonight 7–9pm at McLean Old Fire House — verify attendance logistics from beach.
+- Flag Star Football Spring Elite next gameday: April 11. Confirm Brooks via SportsEngine.
+- Amazon order confirmed: GiiKER Super Slide Puzzle + 12 items ordered.
+- No new emails from Bass & Associates, Janryk, MCA, Mrs. Phipps, Mr. Walsh, or GOTR in past 7 days.
+
+---
+
+## Wednesday, April 1, 2026 — Daily Briefing Log
+
+**Calendars checked:** 9 calendars, 6 events today, 14 events this week
+**Tasks:** 11 total, 6 overdue/active (not done), 5 completed
+**Renovation items:** 7 projects (1 active, 1 planning, 5 not started)
+**Emails reviewed:** ~70 emails scanned across 11 search queries
+
+### Urgent / Needs Attention Today:
+- 🚨 Tax: Bass & Associates 2025 Engagement Letter STILL unsigned — 4th notice now. TaxDome portal, Witt Randolph & Melissa. Contact Moni Paz-Marin 210-233-1758.
+- ⚾ Maggie BATTING PRACTICE TONIGHT at 6:00 PM — McLean Cardinals at front cages. Coach Vance Zavela email this morning (unread).
+- 📋 AAP Full-Time Placement Decision for Christopher Witt received Mon 3/30 from FCPS — important, read immediately!
+- 🏥 Inova MyChart message still unread from Fri 3/27 — log in to myhealth.inova.org
+- 🏡 Outdoor Spaces Design (Lillian) sent wetland proposal Tue 3/31 — FEMA 50% rule review. Needs response.
+- ⚠️ TOMORROW Apr 2 CONFLICT: Maggie Unruly Theater 7–9 PM vs. Brooks Chalk Talk 7:45–8:45 PM — two drivers needed!
+- ⚠️ TUESDAY Apr 7 CONFLICT: Brooks X-Factors 5–6:30 PM overlaps Wheats Practice 6:15–7:30 PM at different venues. Plan now.
+- 🦷 4 Kids Dental Check-Ups overdue since 3/27 — still To Do
+- 🩺 Melissa Breast Check-Up In Progress since 3/23 — schedule appointment
+- 👂 Emmet's Ear Appt In Progress since 3/22 — still needs scheduling at Ft. Belvoir
+- 💊 Pay Caroline — recurring Wednesday task — DO TODAY
+- 💳 Broadway Intensives 2026 charged $1,016.26 to MC ending 8556 today — confirm registration details for Maggie
+
+### Emails Needing Response:
+- Bass & Associates (notifications@taxdome.com) — "Reminder, documents pending signature" × 4 — SIGN 2025 engagement letter NOW
+- Inova Health (donotreply@inova.org) — "New Message from Inova Health" — log in to MyChart to read
+- Lillian @ Outdoor Spaces Design (lillian@outdoorspacesdesign.com) — "RE: Wetland Information & Design Proposal" — sent Tue 3/31 — needs reply
+- FCPS Advanced Academic Programs — "AAP Full-Time Placement Decision" for Christopher Witt — read decision and follow up
+
+### Key Notes:
+- Spring Break through April 6. Family at beach house all week.
+- Jerry & Suzy departed today (Reagan National, United 511, 1:00 PM). Julia flew home this morning (Dulles, Delta 1015, 7 AM).
+- Easter Sunday April 5 this week — Brooks has baseball practice 1:30 PM that day.
+- School resumes Tuesday April 7 (not Monday — Easter Monday school closed April 6).
+- Maggie McLean Cardinals softball season active: batting today Apr 1, fielding practice Apr 3 @ Olney Park, Apr 10, Apr 24. Team Photo Day + Opening Day BOTH on April 11 (arrive 8:15 AM).
+- Broadway Intensives 2026 registration confirmed — $1,016.26 charged today (Maggie theater program).
+- Unruly Theater Project (Maggie) — Thursdays 7–9 PM at McLean Old Fire House. Apr 2 AND Apr 7 this week.
+- Brooks: Wheats/NB6 baseball AND X-Factors (soccer) both active. Tuesday Apr 7 schedule conflict needs resolution.
+- Renovation: #1 Office/Basement build ACTIVE. #2 Outdoor/Backyard in Planning — wetland proposal from Outdoor Spaces Design in review.
+- Amazon Subscribe & Save delivery window closing — last day to manage was Apr 4 (per prior log).
+
+---
+
 ## Tuesday, March 31, 2026 — Daily Briefing Log
 
 **Calendars checked:** 9 calendars, 4 events today, ~12 events this week
