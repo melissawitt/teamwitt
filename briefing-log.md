@@ -4,6 +4,78 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Thursday, April 9, 2026 — Daily Briefing Log
+
+**Calendars checked:** 10 calendars, 5 events today, 20+ events this week (Thu–Sun)
+**Tasks:** 17 total, 3 overdue (Oven Sensor 3/20, Dryer Drum 3/20, 4 Kids Dental 3/27), 2 in-progress, 1 recurring
+**Renovation items:** 7 total, 1 Active (New Office Build), 1 Planning (Backyard Reno)
+**Emails reviewed:** ~50 emails scanned across 11 search categories
+
+### Urgent / Needs Attention Today:
+- 🏥 Skin Check appointment TODAY at 1:30 PM — Dr. Amir Bajoghli, MD @ 1359 Beverly Rd, McLean (Melissa)
+- 🏗️ Pre-Construction Meeting TODAY at 2:30 PM — Foster Remodeling Solutions @ 1303 Earnestine St (Randy + Melissa)
+- ⚠️ CONFLICT TONIGHT: Maggie has Unruly Theater (7–9pm @ Old Fire House) AND Grease Performance (7:30–10pm @ Langley) — need to divide coverage
+- ⚠️ CONFLICT FRIDAY: Maggie's Fielding Practice (6–7:45pm) overlaps Grease Performance (7:30pm)
+- ✍️ Bass & Associates 2025 Engagement Letter PENDING SIGNATURE in TaxDome — both Randy & Melissa
+- 📸 McLean Cardinals Team Photo THIS SATURDAY after Opening Day ceremonies — full uniform, check photo order envelope
+- ⚠️ Saturday is extremely busy: Opening Day parade, 2 softball games, 2 baseball games/events, X-Factors game, team pictures, Grease performance — full family logistics needed
+- 🚨 Nextdoor safety alert — unknown person knocking on Elizabeth Drive doors at 9:30 PM
+
+### Emails Needing Response:
+- Bass & Associates (TaxDome) — 2025 Engagement Letter Pending Signature — Sign ASAP via TaxDome
+- Vance Zavela (coach) — Saturday McLean Cardinals team photo — confirm uniform + attendance
+- TeamSnap (McLean Seniors) — Friday fielding practice reminder — confirm Maggie's attendance/logistics given Grease conflict
+- Alexandra Singer (FCPS) — Bands on the Run 5K Apr 26 — sign family up (matches open task)
+- Skyview HS — Open House for rising 9th graders — check date and register if relevant for Maggie
+
+### Key Notes:
+- Grease (Maggie) runs Thu Apr 9 – Sun Apr 12 at Langley HS: Thu 7:30pm, Fri 7:30pm, Sat 6:30pm, Sun 3:30pm (closing night)
+- Unruly Theater Project also tonight Thu 7–9pm @ McLean Old Fire House (Maggie) — same night as Grease Performance
+- McLean Little League Opening Day Saturday Apr 11: Brooks (Wheats) and Emmet (T8) both in parade at 9am — arrive 8:30am McLean HS
+- Mom & Dad (Melissa's parents) visiting Friday April 10 — Orthodox Good Friday, no school
+- Pre-Construction meeting TODAY kicks off the New Office Build + Basement Storage renovation (Project #1)
+- Appointment also noted: Dr. Bajoghli follow-up Apr 15 at 8am (from email)
+- Dr. Bajoghli skin check TODAY at 1:30pm (on Melissa's calendar)
+- Chewy Autoship: review/skip by Sun Apr 12 (ships Apr 16)
+- Task tracker fetched successfully via Chrome gviz endpoint: 17 tasks parsed
+- Renovation tracker fetched: 7 projects, #1 Active (Foster Remodeling, Pre-Construction today)
+
+---
+
+## Wednesday, April 8, 2026 — Daily Briefing Log
+
+**Calendars checked:** 10 calendars, 4 events today, ~28 events this week
+**Tasks:** Google Sheets inaccessible via Drive API today — manual review needed via links
+**Renovation items:** 3 noted (Foster Remodeling, Chimney Work, Langley Club fence)
+**Emails reviewed:** ~80 emails scanned across 11 queries
+
+### Urgent / Needs Attention Today:
+- 🔴 Bass & Associates 2025 Engagement Letter UNSIGNED — Moni Paz-Marin reminder Apr 6; doc pending since Mar 13. Sign at TaxDome ASAP.
+- 🔴 Tonight: Maggie batting practice 6 PM + Brooks baseball game 7:30 PM — need two parents, both at MLL
+- 🟠 TOMORROW Thu Apr 9: Pre-Construction Meeting at home 2:30–3:30 PM — Foster Remodeling (John Davis + Cara Wank + Graham Mokohonuk). Review checklist from Apr 6 email.
+- ⚠️ Thu Apr 9 evening CONFLICT: Unruly Theater (7 PM) AND Grease Performance (7:30 PM) both attributed to Maggie — verify which applies
+- ⚠️ Sat Apr 11 is extremely busy — Opening Day (Emmet 9 AM), Emmet game 11:30 AM, Maggie softball x2 (12 PM + 2 PM, Olney Park), Brooks X-Factors 4:30 PM, Grease 6:30 PM
+- ⚠️ Skin Check date discrepancy: Calendar says Apr 9 @ 1:30 PM; email says Apr 15 @ 8 AM — verify
+- TODAY 9 AM: Kindergarten Orientation at Churchill Road Elementary (for Emmet)
+
+### Emails Needing Response:
+- Bass & Associates (Moni Paz-Marin, notifications@taxdome.com) — "Reminder, documents pending signature" — Sign 2025 Engagement Letter at TaxDome
+- Vance Zavela (softball coach) — McLean Cardinals schedule email — enter TeamSnap availability for Sat Apr 11 games
+- John Davis / Foster Remodeling — Preconstruction Letter — meeting tomorrow, review attached checklist
+- FCPS (noreply@fcps.edu) — Langley High Principal Feedback Survey — complete this week
+- Humana Military — EOB online — review insurance claim processed Apr 7
+
+### Key Notes:
+- 10 calendars synced: Melissa (primary), Randy, Maggie, Family, Melissa Workout, SportsEngine, Brooks NB6-Wheats, Emmet T8, US Holidays, melissa@intimaterose.com
+- Maggie's own calendar shows no events — her activities appear on Randy's cal and via TeamSnap emails
+- Grease musical: 4 performances this week (Thu 7:30 PM, Fri 7:30 PM, Sat 6:30 PM, Sun 3:30 PM) at Langley HS
+- Chimney work: Mon Apr 13–Fri Apr 17 — Edward Blackburn / Blackburn Chimney (301) 965-1341
+- No school Friday Apr 10 (Orthodox Good Friday)
+- "Mom and Dad" all-day on Melissa's cal for Fri Apr 10 — parents visiting?
+- Google Sheets data (Task Tracker + Renovation Tracker) not loaded — Drive API does not fetch spreadsheets
+
+---
+
 ## Monday, April 6, 2026 — Daily Briefing Log
 
 **Calendars checked:** 10 calendars, 3 all-day events today (Easter Monday, Beach House return, Bob Pill), 28 events this week
