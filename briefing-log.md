@@ -4,6 +4,41 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Friday, April 10, 2026 — Daily Briefing Log
+
+**Calendars checked:** 12 calendars, 7 events today, 25+ events this week (Fri–Sun)
+**Tasks:** 17 total, 6 overdue (past due, not Done), 9 completed/Done
+**Renovation items:** 7 total, 1 active (Office/Basement — Foster Remodeling), 1 planning (Backyard)
+**Emails reviewed:** ~60 emails scanned across 11 search queries
+
+### Urgent / Needs Attention Today:
+- ⚠️ CONFLICT TONIGHT: Maggie softball fielding practice (6–7:45 PM) overlaps Grease opening night (7:30 PM Langley HS) — she must leave practice by ~7:00 PM
+- 🎭 Grease Opening Night at 7:30 PM — Langley High School
+- ✈️ Randy returns home today — AA Flt 1659 CLT→DCA, arrives ~4:47 PM
+- 🔴 TAX DEADLINE April 15 (5 days away) — Bass & Associates 2025 Engagement Letter still needs signature via TaxDome
+- 🏗️ Foster Remodeling Preconstruction Letter received (Apr 6) — review and respond to John Davis
+- 🍔 FCPS Low School Lunch Account — refill needed
+- 👶 MCA needs Emmet baby photos for graduation ceremony slideshow
+- ⚠️ SATURDAY CONFLICT: Brooks X-Factors game (4:30–5:45 PM) vs NB6 Wheats Team Photos (5:30 PM) — resolve ASAP
+
+### Emails Needing Response:
+- Bass & Associates (TaxDome) — "Reminder, documents pending signature" — Sign 2025 Engagement Letter before April 15
+- Vance Zavela (McLean Cardinals) — "GameChanger for McLean Cardinals" — read/acknowledge (UNREAD)
+- Langley Saxon Stage — "Cast/Crew/Pit Party Sunday" — watch for follow-up location info
+- Emily Wilczynski (McLean Soccer) — "Snack sign-up" for Sybil's U9 team — sign up
+- MCA Director — "Baby photos for graduation ceremony" — send 2 baby + 1 current photo of Emmet
+
+### Key Notes:
+- OPENING DAY WEEKEND: Huge logistics Saturday — Maggie (doubleheader at Olney Park + Grease Sat 6:30 PM), Brooks (Opening Day + X-Factors + Wheats conflict), Emmet (T8 Opening Day + photos + game), Sybil (soccer game 9 AM separate location — needs separate driver!)
+- Both parents home starting tonight (Randy lands ~4:47 PM) — coordinate driving duties for weekend
+- Grease runs Fri/Sat/Sun this weekend; cast party Sunday after final performance
+- Emmet heading to kindergarten at Churchill Road — K Summer Assessment scheduled 6/29/2026, 9:30 AM
+- GOTR: Melissa coaching/coordinating, combined Lessons 7+8 coming up; Mrs. Phipps confirmed. Bring shower curtains.
+- Renovation #1 (Office/Basement) actively underway with Foster Remodeling — preconstruction letter received
+- Outdoor projects #2/#3/#4 can begin simultaneously ~May/June when addition goes interior-only
+
+---
+
 ## Thursday, April 9, 2026 — Daily Briefing Log
 
 **Calendars checked:** 10 calendars, 5 events today, 20+ events this week (Thu–Sun)
