@@ -538,3 +538,73 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 - McLean Cardinals softball (Maggie): first games this Saturday at Olney Park vs South County LL
 
 ---
+
+## Saturday, April 11, 2026 — Daily Briefing Log
+
+**Calendars checked:** 12 calendars, 11 events today, ~28 events this week
+**Tasks:** 17 total, 8 overdue/active, 9 completed
+**Renovation items:** 7 projects total, 1 active (kitchen), 1 in planning (primary bath)
+**Emails reviewed:** 50+ emails scanned across 11 categories
+
+### Urgent / Needs Attention Today:
+- 🚨 TAX DEADLINE IN 4 DAYS — Bass & Associates TaxDome engagement letter for 2025 still unsigned (email from Apr 6)
+- 🎭 Grease Opening Night tonight — Maggie performs at 7:30 PM (Randy's calendar); Brooks has NB6 game same time — divide and conquer needed
+- ⚠️ 9:00 AM CONFLICT — Sybil soccer game (2017 U9 Girls McLean Team 7) vs. Brooks+Emmet Opening Day Parade at the same time
+- ✈️ Randy flies Monday Apr 13 AA 2839 DCA→CLT at 1:44 PM — Melissa solo for packed Monday afternoon
+- 📋 Foster Remodeling pre-construction letter unread — requires review and response before work begins
+- ⏰ Overdue: Schedule annual physicals for Brooks, Sybil, Emmet (30+ days overdue)
+- ⏰ Overdue: Renew AAA membership (expired)
+- ⏰ Overdue: Submit FSA receipts for Q4 2025
+
+### Emails Needing Response:
+- **Bass & Associates** — Sign 2025 tax engagement letter on TaxDome (URGENT — Apr 15 deadline)
+- **Emily Wilczynski** — Sybil's team snack sign-up, respond with date selection
+- **Foster Remodeling** — Read and respond to pre-construction letter re: kitchen remodel scope
+
+### Key Notes:
+- Opening Day weekend — Brooks (NB6 Wheats parade + game) and Emmet (T8 tee ball) both active
+- Maggie's Grease runs this weekend; confirm pickup plan for after show
+- Randy travel Apr 13 means school/activity pickup is Melissa only Monday
+- Kitchen renovation active — Foster Remodeling is primary contractor
+- Week ahead includes: Randy returns (TBD), multiple softball/baseball/soccer games, Grease performances continue
+
+---
+
+## Sunday, April 12, 2026 — Daily Briefing Log
+
+**Calendars checked:** 12 calendars, 7 events today, ~30 events this week
+**Tasks:** Google Sheets task/renovation tracker not accessible this run (requires browser auth — no data pulled)
+**Renovation items:** Foster Remodeling pre-construction letter received; Chimney Work starting Monday
+**Emails reviewed:** ~60 emails scanned across 6 category searches
+
+### Urgent / Needs Attention Today:
+- 🎭 Grease Performance TODAY at 3:30 PM @ Langley HS (Maggie) — don't be late
+- 🎉 Grease Cast/Crew Party TONIGHT 7:15 PM @ 10121 Captain Hickory Place, Great Falls
+- ✍️ Bass & Associates 2025 Tax Engagement Letter OVERDUE (sent April 6) — needs both Randy & Melissa signatures on TaxDome
+- ✈️ Randy flies DCA→CLT Monday at 1:44 PM (AA 2839, SGCBJC) — Melissa solo parent all week
+- 🔧 Chimney Work starts Monday April 13 through Thursday April 16 (Blackburn Chimney, 301-965-1341)
+- ⚠️ Saturday April 18: TRIPLE CONFLICT at 9 AM — Maggie Challenger Game (8:15 AM arrive), Sybil Soccer Game (9 AM arrive 8:45), Emmet T-Ball Game (9 AM) — logistics coordination needed
+- 📋 Foster Remodeling Preconstruction Letter received April 6 — review and confirm meeting
+- ⚽ Soccer snack sign-up needed for Sybil's team (Coach Emily Wilczynski)
+
+### Emails Needing Response:
+- Bass & Associates (via TaxDome) — "Documents Pending Signature" — SIGN 2025 engagement letter immediately (6 days overdue)
+- John Davis / Foster Remodeling — "Preconstruction Letter" — Review and confirm pre-construction meeting details
+- Emily Wilczynski / McLean Youth Soccer — "Snack sign-up" — Sign up for Sybil's team snack duty
+- Vance Zavela — "GameChanger for McLean Cardinals" — Register to follow Maggie's softball scores live
+
+### Key Notes:
+- Randy flying to Charlotte Monday — all kid logistics fall on Melissa Mon-Fri (or until Randy returns; return date not visible on calendar)
+- Maggie's Grease run at Langley HS wraps up today with final performance; cast party tonight in Great Falls
+- Unruly Theater Project (Maggie) has rehearsals Tue Apr 14 and Thu Apr 16, 7-9 PM — transportation needed since Randy is away
+- McLean Seniors (Maggie softball) has a very busy stretch: batting practice Wed 4/15, fielding practice Fri 4/17, away game Fri 4/17 (arrive 6:30!), Challenger game Sat 4/18 morning, team lunch Sat 4/18 afternoon
+- Brooks has baseball AND X-Factors soccer overlapping this week — confirm which X-Factors games he's actually in
+- Emmet: T-ball practice today, T-ball game Saturday April 18
+- Sybil: Field trip Tuesday (Maryland Science Center, Mrs. Phipps), soccer training Monday, soccer practice Friday, soccer GAME Saturday
+- Thursday conflict: Brooks Chalk Talk (7:45 PM) overlaps with his baseball game (7:30 PM) — verify details
+- Snack duty alert: McLean Seniors softball — Maggie's team has a game Friday AND Challenger game Saturday morning
+- ButcherBox delivery expected — check order confirmation for date
+- HP printer toner running low (HP 916 Black)
+- Google Sheets task tracker & renovation tracker data NOT pulled this run (requires authenticated browser session)
+
+---
