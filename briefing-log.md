@@ -4,6 +4,44 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Monday, April 13, 2026 — Daily Briefing Log
+
+**Calendars checked:** 12 calendars, 5 events today, 28 events this week (Mon–Sun)
+**Tasks:** 16 total, 3 overdue (Oven Sensor 3/20, 4 Kids Dental 3/27, Sign Fam up for 5K 3/25), 3 in-progress, 9 done
+**Renovation items:** 7 total, 1 Active (New Office Build + Basement — Foster Remodeling), 1 Planning (Backyard Reno)
+**Emails reviewed:** ~80 emails scanned across 11 search queries
+
+### Urgent / Needs Attention Today:
+- 🔴 TAX ENGAGEMENT LETTER — Bass & Associates 2nd reminder (Sun Apr 12). 2025 Engagement Letter for Witt, Randolph & Melissa still needs signature via TaxDome. TAX DAY is WEDNESDAY April 15!
+- ✈️ Randy is traveling today — Flight AA 2839 DCA→CLT 1:44–3:24 PM · Melissa is solo parent
+- ⚠️ TODAY CONFLICT: GOTR Practice 3:15–4:45 PM (Melissa coaching) + Brooks McLean Group Training 4:30–6 PM + Sybil Soccer 5–6:15 PM — 3 simultaneous kids activities, 1 parent home
+- 🔨 Chimney Work all week Mon–Thu (Blackburn Chimney, Edward Blackburn, 301-965-1341) @ 1303 Earnestine
+- ⚠️ TUESDAY CONFLICT: Brooks double-booked — X-Factors Practice 5–6:30 PM AND NB6 Wheats Practice 5:30–7:15 PM — must pick one
+- 🏗️ Foster Remodeling Preconstruction Letter (Apr 6, John Davis) still needs review and response
+- 📋 Vance Zavela (McLean Cardinals) emailed this morning re: Fri/Sat game availability — respond about Maggie
+
+### Emails Needing Response:
+- Bass & Associates (TaxDome) — "Reminder, documents pending signature" (2nd reminder) — Sign 2025 Engagement Letter BEFORE April 15 TAX DAY
+- John Davis / Foster Remodeling — "Preconstruction Letter" (Apr 6) — Review and respond
+- Vance Zavela (McLean Cardinals Coach) — "Current availability for Friday and Saturday's games" — Reply re: Maggie's availability for Fri 7:30 PM and Sat 11 AM games
+- FCPS — "Reminder: Langley High Principal Survey" — Complete survey for Langley principal evaluation (Maggie's school)
+- Mr. Walsh (FCPS/5th grade) — "Agenda: Week of 4/13/2026" — Read week's agenda for Brooks (Bobcat Spirit Week, Month of Military Child)
+
+### Key Notes:
+- Randy is OUT OF TOWN today — solo parent logistics critical for 3:15–6:15 PM window
+- SATURDAY April 18 is extremely busy: Maggie has 3 softball events (Challenger game 8:15 AM, vs CYA 11 AM, team lunch 1:30 PM); Brooks has X-Factors game 1 PM AND Wheats game 5:30 PM; Emmet T8 game 9 AM; Sybil soccer game 9 AM (different location from Emmet) — BOTH parents needed Saturday
+- Grease (Maggie) has concluded — cast party happened Sunday Apr 12 at Great Falls (confirmed) ✅
+- Unruly Theater continues: Tue Apr 14 + Thu Apr 16, 7–9 PM @ McLean Old Fire House
+- CRS PTA Nominating Committee Zoom is TOMORROW Tuesday 7:45–8:15 PM — Angela and Evelyn both confirmed ✅
+- Sybil has a field trip TOMORROW Tuesday April 14 — ensure she's prepared
+- Sharon's Birthday is Wednesday April 15
+- Pay Costco CC: Thursday April 16 evening via USAA
+- Statement Download reminder: Sunday April 19
+- Task tracker fetched via Chrome gviz endpoint: 16 tasks, 3 overdue, 9 done
+- Renovation tracker fetched: 7 projects, #1 Active (Foster Remodeling, Spring 2026–Aug 2026)
+
+---
+
 ## Friday, April 10, 2026 — Daily Briefing Log
 
 **Calendars checked:** 12 calendars, 7 events today, 25+ events this week (Fri–Sun)
