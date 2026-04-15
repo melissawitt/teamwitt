@@ -4,6 +4,41 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 
 ---
 
+## Tuesday, April 14, 2026 — Daily Briefing Log
+
+**Calendars checked:** 12 calendars, 8 events today, 17+ events this week  
+**Tasks:** 11 total, 5 overdue, 4 completed/done  
+**Renovation items:** 8 total, 1 active (Office Build), 1 planning (Backyard), 6 not started  
+**Emails reviewed:** ~60 emails scanned across 9 search queries  
+
+### Urgent / Needs Attention Today:
+- TAX DAY TOMORROW (Apr 15) — Bass & Associates engagement letter pending signature via TaxDome (sent Sun Apr 12)
+- Brooks has 3 CONFLICTING events tonight: X-Factors Practice (5pm) + Wheats Practice (5:30pm) + Baseball Practice (6:15pm)
+- Thursday Apr 16: Brooks Wheats Game (7:30pm) conflicts with Chalk Talk (7:45pm)
+- Sunday Apr 19: Sloane's Birthday Party (12:30pm) conflicts with Brooks Baseball Practice (1:30pm)
+- RSVP needed: Brooks invited to Thomas's 11th Birthday Party (evite from Inna Karas, received today)
+- Snack Bar Duty TOMORROW — Wheat's baseball at 1836 Westmoreland St, 5–9:30pm (3 SignUpGenius reminders today)
+- Sybil field trip today (all day) — confirm pickup
+- 5 overdue tasks: Oven Sensor (3/20), Dryer Drum (3/20), 4 Kids Dental (3/27), Melissa Breast Check-Up (3/23), GOTR 5K signup (3/25)
+
+### Emails Needing Response:
+- Bass & Associates (notifications@taxdome.com) — "Reminder, documents pending signature" — SIGN 2025 engagement letter
+- Inna Karas (evite) — "Brooks, RSVP to Thomas is turning 11!" — RSVP for Brooks
+- Coach Vance Zavela (vance.zavela@gmail.com) — "Current availability for Friday and Saturday's games" — Confirm Maggie's availability for Fri Apr 17 & Sat Apr 18 softball games
+- Emily Wilczynski (McLean Youth Soccer) — "Snack sign-up" — Sign up for snack slot for Sybil's U9 Team 7
+
+### Key Notes:
+- Chimney work ongoing through Friday Apr 17 (Edward Blackburn, Blackburn Chimney, 301-965-1341)
+- Office renovation underway — est. finish August 2026
+- Maggie's Unruly Theater is on Randy's calendar but belongs to Maggie — Tue & Thu 7–9pm at McLean Old Fire House Center
+- Saturday Apr 18 is extremely busy — 7 events, 2 cars likely needed in morning
+- Melissa appointment: Dr. Amir Bajoghli, Wed Apr 22 at 8:00 AM (Skin & Laser Surgery Center)
+- Churchill Road ES: Purple Up! Day Apr 15, Spirit Days Apr 16-17, Teacher Workday Apr 21
+- Pay CostCo Credit Card due Thursday Apr 16 via USAA billpay (Randy)
+- Chewy autoship arriving by Thu Apr 16; BTArtbox nails shipped today
+
+---
+
 ## Monday, April 13, 2026 — Daily Briefing Log
 
 **Calendars checked:** 12 calendars, 5 events today, 28 events this week (Mon–Sun)
