@@ -2786,3 +2786,32 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 - Sybil swim lesson with Kat booked Fri Jul 17 11am; last lesson paid $50 via Venmo (handled)
 
 ---
+
+## Sunday, July 12, 2026 — Daily Briefing Log (manual run)
+
+**Calendars checked:** 13 calendars, 2 all-day items today, ~28 events this week
+**Tasks:** 4 active, 1 overdue (Emmet ear appt), 0 completed shown (Done-task filter now active)
+**Emails reviewed:** ~120 scanned across 15 searches, 9 flagged as action
+
+### Urgent / Needs Attention Today:
+- Brooks — McLean Youth Soccer Spring Rec player feedback DUE TODAY (7/12)
+- Maggie — Driver's Ed Summer Activity Log #10 due ASAP (Jill Cross; no late penalty if done today)
+- Emmet — ear appointment overdue since 3/22; needs Ft. Belvoir booking / new referral to Dr. Spielman
+- Melissa — breast check-up due 7/14 (referral in, needs scheduling); 4 kids' dental due 7/15
+- CONFLICT Wed 7/15: Maggie Final Driver's Ed Exam (2–9p) vs McLean Seniors fielding practice (6:30p)
+- CONFLICT Thu 7/16: Maggie softball games (6:30 & 8p) vs therapy (7p), plus Emmet swim (5:35p)
+
+### Emails Needing Response:
+- Ms. Aseeka (MCA) — confirm Maggie student-teacher visit Fri 7/17
+- Evite (MCA) — RSVP Emmet Class of 2026 Graduation
+- Paperless Post — RSVP Violet's 5th Birthday (Aug 2)
+- Jamie Hurwitz — Churchill Road PTA spirit-wear art mockup, confirm quantities
+- Cara Wank (Foster Remodeling) — truss review still pending, Randy chasing
+
+### Key Notes:
+- First run after task edits: renovation tracker removed, Done tasks hidden, added Wildthings/FCPS/Churchill/Langley/FitCoach Caroline/Jill Cross email scopes
+- Attribution applied: McLean Seniors softball = Maggie; Wildthings swim = Brooks & Sybil; Jill Cross/Driver's Ed = Maggie
+- Lake house trip (Uncle Frank's) ends Mon 7/13; Gator Boyz pressure wash Tue 7/14 9a–2p
+- Wildthings swim runs twice daily Mon–Fri for Brooks & Sybil
+
+---
