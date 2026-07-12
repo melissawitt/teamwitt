@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.witt.dashboard-push</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/melissawitt/Documents/GitHub/teamwitt/auto-push.sh</string>
+    </array>
+
+    <!-- Run twice daily: 8:45 AM (after the dashboard task writes index.html) and 6:00 PM. -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>8</integer>
+            <key>Minute</key>
+            <integer>45</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>18</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <!-- Log output so we can debug if a push fails. -->
+    <key>StandardOutPath</key>
+    <string>/Users/melissawitt/Documents/GitHub/teamwitt/push.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/melissawitt/Documents/GitHub/teamwitt/push.log</string>
+</dict>
+</plist>

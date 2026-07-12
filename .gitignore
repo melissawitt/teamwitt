@@ -1,0 +1,3 @@
+# Dashboard output files (index.html, briefing-log.md) are published intentionally.
+.DS_Store
+push.log
