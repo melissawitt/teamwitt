@@ -2873,3 +2873,7 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 - Dashboard saved to teamwitt/index.html, password "hippo" unchanged.
 
 ---
+### Correction (7/15, post-run):
+- Wildthings "Wildthing Email July 13-18" states Wed 7/15 is All Star Relay day — NO practice AM or PM. Dashboard originally showed today's recurring swim slots (Brooks/Sybil) from Randy's calendar; removed them. This also dissolves the exam-day driving conflict that was flagged urgent. Lesson: cross-check the weekly Wildthings email against recurring swim calendar events before flagging conflicts.
+
+---
