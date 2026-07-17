@@ -3,97 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Witt Family Command Center · Wed Jul 15</title>
+<title>Witt Family Command Center</title>
 <style>
-  :root{
-    --maggie:#805ad5; --brooks:#3182ce; --sybil:#d53f8c; --emmet:#dd6b20;
-    --melissa:#2f855a; --randy:#2c7a7b; --family:#718096;
-    --bg1:#667eea; --bg2:#764ba2; --card:#ffffff; --ink:#2d3748; --muted:#718096;
-    --red:#e53e3e; --redbg:#fff5f5; --yellow:#fefcbf; --shadow:0 2px 10px rgba(0,0,0,.08);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-    background:linear-gradient(135deg,var(--bg1),var(--bg2));min-height:100vh;color:var(--ink);padding:0}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f5f7; color: #2d3748; line-height: 1.5; }
+  a { color: inherit; }
+
   /* Login */
-  #login{position:fixed;inset:0;background:linear-gradient(135deg,var(--bg1),var(--bg2));
-    display:flex;align-items:center;justify-content:center;z-index:100}
-  #login .box{background:#fff;padding:38px 30px;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.25);
-    width:90%;max-width:340px;text-align:center}
-  #login h1{font-size:20px;margin-bottom:6px}
-  #login p{color:var(--muted);font-size:13px;margin-bottom:18px}
-  #login input{width:100%;padding:12px;border:2px solid #e2e8f0;border-radius:10px;font-size:16px;margin-bottom:12px}
-  #login button{width:100%;padding:12px;border:none;border-radius:10px;font-size:16px;font-weight:600;color:#fff;
-    background:linear-gradient(135deg,var(--bg1),var(--bg2));cursor:pointer}
-  #login .err{color:var(--red);font-size:13px;height:16px;margin-bottom:6px}
-  /* Layout */
-  #app{display:none;max-width:920px;margin:0 auto;padding:16px 14px 60px}
-  header.top{color:#fff;padding:10px 4px 18px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-  header.top h1{font-size:19px;line-height:1.3}
-  header.top .sub{font-size:12px;opacity:.9;margin-top:4px}
-  header.top button{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);
-    border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;white-space:nowrap}
-  .card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:16px;margin-bottom:14px}
-  .card h2{font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:7px}
-  .urgent{background:var(--redbg);border:1.5px solid #feb2b2}
-  .urgent h2{color:var(--red)}
-  .u-item{padding:9px 0;border-bottom:1px dashed #fed7d7;font-size:14px;line-height:1.45}
-  .u-item:last-child{border-bottom:none}
-  .u-item b{color:var(--red)}
-  /* timeline */
-  .ev{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #edf2f7;font-size:14px;line-height:1.4}
-  .ev:last-child{border-bottom:none}
-  .ev .t{min-width:74px;font-weight:600;font-size:13px;color:var(--muted)}
-  .ev .d{flex:1}
-  .ev .who{display:inline-block;font-size:11px;font-weight:700;color:#fff;padding:1px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
-  .bar{border-left:4px solid #ccc;padding-left:10px}
-  .conflict{background:#fffaf0;border-radius:8px;padding:6px 8px;margin-top:4px;font-size:12px;color:#c05621}
-  /* action items */
-  .task{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #edf2f7;font-size:14px}
-  .task:last-child{border-bottom:none}
-  .task input{margin-top:3px;width:17px;height:17px;flex-shrink:0}
-  .task.over{border-left:4px solid var(--red);padding-left:9px;background:var(--redbg);border-radius:6px}
-  .pill{font-size:11px;font-weight:700;padding:1px 7px;border-radius:20px;color:#fff;margin-left:6px}
-  .due{font-size:12px;color:var(--muted)}
-  .due.over{color:var(--red);font-weight:700}
-  /* stats */
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-  .stat{background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#fff;border-radius:12px;padding:14px 8px;text-align:center}
-  .stat .n{font-size:26px;font-weight:800}
-  .stat .l{font-size:11px;opacity:.92;margin-top:2px}
-  /* week grid */
-  .week{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
-  .day{border:1px solid #e2e8f0;border-radius:10px;padding:8px;font-size:12px;min-height:70px}
-  .day.today{border:2px solid var(--bg2)}
-  .day.busy{background:#fffff0}
-  .day.conf{background:#fff5f5}
-  .day h4{font-size:12px;margin-bottom:5px;color:var(--muted)}
-  .day .dot{display:block;padding:2px 0;line-height:1.3}
-  .day .c{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle}
-  /* links */
-  .links a{display:inline-block;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#fff;
-    text-decoration:none;padding:9px 14px;border-radius:9px;font-size:13px;font-weight:600;margin:4px 4px 0 0}
-  /* details */
-  details{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;margin-bottom:14px}
-  details summary{font-size:15px;font-weight:700;cursor:pointer;list-style:none;display:flex;align-items:center;gap:7px}
-  details summary::-webkit-details-marker{display:none}
-  details summary::before{content:'▸';font-size:12px;transition:transform .2s}
-  details[open] summary::before{transform:rotate(90deg)}
-  details .body{margin-top:12px}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #edf2f7;vertical-align:top}
-  th{font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.4px}
-  tr.over td{background:var(--redbg)}
-  tr.over td:first-child{border-left:4px solid var(--red)}
-  .em{padding:9px 0;border-bottom:1px solid #edf2f7;font-size:13px;line-height:1.45}
-  .em:last-child{border-bottom:none}
-  .em .s{font-weight:700}
-  .em .from{color:var(--muted);font-size:12px}
-  .grp{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--bg2);margin:14px 0 4px}
-  .grp:first-child{margin-top:0}
-  .note{font-size:13px;line-height:1.5;padding:6px 0;border-bottom:1px solid #edf2f7}
-  .note:last-child{border-bottom:none}
-  .foot{text-align:center;color:rgba(255,255,255,.75);font-size:11px;margin-top:8px}
-  @media(max-width:520px){.stats{gap:7px}.stat .n{font-size:22px}.ev .t{min-width:66px}}
+  #login { position: fixed; inset: 0; background: linear-gradient(135deg,#667eea,#764ba2); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+  #login .box { background: #fff; padding: 40px 32px; border-radius: 18px; box-shadow: 0 20px 50px rgba(0,0,0,.3); width: 90%; max-width: 360px; text-align: center; }
+  #login h1 { font-size: 22px; margin-bottom: 6px; color: #4a2f8f; }
+  #login p { font-size: 13px; color: #718096; margin-bottom: 20px; }
+  #login input { width: 100%; padding: 13px 14px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 16px; margin-bottom: 14px; }
+  #login input:focus { outline: none; border-color: #764ba2; }
+  #login button { width: 100%; padding: 13px; background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; }
+  #login .err { color: #e53e3e; font-size: 13px; height: 16px; margin-top: 8px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 16px; display: none; }
+  header.top { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; padding: 22px 24px; border-radius: 16px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  header.top h1 { font-size: 20px; letter-spacing: .5px; }
+  header.top .sub { font-size: 13px; opacity: .9; margin-top: 4px; }
+  header.top button { background: rgba(255,255,255,.2); color: #fff; border: 1px solid rgba(255,255,255,.4); padding: 8px 14px; border-radius: 8px; font-size: 13px; cursor: pointer; }
+
+  section.card { background: #fff; border-radius: 14px; padding: 18px 20px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  h2.sec { font-size: 15px; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 14px; color: #4a5568; }
+
+  .urgent { background: #fff5f5; border: 1px solid #feb2b2; }
+  .urgent h2.sec { color: #c53030; }
+  .urgent ul { list-style: none; }
+  .urgent li { padding: 9px 12px; margin-bottom: 8px; background: #fff; border-left: 4px solid #e53e3e; border-radius: 6px; font-size: 14px; }
+  .urgent li:last-child { margin-bottom: 0; }
+  .urgent li b { color: #c53030; }
+
+  .timeline { list-style: none; }
+  .timeline li { display: flex; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #edf2f7; gap: 12px; }
+  .timeline li:last-child { border-bottom: none; }
+  .t-time { font-weight: 600; font-size: 13px; min-width: 78px; color: #4a5568; }
+  .t-body { flex: 1; font-size: 14px; }
+  .t-body .who { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 1px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+  .t-loc { font-size: 12px; color: #718096; }
+  .canceled .t-body { text-decoration: line-through; color: #a0aec0; }
+  .cxbadge { background: #e53e3e; color:#fff; font-size:10px; font-weight:700; padding:1px 6px; border-radius:8px; margin-left:6px; }
+
+  .actions { list-style: none; }
+  .actions li { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid #edf2f7; font-size: 14px; }
+  .actions li:last-child { border-bottom: none; }
+  .actions input { margin-top: 3px; width: 16px; height: 16px; }
+  .actions .od { color: #c53030; font-weight: 600; }
+  .badge { font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 6px; }
+  .b-high { background: #fed7d7; color: #c53030; }
+  .b-med { background: #feebc8; color: #c05621; }
+  .b-od { background: #e53e3e; color: #fff; }
+
+  .grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 8px; }
+  .day { background: #f7fafc; border-radius: 10px; padding: 8px; min-height: 120px; border: 1px solid #edf2f7; }
+  .day.today { border: 2px solid #764ba2; background: #faf5ff; }
+  .day.busy { background: #fffbeb; }
+  .day.conflict { border: 2px solid #e53e3e; }
+  .day h4 { font-size: 12px; margin-bottom: 6px; color: #4a5568; }
+  .day .ev { font-size: 10px; padding: 2px 4px; margin-bottom: 3px; border-radius: 4px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .day .cxmini { text-decoration: line-through; opacity: .55; }
+
+  .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  .stat { background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border-radius: 12px; padding: 18px; text-align: center; }
+  .stat .n { font-size: 30px; font-weight: 700; }
+  .stat .l { font-size: 12px; opacity: .9; margin-top: 4px; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a { background: #edf2f7; padding: 10px 16px; border-radius: 10px; font-size: 13px; font-weight: 600; text-decoration: none; color: #4a5568; }
+  .links a:hover { background: #e2e8f0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #edf2f7; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: #718096; }
+  tr.overdue td { background: #fff5f5; }
+  tr.overdue td:first-child { border-left: 4px solid #e53e3e; }
+
+  details { margin-bottom: 16px; }
+  details > summary { background: #fff; border-radius: 12px; padding: 14px 18px; font-weight: 600; font-size: 14px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.06); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::after { content: "▾"; color: #a0aec0; }
+  details[open] > summary::after { content: "▴"; }
+  details .inner { background: #fff; border-radius: 0 0 12px 12px; padding: 4px 20px 18px; margin-top: -6px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+
+  .daygroup { margin-top: 14px; }
+  .daygroup h3 { font-size: 13px; color: #4a2f8f; margin-bottom: 6px; border-bottom: 2px solid #edf2f7; padding-bottom: 4px; }
+
+  .email-cat { margin-top: 12px; }
+  .email-cat h3 { font-size: 13px; color: #4a5568; margin-bottom: 6px; }
+  .email { padding: 8px 10px; border-left: 3px solid #cbd5e0; background: #f7fafc; border-radius: 6px; margin-bottom: 7px; font-size: 13px; }
+  .email .from { font-weight: 600; }
+  .email .subj { color: #2d3748; }
+  .email .snip { color: #718096; font-size: 12px; margin-top: 2px; }
+  .email.reply { border-left-color: #e53e3e; }
+
+  .note { font-size: 13px; padding: 7px 0; border-bottom: 1px solid #edf2f7; }
+  .note:last-child { border-bottom: none; }
+  .foot { text-align: center; font-size: 11px; color: #a0aec0; padding: 16px 0; }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+    .day { min-height: auto; }
+  }
 </style>
 </head>
 <body>
@@ -102,190 +114,291 @@
   <div class="box">
     <h1>🏡 Witt Family Command Center</h1>
     <p>Enter password to continue</p>
+    <input type="password" id="pw" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()">
+    <button onclick="doLogin()">Unlock</button>
     <div class="err" id="err"></div>
-    <input type="password" id="pw" placeholder="Password" autocomplete="off">
-    <button onclick="tryLogin()">Unlock</button>
   </div>
 </div>
 
-<div id="app">
+<div class="wrap" id="dash">
   <header class="top">
     <div>
       <h1>WITT FAMILY COMMAND CENTER</h1>
-      <div class="sub">Wednesday, July 15, 2026 · All 14 calendars synced</div>
+      <div class="sub">Friday, July 17, 2026 · All 13 calendars synced</div>
     </div>
     <button onclick="logout()">Log out</button>
   </header>
 
-  <!-- URGENT -->
-  <div class="card urgent">
-    <h2>🚨 Urgent Alerts</h2>
-    <div class="u-item"><b>TODAY 2:00–6:00 PM — Maggie's Driver's Ed FINAL EXAM + PSTD</b> at West Springfield HS (6100 Rolling Rd). Arrive with parent at 2:00; PSTD 2:30–4:00; testing 4:00–6:00 (parent must wait in the vehicle). Jill Cross is sending <b>3 eligibility updates today</b> — watch email.</div>
-    <div class="u-item"><b>Wildthings swim — NO practice today.</b> Wed 7/15 is All Star Relay day; both morning &amp; afternoon practices are cancelled (per the July 13–18 team email). Separate relay-meet info goes only to selected families. This clears the earlier exam-day driving conflict.</div>
-    <div class="u-item"><b>7:30 PM — Maggie McLean Seniors batting practice</b> (1836 Westmoreland St) right after the exam — tight turnaround.</div>
-    <div class="u-item"><b>Overdue tasks:</b> Melissa breast check-up (due 7/14), Emmet's ear appt (open since 3/22). 4 Kids dental check-ups due <b>today</b>.</div>
-    <div class="u-item"><b>Pay Kat</b> for Sybil's last swim lesson — Venmo <b>@Kat-Owczarski</b> (awaiting payment).</div>
-  </div>
+  <section class="card urgent">
+    <h2 class="sec">🚨 Urgent Alerts</h2>
+    <ul>
+      <li><b>Code Red air quality today.</b> FCPS canceled all outdoor activities and Langley Wildthings canceled ALL swim practices (AM &amp; PM). Sybil's lesson with Kat and today's swim are off — rescheduling.</li>
+      <li><b>Maggie — Driver Ed final exam Tues, July 21.</b> Only one attempt that day; 30 VADETS hours must be done by midnight Mon 7/20. Session time depends on prior slot (arrive 4:45 PM for 5 PM, or 6:45 PM for 7 PM). Confirm Maggie's plan with her teacher before Tuesday.</li>
+      <li><b>Melissa — Internal Medicine telehealth Tues, July 21, 5:05 PM</b> (Walter Reed, phone visit).</li>
+      <li><b>Home / Dominion billing.</b> Foster Remodeling forwarded a Dominion electric bill sent to their address by mistake (temporary pole). Call Dominion as homeowner to move it back to your account; ask about a possible 5/27–7/29 bill.</li>
+      <li><b>3 overdue tasks:</b> Emmet's Ear Appt (call Mon), Melissa Breast Check-Up, and 4 Kids' Dental Check-Ups.</li>
+      <li><b>Thu 7/23 conflict:</b> Maggie's softball game vs TBC (6:30 PM) overlaps her therapy (7:00 PM) — pick one.</li>
+    </ul>
+  </section>
 
-  <!-- TODAY -->
-  <div class="card">
-    <h2>📅 Today's Schedule — Wed, Jul 15</h2>
-    <div class="ev"><div class="t">All day</div><div class="d bar" style="border-color:var(--family)">Wildthings — <b>NO practice</b> (All Star Relay day; AM &amp; PM cancelled). Relay meet for selected families only — watch for separate info.<span class="who" style="background:var(--family)">Swim</span></div></div>
-    <div class="ev"><div class="t">2:00–6:00</div><div class="d bar" style="border-color:var(--maggie)">Maggie — Driver's Ed Final Exam + PSTD, West Springfield HS<span class="who" style="background:var(--maggie)">Maggie</span>
-      <div class="conflict">Arrive 2:00 w/ parent · PSTD 2:30–4:00 · testing 4:00–6:00 (parent waits in vehicle)</div></div></div>
-    <div class="ev"><div class="t">7:30 PM</div><div class="d bar" style="border-color:var(--maggie)">Maggie — McLean Seniors batting practice, 1836 Westmoreland St<span class="who" style="background:var(--maggie)">Maggie</span></div></div>
-  </div>
+  <section class="card">
+    <h2 class="sec">📅 Today's Schedule — Fri, July 17</h2>
+    <ul class="timeline" id="today"></ul>
+  </section>
 
-  <!-- ACTION ITEMS -->
-  <div class="card">
-    <h2>✅ Top Action Items</h2>
-    <div class="task over"><input type="checkbox"><div>Emmet's ear appt (ENT — Dr. Spielman / Ft. Belvoir) <span class="pill" style="background:var(--emmet)">Emmet</span><br><span class="due over">Open since 3/22 — call Ft. Belvoir</span></div></div>
-    <div class="task over"><input type="checkbox"><div>Melissa breast check-up — schedule appointment (referral submitted) <span class="pill" style="background:var(--melissa)">Melissa</span><br><span class="due over">Overdue — due 7/14</span></div></div>
-    <div class="task"><input type="checkbox"><div>4 Kids dental check-ups <span class="pill" style="background:var(--family)">Family</span><br><span class="due">Due today 7/15</span></div></div>
-    <div class="task"><input type="checkbox"><div>Pay Caroline (FitCoach) — weekly <span class="pill" style="background:var(--melissa)">Melissa</span><br><span class="due">Recurring — Wednesdays</span></div></div>
-    <div class="task"><input type="checkbox"><div>Pay Kat for Sybil's swim lesson — Venmo @Kat-Owczarski <span class="pill" style="background:var(--sybil)">Sybil</span><br><span class="due">Awaiting payment</span></div></div>
-  </div>
+  <section class="card">
+    <h2 class="sec">✅ Top Action Items</h2>
+    <ul class="actions" id="acts"></ul>
+  </section>
 
-  <!-- STATS -->
-  <div class="card">
-    <h2>📊 Quick Stats</h2>
+  <section class="card">
+    <h2 class="sec">📆 This Week at a Glance</h2>
+    <div class="grid" id="weekgrid"></div>
+  </section>
+
+  <section class="card">
+    <h2 class="sec">📊 Quick Stats</h2>
     <div class="stats">
-      <div class="stat"><div class="n">4</div><div class="l">Open Tasks</div></div>
-      <div class="stat"><div class="n">28</div><div class="l">Activities This Week</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">Open Tasks (3 overdue)</div></div>
+      <div class="stat"><div class="n" id="s-week">0</div><div class="l">Activities This Week</div></div>
       <div class="stat"><div class="n">8</div><div class="l">Action Emails</div></div>
     </div>
-  </div>
+  </section>
 
-  <!-- WEEK -->
-  <div class="card">
-    <h2>📆 This Week at a Glance</h2>
-    <div class="week">
-      <div class="day today busy"><h4>WED 15</h4>
-        <span class="dot"><span class="c" style="background:var(--family)"></span>Swim: NO practice (Relay day)</span>
-        <span class="dot"><span class="c" style="background:var(--maggie)"></span>DE Exam 2–6</span>
-        <span class="dot"><span class="c" style="background:var(--maggie)"></span>Batting 7:30</span>
-      </div>
-      <div class="day conf"><h4>THU 16</h4>
-        <span class="dot"><span class="c" style="background:var(--brooks)"></span>Football 8:40 · Swim</span>
-        <span class="dot"><span class="c" style="background:var(--sybil)"></span>Swim 10:15/3:45</span>
-        <span class="dot"><span class="c" style="background:var(--emmet)"></span>Swim lesson 5:35</span>
-        <span class="dot"><span class="c" style="background:var(--maggie)"></span>Softball 6:30 &amp; 8:00</span>
-        <span class="dot"><span class="c" style="background:var(--maggie)"></span>Therapy 7:00 ⚠️</span>
-      </div>
-      <div class="day busy"><h4>FRI 17</h4>
-        <span class="dot"><span class="c" style="background:var(--brooks)"></span>Swim 9:15/4:30</span>
-        <span class="dot"><span class="c" style="background:var(--sybil)"></span>Swim + Lesson w/ Kat 11:00</span>
-        <span class="dot"><span class="c" style="background:var(--melissa)"></span>Work mtgs</span>
-      </div>
-      <div class="day busy"><h4>SAT 18</h4>
-        <span class="dot"><span class="c" style="background:var(--family)"></span>Samantha's 5th bday 9:00 (Arlington)</span>
-        <span class="dot"><span class="c" style="background:var(--sybil)"></span>SYBS Race Day</span>
-      </div>
-      <div class="day"><h4>SUN 19</h4>
-        <span class="dot"><span class="c" style="background:var(--family)"></span>Marian's Baptism</span>
-      </div>
+  <section class="card">
+    <h2 class="sec">🔗 Quick Links</h2>
+    <div class="links">
+      <a href="https://docs.google.com/spreadsheets/d/1ruQ3UyRfdKQbF93IAvGHLeze13h0jcaB/edit" target="_blank">📋 Task Tracker</a>
+      <a href="https://calendar.google.com" target="_blank">📆 Google Calendar</a>
+      <a href="https://mail.google.com" target="_blank">✉️ Gmail</a>
     </div>
-    <div class="conflict" style="margin-top:10px">⚠️ Thu 7/16: Maggie's two softball games (6:30 &amp; 8:00 at Oakton HS) overlap her 7:00–8:00 PM therapy — needs resolving.</div>
-  </div>
+  </section>
 
-  <!-- LINKS -->
-  <div class="card links">
-    <h2>🔗 Quick Links</h2>
-    <a href="https://docs.google.com/spreadsheets/d/1ruQ3UyRfdKQbF93IAvGHLeze13h0jcaB/edit" target="_blank">📋 Task Tracker</a>
-  </div>
-
-  <!-- TASK TABLE -->
   <details open>
     <summary>📋 Task Tracker — Active Tasks</summary>
-    <div class="body">
+    <div class="inner">
       <table>
-        <tr><th>Task</th><th>Owner</th><th>Due</th><th>Priority</th><th>Status</th></tr>
-        <tr class="over"><td>Emmet's Ear Appt (ENT — Dr. Spielman; set at Ft. Belvoir, call Mon)</td><td>Melissa</td><td>3/22/2026</td><td>Medium</td><td>In Progress</td></tr>
-        <tr class="over"><td>Melissa Breast Check-Up (referral submitted; scheduling)</td><td>Melissa</td><td>7/14/2026</td><td>High</td><td>In Progress</td></tr>
-        <tr><td>4 Kids Dental Check-Ups</td><td>Melissa</td><td>7/15/2026</td><td>High</td><td>To Do</td></tr>
-        <tr><td>Pay Caroline (FitCoach)</td><td>Melissa</td><td>Weekly (Wed)</td><td>High</td><td>Recurring</td></tr>
+        <thead><tr><th>Task</th><th>Owner</th><th>Due</th><th>Priority</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody id="tasktable"></tbody>
       </table>
     </div>
   </details>
 
-  <!-- FULL WEEK -->
   <details>
     <summary>🗓️ Full Week Schedule</summary>
-    <div class="body">
-      <div class="grp">Wed, Jul 15</div>
-      <div class="note">Wildthings: NO practice — All Star Relay day (AM &amp; PM cancelled; relay meet for selected families only) · 2:00–6:00 PM Maggie DE Final Exam (West Springfield HS) · 7:30 PM Maggie batting practice</div>
-      <div class="grp">Thu, Jul 16</div>
-      <div class="note">8:40 AM Brooks Football · 9:15 AM Brooks swim · 10:15 AM Sybil swim · 11:30 AM Melissa work mtg · 3:45 PM Sybil swim · 4:30 PM Brooks swim · 5:35 PM Emmet private swim lesson (Coach Bensten) · 6:30 PM Maggie McLean Seniors vs VGSL 1 (Oakton HS) · 7:00–8:00 PM Maggie therapy ⚠️ · 8:00 PM Maggie McLean Seniors at VGSL 1 (Oakton HS) · 9:00 PM Pay Costco card (Randy) · All day: Jenni Tate birthday</div>
-      <div class="grp">Fri, Jul 17</div>
-      <div class="note">9:15 AM Brooks swim · 10:15 AM Sybil swim · 11:00 AM Sybil lesson with Kat · 12:00 PM Melissa work mtgs (×2) · 3:45 PM Sybil swim · 4:30 PM Brooks swim</div>
-      <div class="grp">Sat, Jul 18</div>
-      <div class="note">9:00 AM Samantha's 5th Birthday Party (Lubber Run Community Center, Arlington — RSVP'd) · All day: SYBS Race Day</div>
-      <div class="grp">Sun, Jul 19</div>
-      <div class="note">Marian's Baptism · All day: Statement download (Randy)</div>
-    </div>
+    <div class="inner" id="fullweek"></div>
   </details>
 
-  <!-- EMAILS -->
   <details open>
-    <summary>📬 Unanswered &amp; Action Emails</summary>
-    <div class="body">
-      <div class="grp">Personal</div>
-      <div class="em"><span class="s">Sybil Lessons — payment owed</span> <span class="from">· Kat Owczarski</span><br>Pay for Sybil's last swim lesson via Venmo <b>@Kat-Owczarski</b>. Next lesson booked Fri 7/17, 11 AM.</div>
-      <div class="em"><span class="s">Follow up — Ken Sun Design</span> <span class="from">· ken@sundesigninc.com (7/13)</span><br>Has a roadmap to move forward; blocked Tue 6:00–7:00 PM for a call. Needs a reply to confirm.</div>
-
-      <div class="grp">School (FCPS / Churchill Rd / Langley HS / Jill Cross)</div>
-      <div class="em"><span class="s">July 15 OCHPE10 Message — DE Final today</span> <span class="from">· Jill Cross, FCPS (Maggie)</span><br>Prep info for today's in-person Driver's Ed final; 3 eligibility updates coming today. <b>Monitor inbox.</b></div>
-      <div class="em"><span class="s">Progress Report for Margaret Witt</span> <span class="from">· Jill Cross, FCPS (Maggie)</span><br>Repeated Health &amp; PE 10 progress reports — review before exam.</div>
-      <div class="em"><span class="s">Spirit wear check — $138.79</span> <span class="from">· Churchill Road PTA (Melissa/PTA)</span><br>Athletic Warehouse refund check ready — decide mail vs. drop-off.</div>
-
-      <div class="grp">Sports (incl. Langley Wildthings swim)</div>
-      <div class="em"><span class="s">Wakefield Chapel A Meet — swimmers selected</span> <span class="from">· Wildthings (Brooks &amp; Sybil)</span><br>Respond <i>only</i> if a selected swimmer can't attend.</div>
-      <div class="em"><span class="s">Andrew's 12th Birthday Party (Aug 22)</span> <span class="from">· Paperless Post (Brooks)</span><br>RSVP before Aug 16.</div>
-
-      <div class="grp">Home / Maintenance</div>
-      <div class="em"><span class="s">Foster Remodeling — Project Check-in</span> <span class="from">· T. Harris, Foster Remodeling (7/9, unread)</span><br>Requesting current status/decision on the project — needs a reply.</div>
-      <div class="em"><span class="s">Truss Update</span> <span class="from">· Cara Wank, Foster Remodeling</span><br>Fabricator still hasn't returned the repair review; Randy followed up 7/8. Awaiting timeline.</div>
-
-      <div class="grp">Emmet / Sybil School (MCA)</div>
-      <div class="em"><span class="s">Last water day — Monday, July 20</span> <span class="from">· MCA (informational)</span><br>Final water-play day at MCA next Monday.</div>
-    </div>
+    <summary>📬 Unanswered &amp; Relevant Emails</summary>
+    <div class="inner" id="emails"></div>
   </details>
 
-  <!-- HOUSEHOLD -->
   <details>
-    <summary>🏠 Household &amp; Services</summary>
-    <div class="body">
-      <div class="note"><b>Gator Boyz Pressure Washing</b> — appointment was Tue 7/14, 9 AM–2 PM (completed).</div>
-      <div class="note"><b>Foster Remodeling</b> — Cara Wank (cwank@fosterremodeling.com), Tim Harris (tharris@fosterremodeling.com). Truss repair review pending with fabricator.</div>
-      <div class="note"><b>Ken Sun Design</b> — ken@sundesigninc.com; proposed Tue eve 6–7 PM call.</div>
-      <div class="note"><b>Randy reminders:</b> Pay Costco credit card (Thu 9 PM); monthly statement download (Sun 7/19).</div>
+    <summary>🔧 Household &amp; Services</summary>
+    <div class="inner">
+      <div class="note"><b>Foster Remodeling</b> — addition progressing. Temporary power pole to be removed soon; power will be briefly shut off during the transition (date TBD). Dominion bill misrouted to Foster — call Dominion as homeowner to correct. Maria Lynard, 703-337-4480.</div>
+      <div class="note"><b>Langley Swim &amp; Tennis Club</b> — renovation project planning update circulated; board making the case for facility updates.</div>
+      <div class="note"><b>USPS Informed Delivery</b> — 6 mailpieces arriving today.</div>
+      <div class="note"><b>Pediatric dental records</b> — all four kids' records/x-rays received by McLean Pediatric Dentistry (transfer complete).</div>
     </div>
   </details>
 
-  <!-- CALENDAR NOTES -->
   <details>
-    <summary>📝 Calendar Notes &amp; Logistics</summary>
-    <div class="body">
-      <div class="note"><b>Today driving:</b> With Wildthings practice cancelled (All Star Relay day), the afternoon frees up — the main run is Maggie's exam at West Springfield (2–6 PM, parent on-site 4–6) then a quick turnaround to her 7:30 batting practice.</div>
-      <div class="note"><b>Thursday 7/16 is the crunch day:</b> Maggie has two softball games (6:30 &amp; 8:00 at Oakton HS) that straddle her 7–8 PM therapy — decide whether to move therapy. Brooks football 8:40 AM + Emmet swim lesson 5:35 PM add to the shuffle.</div>
-      <div class="note"><b>Weekend:</b> Sat 7/18 — Samantha's 5th birthday (Arlington, RSVP'd) + SYBS Race Day. Sun 7/19 — Marian's Baptism.</div>
-      <div class="note"><b>Note:</b> Empty/no-event calendars this window: Family, Melissa Workout, Melissa Work, SportsEngine, NB6-Wheats, TTR Sotheby's, U9 Soccer, US Holidays. Melissa's intimaterose work meetings show as private (times only).</div>
+    <summary>🗒️ Calendar Notes &amp; Logistics</summary>
+    <div class="inner">
+      <div class="note"><b>Today:</b> With swim/outdoor canceled for air quality, the afternoon is lighter — Melissa has an Intimate Rose call at noon and Mags meets Aseeka at 4:45 PM.</div>
+      <div class="note"><b>Sat 7/18:</b> Sybil's race day + Emmet at Samantha's 5th birthday (9 AM, Lubber Run, Arlington). Langley Wildthings A-Meet at Wakefield Chapel — volunteers still needed.</div>
+      <div class="note"><b>Sun 7/19:</b> Marian's Baptism + Reston Youth Triathlon race weekend (Sybil).</div>
+      <div class="note"><b>Wed 7/22:</b> Busy evening — Emmet swim lesson 5:35 PM, Maggie batting practice 7 PM (McLean LL cages), and Randy + Melissa dinner at 2941 (8 PM). Line up a ride for Maggie.</div>
+      <div class="note"><b>Thu 7/23:</b> Maggie has a softball doubleheader vs TBC (6:30 &amp; 8 PM) overlapping her 7 PM therapy — decide which to keep.</div>
     </div>
   </details>
 
-  <div class="foot">Witt Family Daily Briefing · generated Wed, Jul 15, 2026</div>
+  <div class="foot">Generated automatically · Witt Family Daily Briefing · July 17, 2026</div>
 </div>
 
 <script>
-  function showApp(){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';}
-  function tryLogin(){
-    var v=document.getElementById('pw').value;
-    if(v==='hippo'){try{sessionStorage.setItem('witt_auth','1');}catch(e){}showApp();}
-    else{document.getElementById('err').textContent='Incorrect password';}
-  }
-  function logout(){try{sessionStorage.removeItem('witt_auth');}catch(e){}location.reload();}
-  document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')tryLogin();});
-  try{if(sessionStorage.getItem('witt_auth')==='1')showApp();}catch(e){}
+// ---------- Auth ----------
+function doLogin(){
+  var v=document.getElementById('pw').value;
+  if(v==='hippo'){ sessionStorage.setItem('witt_auth','1'); show(); }
+  else { document.getElementById('err').textContent='Incorrect password'; }
+}
+function logout(){ sessionStorage.removeItem('witt_auth'); document.getElementById('login').style.display='flex'; document.getElementById('dash').style.display='none'; }
+function show(){ document.getElementById('login').style.display='none'; document.getElementById('dash').style.display='block'; render(); }
+if(sessionStorage.getItem('witt_auth')==='1'){ window.addEventListener('DOMContentLoaded',show); }
+
+// ---------- Data ----------
+var COLORS={Maggie:'#805ad5',Brooks:'#3182ce',Sybil:'#d53f8c',Emmet:'#dd6b20',Melissa:'#2f855a',Randy:'#2c7a7b',Family:'#718096'};
+
+// day index 0=Fri17 ... 6=Thu23
+var DAYS=['Fri 7/17','Sat 7/18','Sun 7/19','Mon 7/20','Tue 7/21','Wed 7/22','Thu 7/23'];
+var events=[
+  // Today (Fri 7/17) - many canceled for air quality
+  {d:0,time:'9:15 AM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis',cx:true},
+  {d:0,time:'10:15 AM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis',cx:true},
+  {d:0,time:'11:00 AM',title:'Sybil — lesson with Kat',who:'Sybil',loc:'',cx:true},
+  {d:0,time:'12:00 PM',title:'Melissa — Intimate Rose call',who:'Melissa',loc:'Work'},
+  {d:0,time:'3:45 PM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis',cx:true},
+  {d:0,time:'4:30 PM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis',cx:true},
+  {d:0,time:'4:45 PM',title:'Mags meets Aseeka',who:'Maggie',loc:''},
+  // Sat 7/18
+  {d:1,time:'All day',title:'SYBS Race Day',who:'Sybil',loc:''},
+  {d:1,time:'9:00 AM',title:"Emmet — Samantha's 5th Birthday",who:'Emmet',loc:'Lubber Run CC, Arlington'},
+  {d:1,time:'AM',title:'Langley Wildthings A-Meet',who:'Family',loc:'Wakefield Chapel (volunteers needed)'},
+  // Sun 7/19
+  {d:2,time:'All day',title:"Marian's Baptism",who:'Family',loc:''},
+  {d:2,time:'Race day',title:'Reston Youth Triathlon',who:'Sybil',loc:'Reston'},
+  {d:2,time:'All day',title:'Statement Download (finance)',who:'Randy',loc:''},
+  // Mon 7/20
+  {d:3,time:'9:15 AM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis'},
+  {d:3,time:'10:15 AM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis'},
+  {d:3,time:'2:00 PM',title:'Melissa — Intimate Rose meeting',who:'Melissa',loc:'Work'},
+  {d:3,time:'3:45 PM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis'},
+  {d:3,time:'4:30 PM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis'},
+  {d:3,time:'6:15 PM',title:'Maggie — Softball fielding practice',who:'Maggie',loc:'Olney Park'},
+  // Tue 7/21
+  {d:4,time:'8:40 AM',title:'Brooks — Football',who:'Brooks',loc:''},
+  {d:4,time:'9:00 AM',title:'CRS Kindergarten Gathering',who:'Melissa',loc:'PTA'},
+  {d:4,time:'1:00 PM',title:'Melissa — Intimate Rose meetings',who:'Melissa',loc:'Work'},
+  {d:4,time:'5:00 PM',title:'Maggie — Driver Ed exam',who:'Maggie',loc:'Check session time/location'},
+  {d:4,time:'5:05 PM',title:'Melissa — Internal Med telehealth',who:'Melissa',loc:'Walter Reed (phone)'},
+  // Wed 7/22
+  {d:5,time:'9:15 AM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis'},
+  {d:5,time:'10:15 AM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis'},
+  {d:5,time:'3:45 PM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis'},
+  {d:5,time:'4:30 PM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis'},
+  {d:5,time:'5:35 PM',title:'Emmet — Private swim lesson',who:'Emmet',loc:'Coach Bensten'},
+  {d:5,time:'7:00 PM',title:'Maggie — Softball batting practice',who:'Maggie',loc:'McLean LL front cages'},
+  {d:5,time:'8:00 PM',title:'Randy & Melissa — 2941 dinner',who:'Randy',loc:'Falls Church'},
+  {d:5,time:'9:00 PM',title:'Pay DoubleCash card bill',who:'Randy',loc:''},
+  // Thu 7/23
+  {d:6,time:'8:40 AM',title:'Brooks — Football',who:'Brooks',loc:''},
+  {d:6,time:'9:15 AM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis'},
+  {d:6,time:'10:15 AM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis'},
+  {d:6,time:'3:45 PM',title:'Sybil — Wildthings swim',who:'Sybil',loc:'Langley Swim & Tennis'},
+  {d:6,time:'4:30 PM',title:'Brooks — Wildthings swim',who:'Brooks',loc:'Langley Swim & Tennis'},
+  {d:6,time:'6:30 PM',title:'Maggie — Softball vs TBC (game 1)',who:'Maggie',loc:'Vienna',conflict:true},
+  {d:6,time:'7:00 PM',title:'Maggie — Therapy',who:'Maggie',loc:'',conflict:true},
+  {d:6,time:'8:00 PM',title:'Maggie — Softball vs TBC (game 2)',who:'Maggie',loc:'Vienna'}
+];
+
+var tasks=[
+  {task:'Pay Caroline (FitCoach)',owner:'Melissa',due:'Weekly (Wed)',pri:'High',status:'Recurring',notes:'Fitness coach — recurring weekly',overdue:false},
+  {task:'4 Kids Dental Check-Ups',owner:'Melissa',due:'7/15/2026',pri:'High',status:'To Do',notes:'Records transferred to McLean Pediatric Dentistry',overdue:true},
+  {task:'Melissa Breast Check-Up',owner:'Melissa',due:'7/14/2026',pri:'High',status:'In Progress',notes:'Referral submitted; scheduling appointment',overdue:true},
+  {task:"Emmet's Ear Appt",owner:'Melissa',due:'3/22/2026',pri:'Medium',status:'In Progress',notes:'Need new referral to Dr. Spielman (McLean) or set appt at Ft. Belvoir — Melissa to call Monday',overdue:true}
+];
+
+var emailCats=[
+  {cat:'👤 Personal',items:[
+    {from:'Kat Owczarski',subj:'Sybil swim lesson — rescheduling',snip:'Smoke/air quality; both agreed to reschedule. Handled.',reply:false},
+    {from:'MPA Art',subj:'(Not) Strictly Painting 15 — entries due tonight',snip:'Exhibition entry deadline 7/17; artist talk July 21.',reply:false}
+  ]},
+  {cat:'🏫 School (FCPS / Churchill Road / Langley HS / Jill Cross)',items:[
+    {from:'FCPS e-Notify',subj:'UPDATE | Driver Ed Exam Schedule (Maggie)',snip:'Next exam Tue 7/21 — one attempt; 30 VADETS hrs due midnight 7/20. Confirm plan with teacher before Tuesday.',reply:true},
+    {from:'Jill Cross (jpcross@fcps.edu)',subj:'Progress Report for Margaret Witt',snip:'Health & PE 10 progress report (unread).',reply:true},
+    {from:'Principal Pierson (CRS)',subj:'Student supplies',snip:'Coordinating where to stack supply kits; Angie to follow up with dates. PTA reply likely needed.',reply:true},
+    {from:'vpevents@churchillroadpta.org',subj:'Movie Night Facilities Booking',snip:'Booked backyard for 9/25 movie night; asking about setup timeframe.',reply:false},
+    {from:'FCPS e-Notify',subj:'Back-to-School Immunization Requirements 2026-27',snip:'Review required immunizations before school starts.',reply:false},
+    {from:'MCA (Children’s Academy)',subj:'Spirit Week update / no outdoor play',snip:'Emmet — Monday switched to Hawaiian Shirt day; outdoor play canceled today.',reply:false}
+  ]},
+  {cat:'🏃 GOTR',items:[
+    {from:'—',subj:'No new Girls on the Run updates this week',snip:'Nothing new from Mrs. Phipps / Erin Ferris.',reply:false}
+  ]},
+  {cat:'🩺 Medical',items:[
+    {from:'ehr.gov',subj:'Melissa — Internal Medicine telehealth Tue 7/21, 5:05 PM',snip:'Phone visit, Walter Reed Bravo Team (unread).',reply:false},
+    {from:'ehr.gov',subj:'Pediatric visits Aug 11 (Emmet, Sybil, Christopher, Maggie)',snip:'Rader Health Clinic — confirm the four appointment times.',reply:false},
+    {from:'Harbor Health (Bandera)',subj:'Upcoming appointment reminders',snip:'Sybil / Emmet / Margaret — San Antonio; confirm attendance.',reply:false}
+  ]},
+  {cat:'🔧 Home / Maintenance',items:[
+    {from:'Foster Remodeling (Maria Lynard)',subj:'Dominion Update / Bill',snip:'Dominion bill misrouted to Foster (temp pole). Call Dominion as homeowner to correct; temp pole removal coming (power briefly off).',reply:true}
+  ]},
+  {cat:'⚾ Sports (incl. Langley Wildthings swim)',items:[
+    {from:'Langley Wildthings',subj:'Volunteers — A-Meet @ Wakefield Chapel (Sat 7/18)',snip:'Volunteers still needed for tomorrow’s final A-Meet.',reply:true},
+    {from:'Langley Wildthings',subj:'Morning practices cancelled (air quality)',snip:'All practices + pancake breakfast canceled today.',reply:false},
+    {from:'Reston Youth Triathlon',subj:'RACE WEEKEND — Sun 7/19',snip:'Sybil racing Sunday; forwarded to Randy.',reply:false},
+    {from:'SignUpGenius',subj:'Reminder — Coach Bensten private lessons',snip:'Emmet lesson slot Wed 7/22, 5:35 PM.',reply:false}
+  ]},
+  {cat:'💰 Tax / Financial',items:[
+    {from:'—',subj:'No new tax / Bass Associates activity',snip:'Nothing from Moni / TaxDome this week.',reply:false}
+  ]},
+  {cat:'💪 Fitness (FitCoach Caroline)',items:[
+    {from:'Task Tracker',subj:'Pay Caroline — weekly (Wed)',snip:'Recurring payment to FitCoach Caroline; no new email this week.',reply:false}
+  ]}
+];
+
+// ---------- Render ----------
+function chip(who){ return '<span class="who" style="background:'+(COLORS[who]||'#718096')+'">'+who+'</span>'; }
+
+function render(){
+  // Today timeline
+  var tl=document.getElementById('today'); tl.innerHTML='';
+  events.filter(function(e){return e.d===0;}).forEach(function(e){
+    var li=document.createElement('li'); if(e.cx) li.className='canceled';
+    li.innerHTML='<span class="t-time">'+e.time+'</span><span class="t-body">'+e.title+chip(e.who)+(e.cx?'<span class="cxbadge">CANCELED</span>':'')+(e.loc?'<div class="t-loc">'+e.loc+'</div>':'')+'</span>';
+    tl.appendChild(li);
+  });
+
+  // Actions
+  var ac=document.getElementById('acts'); ac.innerHTML='';
+  tasks.forEach(function(t){
+    var li=document.createElement('li');
+    var pill=t.overdue?'<span class="badge b-od">OVERDUE</span>':(t.pri==='High'?'<span class="badge b-high">High</span>':(t.pri==='Medium'?'<span class="badge b-med">Med</span>':''));
+    li.innerHTML='<input type="checkbox"><span'+(t.overdue?' class="od"':'')+'>'+t.task+' — <em>'+t.due+'</em>'+pill+'</span>';
+    ac.appendChild(li);
+  });
+
+  // Week grid
+  var wg=document.getElementById('weekgrid'); wg.innerHTML='';
+  DAYS.forEach(function(d,i){
+    var evs=events.filter(function(e){return e.d===i;});
+    var hasConflict=evs.some(function(e){return e.conflict;});
+    var cls='day'+(i===0?' today':'')+(hasConflict?' conflict':(evs.length>=5?' busy':''));
+    var html='<div class="'+cls+'"><h4>'+d+(hasConflict?' ⚠️':'')+'</h4>';
+    evs.forEach(function(e){
+      html+='<div class="ev'+(e.cx?' cxmini':'')+'" style="background:'+(COLORS[e.who]||'#718096')+'" title="'+e.time+' '+e.title+'">'+e.title.replace(/^[^—]*— ?/,'')+'</div>';
+    });
+    html+='</div>';
+    wg.innerHTML+=html;
+  });
+
+  // Stats
+  document.getElementById('s-week').textContent=events.length;
+
+  // Task table
+  var tt=document.getElementById('tasktable'); tt.innerHTML='';
+  tasks.forEach(function(t){
+    var tr=document.createElement('tr'); if(t.overdue) tr.className='overdue';
+    tr.innerHTML='<td>'+t.task+'</td><td>'+t.owner+'</td><td>'+t.due+'</td><td>'+t.pri+'</td><td>'+t.status+'</td><td>'+t.notes+'</td>';
+    tt.appendChild(tr);
+  });
+
+  // Full week
+  var fw=document.getElementById('fullweek'); fw.innerHTML='';
+  DAYS.forEach(function(d,i){
+    var evs=events.filter(function(e){return e.d===i;});
+    if(!evs.length) return;
+    var g='<div class="daygroup"><h3>'+d+'</h3><ul class="timeline">';
+    evs.forEach(function(e){
+      g+='<li'+(e.cx?' class="canceled"':'')+'><span class="t-time">'+e.time+'</span><span class="t-body">'+e.title+chip(e.who)+(e.cx?'<span class="cxbadge">CANCELED</span>':'')+(e.conflict?'<span class="cxbadge" style="background:#dd6b20">CONFLICT</span>':'')+(e.loc?'<div class="t-loc">'+e.loc+'</div>':'')+'</span></li>';
+    });
+    g+='</ul></div>';
+    fw.innerHTML+=g;
+  });
+
+  // Emails
+  var em=document.getElementById('emails'); em.innerHTML='';
+  emailCats.forEach(function(c){
+    var h='<div class="email-cat"><h3>'+c.cat+'</h3>';
+    c.items.forEach(function(it){
+      h+='<div class="email'+(it.reply?' reply':'')+'"><span class="from">'+it.from+'</span> · <span class="subj">'+it.subj+'</span>'+(it.reply?' <span class="badge b-od">NEEDS REPLY</span>':'')+'<div class="snip">'+it.snip+'</div></div>';
+    });
+    h+='</div>';
+    em.innerHTML+=h;
+  });
+}
 </script>
 </body>
 </html>

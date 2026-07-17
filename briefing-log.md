@@ -2877,3 +2877,94 @@ Daily log maintained automatically by the morning briefing task. Each entry capt
 - Wildthings "Wildthing Email July 13-18" states Wed 7/15 is All Star Relay day — NO practice AM or PM. Dashboard originally showed today's recurring swim slots (Brooks/Sybil) from Randy's calendar; removed them. This also dissolves the exam-day driving conflict that was flagged urgent. Lesson: cross-check the weekly Wildthings email against recurring swim calendar events before flagging conflicts.
 
 ---
+
+## Wednesday, July 15, 2026 — Daily Briefing Log (afternoon re-run)
+
+**Calendars checked:** 13 calendars (8 empty this window), 4 events today, ~25 events this week
+**Tasks:** 4 active, 2 overdue, 0 completed (task tracker unchanged from AM)
+**Emails reviewed:** ~120 scanned across 8 query groups
+
+### Urgent / Needs Attention Today:
+- SCHEDULE CHANGE: Maggie's Driver's Ed FINAL EXAM tonight is POSTPONED (FCPS email 2:26 PM — VADETS record review + 30-hr requirement). PSTD presentation STILL held: arrive 2:00 PM, session 2:30–4:00 PM (parent required), West Springfield HS. Exam tentatively rescheduled to Tue 7/21. Calendar still shows old 2–6 PM exam block.
+- Maggie McLean Seniors batting practice 7:30 PM (McLean LL front cages).
+- Overdue: Melissa breast check-up (7/14), Emmet ear appt (3/22). Due today: 4 Kids dental; Pay Caroline (weekly Wed).
+- Pay Kat via Venmo @Kat-Owczarski for Sybil's last swim lesson.
+
+### Emails Needing Response:
+- FCPS Online Campus — Driver Ed exam postponed — monitor for reschedule details.
+- Jill Cross (FCPS) — latest Progress Report for Maggie (unread) — check eligibility.
+- Principal Pierson (Churchill Road) — Student supplies (PTA) — Angie sending dates tomorrow.
+- Churchill Road PTA — Spirit wear check $138.79 — mail vs. drop-off.
+- Ken Sun Design — follow-up, proposed Tue 6–7 PM call.
+- MCA (Ms. Aseeka) — confirm Maggie's Friday 7/17 student-teaching visit.
+- Foster Remodeling (Cara Wank) — Truss Update — follow up on fabricator review timeline.
+- Wildthings — Wakefield Chapel A Meet — respond only if Brooks/Sybil can't attend.
+- MCA Evite — Emmet Class of 2026 graduation RSVP.
+
+### Key Notes:
+- CHANGE SINCE AM RUN: Driver's Ed final exam postponed (was flagged as happening 2–6 PM this morning). Only PSTD remains tonight. This removes the earlier exam-window driving conflict.
+- Followed prior-run correction: Wed 7/15 is Wildthings All-Star Relay day — no regular Brooks/Sybil practice today; those slots omitted from today's timeline.
+- Thu 7/16 remains the week's pinch point: Maggie 2 softball games (6:30 & 8:00, Oakton HS) straddle 7–8 PM therapy; Brooks football 8:40 AM; Emmet swim 5:35 PM.
+- Weekend: Sat 7/18 SYBS Race Day + Samantha's 5th birthday (Arlington 9 AM); Sun 7/19 Marian's Baptism.
+- Dashboard saved to teamwitt/index.html, password "hippo" unchanged.
+
+---
+
+## Thursday, July 16, 2026 — Daily Briefing Log
+
+**Calendars checked:** 13 calendars, 9 events today, ~18 events this week
+**Tasks:** 4 active, 3 overdue, 0 completed (no Done tasks in tracker)
+**Emails reviewed:** ~90 emails scanned across 13 searches
+
+### Urgent / Needs Attention Today:
+- Maggie conflict: Therapy 7–8 PM vs. rescheduled softball (6:30 game CANCELED, now 8:20 PM at Oakton HS, arrival 7:20 PM). Softball updated today.
+- Brooks conflict: Football 8:40–9:40 AM overlaps Wildthings swim 9:15–10:15 AM.
+- 3 overdue tasks: Emmet's Ear Appt (due 3/22 — call Ft. Belvoir Mon), Melissa Breast Check-Up (7/14), 4 Kids Dental Check-Ups (7/15).
+- Melissa telephone visit Tue Jul 21, 5:05 PM (Walter Reed Internal Med).
+
+### Emails Needing Response:
+- Athletic House (Joe) — Order #26723 approval — Melissa manages budget; #26755 already approved.
+- Foster Remodeling (M. Lynard) — Dominion update/bill — review.
+- Foster Remodeling (Cara Wank) — Truss review still pending; Randy asked for timeline.
+- Principal Pierson (Churchill Road) — Student supplies + Soccer/Band/Strings — PTA matters awaiting reply.
+- Jill Cross (FCPS) — Maggie's Health/PE assignments + progress report (unread).
+- FCPS — Driver Ed final exam POSTPONED (Maggie); watch for reschedule.
+
+### Key Notes:
+- Aug 11: 4 pediatric appts at Rader Clinic (Emmet, Sybil, Christopher/Brooks, Margaret/Maggie).
+- McLean Pediatric Dentistry confirmed receipt of records for all 4 kids.
+- Randy traveling DCA → San Antonio.
+- Weekend: Sat 7/18 Samantha's 5th birthday (Arlington 9 AM) + SYBS race day; Sun 7/19 Reston Youth Triathlon + Marian's Baptism. Note: calendar shows race day Sat but triathlon email says Sun — confirm date.
+- MCA: last water day Mon 7/20; reading specialist moved to 9:30 AM.
+
+---
+
+## Friday, July 17, 2026 — Daily Briefing Log
+
+**Calendars checked:** 13 calendars, 7 events today (most swim canceled for air quality), 41 events this week
+**Tasks:** 4 active, 3 overdue, 0 completed (completed are logged here but hidden on the dashboard)
+**Emails reviewed:** ~200 threads scanned across 15 searches; ~20 flagged as relevant
+
+### Urgent / Needs Attention Today:
+- Code Red air quality: FCPS canceled all outdoor activities; Langley Wildthings canceled ALL swim practices (AM & PM) + pancake breakfast. Sybil's lesson with Kat rescheduled.
+- Maggie Driver Ed final exam Tue 7/21 (one attempt); 30 VADETS hours due midnight Mon 7/20; confirm session time/plan with teacher before Tuesday.
+- Melissa Internal Medicine telehealth Tue 7/21, 5:05 PM (Walter Reed phone visit).
+- Dominion billing: Foster Remodeling forwarded a misrouted Dominion bill (temp pole) — call Dominion as homeowner to correct; ask re possible 5/27–7/29 bill.
+- 3 overdue tasks: Emmet ear appt (call Mon), Melissa breast check-up, 4 kids dental.
+- Thu 7/23 conflict: Maggie softball vs TBC (6:30 PM) overlaps therapy (7:00 PM).
+
+### Emails Needing Response:
+- FCPS e-Notify — Driver Ed exam update (Maggie) — confirm testing plan with teacher before Tues.
+- Jill Cross (jpcross@fcps.edu) — Progress Report for Margaret Witt — unread.
+- Principal Pierson (CRS) — Student supplies — PTA coordination, awaiting reply.
+- Foster Remodeling (Maria Lynard) — Dominion bill — call Dominion.
+- Langley Wildthings — A-Meet volunteers Sat 7/18 — still need volunteers.
+
+### Key Notes:
+- Wed 7/22 heavy evening: Emmet swim 5:35, Maggie batting 7 PM (McLean LL cages), Randy+Melissa 2941 dinner 8 PM — arrange Maggie's ride.
+- Sat 7/18: Emmet at Samantha's 5th birthday (Lubber Run, Arlington 9 AM); SYBS race day.
+- Sun 7/19: Marian's Baptism + Reston Youth Triathlon (Sybil).
+- Pediatric dental records for all 4 kids received by McLean Pediatric Dentistry (complete).
+- Randy traveling DCA → San Antonio (per forwarded AA confirmation).
+
+---
